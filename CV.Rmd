@@ -1,0 +1,167 @@
+---
+title: "Brian M. Schilder's resume"
+author: Brian M. Schilder
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    css: 
+      - css/override.css # OVERIDE CERTAIN FUNCTIONS OF CSS
+      - resume # DEFAULT FILE
+    self_contained: false
+    toc: true
+# uncomment this line to produce HTML and PDF in RStudio:
+# knit: pagedown::chrome_print
+---
+
+```{r setup, include=FALSE}
+source(here::here("code","functions.R"))
+```
+
+<!-- Tutorial:  https://towardsdatascience.com/create-your-resume-with-pagedown-package-in-r-123ca6310d52 -->
+<!-- pagedown Issues: https://github.com/rstudio/pagedown/issues -->
+<!-- datadrivencv package: https://github.com/nstrayer/datadrivencv -->
+<!-- textnets vignette: https://sicss.io/2020/materials/day3-text-analysis/text-networks/rmarkdown/Text_Networks.html -->
+
+<!-- Only show sidebar on first page: https://github.com/rstudio/pagedown/issues/147 -->
+```{css, echo=FALSE} 
+.pagedjs_page:not(:first-of-type) {
+  --sidebar-width: 1rem;
+  /*--sidebar-background-color: #ffffff;*/
+  --main-width: calc(var(--content-width) - var(--sidebar-width));
+  --decorator-horizontal-margin: 0.2in;
+}
+```
+
+# Aside
+
+<!-- ![Brian M. Schilder](./images/wildfire_circle.png){width="100%" style="border-radius:10%"} -->
+
+```{r, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+visnet <- build_network(show_plot = FALSE,
+                        save_path = here::here("network","visnetwork.html"))
+methods::show(visnet)
+```
+ 
+## Contact {#contact}
+
+```{r, results='asis', echo=FALSE}
+parse_profile(types = c("email","website","phone"))
+```
+
+
+## Summary {#summary}
+
+<h4>  
+<i class='fa fa-suitcase'></i> [`r years_experience()`+ years of research experience.](#experience)  
+
+<i class='fa fa-file'></i> [`r n_publications()` peer-reviewed publications to date.](#publications)  
+
+<i class='fa fa-desktop'></i> [`r n_software()` bioinformatics tools developed.](#software)  
+
+<i class='fa fa-chalkboard-teacher'></i> [`r years_experience(types = "teaching")`+ years of teaching/supervising experience.](#teaching)  
+</h4>
+
+## Table of Contents {#toc}
+
+<h4>
+```{r, results='asis', echo=FALSE}
+cat(icon_dict(as_toc = TRUE))
+```
+</h4>
+
+<hr>
+
+*This resume was made with
+[`pagedown`](https://github.com/rstudio/pagedown).*
+
+*Last updated: `r format(Sys.Date(),"%b-%d-%Y")`*
+
+# Main
+
+## Brian M. Schilder {#title}
+Passionately pursuing multi-disciplinary research to improve human lives.
+
+### PhD Candidate
+
+### ScB, MPhil
+
+<!-- ### Affiliations {#affiliations} -->
+
+<!-- ```{r, results='asis', echo=FALSE} -->
+<!-- parse_profile(types = "affiliation") -->
+<!-- ``` -->
+
+## Education {data-icon="graduation-cap" data-concise="true"}
+
+```{r, results='asis', echo=FALSE}
+parse_education()
+```
+
+## Core Skills {data-icon="check" #skills}
+
+```{r, results='asis', echo=FALSE}
+parse_skills()
+```
+
+
+## Publications {data-icon="file" #publications}
+
+```{r, results='asis', echo=FALSE}
+parse_publications(types = "publication")
+```
+
+## Preprints {data-icon="file" #preprints}
+
+```{r, results='asis', echo=FALSE}
+parse_publications(types = "preprint")
+```
+
+## Acknowledgements {data-icon="book" #acknowledgements}
+
+```{r, results='asis', echo=FALSE}
+parse_publications(types = "acknowledgement")
+```
+
+## Research Experience {data-icon="suitcase" #experience}
+
+```{r, results='asis', echo=FALSE}
+parse_experience(types = "research")
+```
+
+## Teaching / Mentoring Experience {data-icon="chalkboard-teacher" #teaching}
+
+```{r, results='asis', echo=FALSE}
+parse_experience(types = "teaching")
+```
+
+## Software Packages {data-icon="desktop" #software}
+
+```{r, results='asis', echo=FALSE}
+parse_software(types = "package")
+```
+
+## Web Apps {data-icon="desktop" #webapps}
+
+```{r, results='asis', echo=FALSE}
+parse_software(types = "web app")
+```
+
+## Websites {data-icon="desktop" #websites}
+
+```{r, results='asis', echo=FALSE}
+parse_software(types = "website")
+```
+
+## Grants {data-icon="dollar" #grants}
+
+```{r, results='asis', echo=FALSE}
+parse_grants(types = "grant", 
+             add_totals = TRUE)
+```
+
+## Awards {data-icon="award" #awards}
+
+```{r, results='asis', echo=FALSE}
+parse_grants(types = "award")
+```

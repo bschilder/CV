@@ -1,3 +1,19 @@
+*.udpipe
+network/*_files
+CV_files
+
+# .DS_Store
+# find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
+.DS_Store
+./.DS_Store
+./**/.DS_Store
+./**/**/.DS_Store
+./**/**/**/.DS_Store
+./**/**/**/**/.DS_Store
+./**/**/**/**/**/.DS_Store
+./**/**/**/**/**/**/.DS_Store
+
+*.Rproj
 # History files
 .Rhistory
 .Rapp.history
