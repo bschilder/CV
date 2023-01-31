@@ -9,19 +9,29 @@ output:
       - css/override.css # OVERIDE CERTAIN FUNCTIONS OF CSS
       - resume # DEFAULT FILE
     self_contained: false
-    toc: true
 # uncomment this line to produce HTML and PDF in RStudio:
 # knit: pagedown::chrome_print
 ---
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" /> 
+
+
 ```{r setup, include=FALSE}
 source(here::here("code","functions.R"))
+knitr::opts_chunk$set(
+  results='asis', 
+  echo = FALSE
+)
+htmltools::tagList(fontawesome::fa_html_dependency())
 ```
 
 <!-- Tutorial:  https://towardsdatascience.com/create-your-resume-with-pagedown-package-in-r-123ca6310d52 -->
 <!-- pagedown Issues: https://github.com/rstudio/pagedown/issues -->
+<!-- pagedown, embedding htmlwidgets: https://github.com/rstudio/pagedown/issues/76 -->
 <!-- datadrivencv package: https://github.com/nstrayer/datadrivencv -->
 <!-- textnets vignette: https://sicss.io/2020/materials/day3-text-analysis/text-networks/rmarkdown/Text_Networks.html -->
+<!-- font awesome version issues: https://github.com/rstudio/rmarkdown/issues/2276 -->
+<!-- add page numbers: https://github.com/rstudio/pagedown/issues/98 -->
 
 <!-- Only show sidebar on first page: https://github.com/rstudio/pagedown/issues/147 -->
 ```{css, echo=FALSE} 
@@ -33,135 +43,167 @@ source(here::here("code","functions.R"))
 }
 ```
 
-# Aside
+# Aside 
 
-<!-- ![Brian M. Schilder](./images/wildfire_circle.png){width="100%" style="border-radius:10%"} -->
-
-```{r, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-visnet <- build_network(show_plot = FALSE,
-                        save_path = here::here("network","visnetwork.html"))
-methods::show(visnet)
+```{r, warning=FALSE, message=FALSE}
+# visnet <- build_network(show_plot = FALSE,
+#                         save_path = here::here("network","visnetwork.html"))
+# visNetwork::renderVisNetwork(visnet)
+# htmltools::includeHTML("https://bschilder.github.io/CV/network/visnetwork.html")
 ```
- 
+
 ## Contact {#contact}
 
-```{r, results='asis', echo=FALSE}
+```{r}
 parse_profile(types = c("email","website","phone"))
 ```
-
 
 ## Summary {#summary}
 
 <h4>  
-<i class='fa fa-suitcase'></i> [`r years_experience()`+ years of research experience.](#experience)  
-
-<i class='fa fa-file'></i> [`r n_publications()` peer-reviewed publications to date.](#publications)  
-
-<i class='fa fa-desktop'></i> [`r n_software()` bioinformatics tools developed.](#software)  
-
-<i class='fa fa-chalkboard-teacher'></i> [`r years_experience(types = "teaching")`+ years of teaching/supervising experience.](#teaching)  
+```{r}
+build_summary()
+```
 </h4>
 
 ## Table of Contents {#toc}
 
 <h4>
-```{r, results='asis', echo=FALSE}
-cat(icon_dict(as_toc = TRUE))
+```{r}
+cat(icon_dict(as_icon = TRUE, 
+              as_toc = TRUE))
 ```
 </h4>
 
 <hr>
 
-*This resume was made with
-[`pagedown`](https://github.com/rstudio/pagedown).*
+*This CV was made with [`pagedown`](https://github.com/rstudio/pagedown).*
 
 *Last updated: `r format(Sys.Date(),"%b-%d-%Y")`*
 
 # Main
 
-## Brian M. Schilder {#title}
+## Brian M. Schilder <a href="https://bschilder.github.io/CV/network/visnetwork.html" target="_blank"><img id='header_img' src='./network/visnetwork.png' width='10%' style='border-radius:5%'></a> {#title}
+
 Passionately pursuing multi-disciplinary research to improve human lives.
 
 ### PhD Candidate
 
 ### ScB, MPhil
 
-<!-- ### Affiliations {#affiliations} -->
 
-<!-- ```{r, results='asis', echo=FALSE} -->
-<!-- parse_profile(types = "affiliation") -->
-<!-- ``` -->
+## Education {data-icon=`r icon_dict("education")` data-concise="true" #education}
 
-## Education {data-icon="graduation-cap" data-concise="true"}
-
-```{r, results='asis', echo=FALSE}
+```{r}
 parse_education()
 ```
 
-## Core Skills {data-icon="check" #skills}
+## Core Skills {data-icon=`r icon_dict("skills")` #skills}
 
-```{r, results='asis', echo=FALSE}
+```{r}
 parse_skills()
 ```
 
 
-## Publications {data-icon="file" #publications}
+## Publications {data-icon=`r icon_dict("publications")` #publications}
 
-```{r, results='asis', echo=FALSE}
+```{r}
 parse_publications(types = "publication")
 ```
 
-## Preprints {data-icon="file" #preprints}
+## Preprints {data-icon=`r icon_dict("preprints")` #preprints}
 
-```{r, results='asis', echo=FALSE}
+```{r}
 parse_publications(types = "preprint")
 ```
 
-## Acknowledgements {data-icon="book" #acknowledgements}
+## Acknowledgements {data-icon=`r icon_dict("acknowledgements")` #acknowledgements}
 
-```{r, results='asis', echo=FALSE}
+```{r}
 parse_publications(types = "acknowledgement")
 ```
 
-## Research Experience {data-icon="suitcase" #experience}
+## Reviewerships {data-icon=`r icon_dict("reviewerships")` #reviewerships}
 
-```{r, results='asis', echo=FALSE}
+```{r}
+parse_publications(types = "reviewership")
+```
+
+## Invited Talks {data-icon=`r icon_dict("posters")` #invited_talks}
+
+```{r}
+parse_talks(types = "invited")
+```
+
+## Conference Talks {data-icon=`r icon_dict("posters")` #conference_talks}
+
+```{r}
+parse_talks(types = "conference")
+```
+
+
+## Conference Posters {data-icon=`r icon_dict("posters")` #posters}
+
+```{r}
+parse_publications(types = "poster")
+```
+
+## Research Experience {data-icon=`r icon_dict("experience")` #experience}
+
+```{r}
 parse_experience(types = "research")
 ```
 
-## Teaching / Mentoring Experience {data-icon="chalkboard-teacher" #teaching}
+## Teaching / Mentoring Experience {data-icon=`r icon_dict("teaching")` #teaching}
 
-```{r, results='asis', echo=FALSE}
+```{r}
 parse_experience(types = "teaching")
 ```
 
-## Software Packages {data-icon="desktop" #software}
+## Software Packages {data-icon=`r icon_dict("software")` #software}
 
-```{r, results='asis', echo=FALSE}
+```{r}
 parse_software(types = "package")
 ```
 
-## Web Apps {data-icon="desktop" #webapps}
+## Web Apps {data-icon=`r icon_dict("web_apps")` #web_apps}
 
-```{r, results='asis', echo=FALSE}
+```{r}
 parse_software(types = "web app")
 ```
 
-## Websites {data-icon="desktop" #websites}
+## Websites {data-icon=`r icon_dict("websites")` #websites}
 
-```{r, results='asis', echo=FALSE}
+```{r}
 parse_software(types = "website")
 ```
 
-## Grants {data-icon="dollar" #grants}
+## Grants {data-icon=`r icon_dict("grants")` #grants}
 
-```{r, results='asis', echo=FALSE}
+```{r}
 parse_grants(types = "grant", 
              add_totals = TRUE)
 ```
 
-## Awards {data-icon="award" #awards}
+## Awards {data-icon=`r icon_dict("awards")` #awards}
 
-```{r, results='asis', echo=FALSE}
+```{r}
 parse_grants(types = "award")
+```
+
+## Affiliations {data-icon=`r icon_dict("affiliations")` #affiliations}
+
+```{r}
+parse_profile(types = "affiliation", 
+              sep = "\n\n",
+              collapse = "\n\n",
+              div=NULL,
+              img_width = "200px",
+              prefix="### ")
+```
+
+## Extracurricular Experience {data-icon=`r icon_dict("extracurricular")` #extracurricular}
+
+```{r}
+parse_experience(types = "extracurricular")
 ```

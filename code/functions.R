@@ -5,27 +5,30 @@ not_empty <- function(rc){
 icon_dict <- function(items=NULL,
                       dict=list(education="graduation-cap",
                                 skills="check",
-                                publications="file",
-                                preprints="file",
-                                acknowledgements="book",
+                                publications="file-text",
+                                preprints="file-edit",
+                                acknowledgements="file",
+                                reviewerships="file",
+                                invited_talks="person-chalkboard",
+                                conference_talks="person-chalkboard",
+                                posters="person-chalkboard",
                                 experience="suitcase",
                                 teaching="chalkboard-teacher",
-                                software="desktop",
-                                webapps="desktop",
-                                websites="desktop",
+                                software="laptop",
+                                web_apps="desktop",
+                                websites="computer",
                                 grants="dollar",
-                                awards="award"
+                                awards="award",
+                                affiliations="building-columns",
+                                extracurricular="icons"
                       ),
-                      as_fa=TRUE,
-                      as_icon=TRUE,
+                      as_fa=FALSE,
+                      as_icon=FALSE,
                       as_toc=FALSE,
                       collapse="<br>"){
 
-  if(isTRUE(as_icon) && isFALSE(as_fa)){
-    message("as_fa must be TRUE when as_icon is TRUE. ",
-            "Setting as_fa=TRUE.")
-  }
-  if(isTRUE(as_toc) && (isFALSE(as_fa) | isFALSE(as_icon))){
+  # fontawesome:::alias_tbl[grepl("file",fontawesome:::alias_tbl$name),]
+  if(isTRUE(as_toc) && isFALSE(as_icon)){
     message("as_fa and as_icon must both be TRUE when as_toc is TRUE. ",
             "Setting as_fa=TRUE and as_icon=TRUE.")
   }
@@ -33,14 +36,17 @@ icon_dict <- function(items=NULL,
     dict <- lapply(dict,function(x){ paste0("fa fa-",x)})
   }
   if(isTRUE(as_icon)){
-    dict <- lapply(dict,function(x){paste0("<i class=",shQuote(x),"></i>")})
+    # dict <- lapply(dict,function(x){paste0("<i class=",shQuote(x),"></i>")})
+    dict <- lapply(dict, function(x){fontawesome::fa(x)})
+
   }
   if(isTRUE(as_toc)){
     # <i class='fa fa-award'></i> [Awards](#awards)
     dict <- lapply(stats::setNames(names(dict),
                                    names(dict)),
                    function(nm){
-      paste0(dict[[nm]]," [",stringr::str_to_title(nm),"](#",nm,")")
+      paste0(dict[[nm]]," [",
+             gsub("_"," ",stringr::str_to_title(nm)),"](#",nm,")")
     })
   }
   if(!is.null(items)){
@@ -52,6 +58,7 @@ icon_dict <- function(items=NULL,
     return(dict)
   }
 }
+
 
 years_experience <- function(file=here::here("data","experience.csv"),
                              types="research"){
@@ -139,15 +146,21 @@ n_grants <- function(file=here::here("data","grants.csv"),
 
 parse_location <- function(r,
                            add_link=TRUE){
-  baseurl <- "https://www.google.com/maps/place/"
+
   txt <- paste0(
-         r$City,", ",
+         if(not_empty(r$City)) paste0(r$City,", "),
          if(not_empty(r$State)) paste0(r$State,", "),
-         r$Country
+         if(not_empty(r$Country)) r$Country
   )
+  baseurl <- "https://www.google.com/maps/place/"
   if(isTRUE(add_link)){
-    link <- gsub(" +","+",shQuote(paste0(baseurl,txt)))
-    txt2 <- paste0("<a href=",link,">",txt,"</a>")
+    if(r$Country=="Earth"){
+      link <-  paste0("https://www.google.com/maps/",
+                      "@47.8287853,41.5077906,22973464m/data=!3m1!1e3")
+    } else {
+      link <- gsub(" +","+",paste0(baseurl,txt))
+    }
+    txt2 <- paste0("<a href=",shQuote(link),">",txt,"</a>")
     return(txt2)
   } else {
     return(txt)
@@ -178,10 +191,24 @@ parse_bullets <- function(r,
   )
 }
 
-table_of_contents <- function(file=here::here("CV.Rmd")){
-  lines <- readLines(file)
-
+parse_news <- function(news,
+                       title="News",
+                       icon="newspaper"){
+  # news <- dt$Comments[[16]]
+  ctxt <- paste("-",trimws(strsplit(news,";")[[1]]),collapse = "<br>")
+  if(!is.null(title)){
+    ctxt <- paste0("**",
+                   if(!is.null(icon)) fontawesome::fa(icon)," ",
+                   title,
+                   "**","<br>\n",ctxt)
+  }
+  return(ctxt)
 }
+
+# table_of_contents <- function(file=here::here("CV.Rmd")){
+#   lines <- readLines(file)
+#
+# }
 
 icon_link <- function(link,
                       text=link,
@@ -190,6 +217,7 @@ icon_link <- function(link,
          "<i class=",shQuote(icon),"></i> ",
          text,"</a>")
 }
+
 
 parse_education <- function(file=here::here("data","education.csv")){
   # ### Beijing University of Chemical Technology
@@ -217,6 +245,7 @@ parse_education <- function(file=here::here("data","education.csv")){
   cat(txt)
 }
 
+
 parse_publications <- function(file=here::here("data","publications.csv"),
                                name="BM Schilder",
                                types=NULL){
@@ -236,23 +265,74 @@ parse_publications <- function(file=here::here("data","publications.csv"),
   }
   txt <- lapply(seq_len(nrow(dt)), function(i){
     r <- dt[i,]
+    if(r$Type=="reviewership"){
+      paste(
+        paste("###",r$Journal),
+        r$Title,
+        "N/A",
+        "N/A",
+        ".",
+        sep = "\n\n"
+      )
+    } else {
+      paste(
+        paste("###",r$Title),
+        paste0("*",r$Journal,"* (",r$Year,") ",
+               r$Volume,
+               if(not_empty(r$Number)) paste0("(",r$Number,")"),
+               if(not_empty(r$Pages)) paste0(":",r$Pages),
+               if(any(r[,c("Volume","Number","Pages")]!=""))"; ",
+               r$Link
+        ),
+        "N/A",
+        r$Year,
+        paste(
+          gsub(name,paste0("**",name,"**"),r$Authors),
+          if(not_empty(r$Comments)) parse_news(r$Comments),
+          sep="<br>"
+        ),
+        sep = "\n\n"
+      )
+    }
+  })
+  cat(paste(txt, collapse ="\n\n"))
+}
+
+
+parse_talks <- function(file=here::here("data","talks.csv"),
+                        types=NULL){
+  # ### ESCRT-0 complex modulates Rbf mutant cell survival...
+  #
+  # J Cell Sci. 2016 May 15;129(10):2075-84.
+  #
+  # N/A
+  #
+  # 2016
+  #
+  # Sheng Z, **Yu L**, Zhang T, Pei X, Li X, Zhang Z and Du W.
+  Type <- NULL;
+  dt <- data.table::fread(file)
+  if(!is.null(types)){
+    dt <- dt[Type %in% types,]
+  }
+  txt <- lapply(seq_len(nrow(dt)), function(i){
+    r <- dt[i,]
     paste(
-       paste("###",r$Title),
-       paste0("*",r$Journal,"* (",r$Year,") ",
-              r$Volume,
-              if(not_empty(r$Number)) paste0("(",r$Number,")"),
-              if(not_empty(r$Pages)) paste0(":",r$Pages),
-              if(any(r[,c("Volume","Number","Pages")]!=""))"; ",
-              r$Link),
-       # if(r$Comments=="") "N/A",
-       "N/A",
-       r$Year,
-       gsub(name,paste0("**",name,"**"),r$Authors),
+      paste("###",r$Title),
+      paste(if(not_empty(r$Event)) r$Event,
+            if(not_empty(r$Department)) r$Department,
+            if(not_empty(r$Institution)) r$Institution,
+            sep="<br>"
+      ),
+      "N/A",
+      r$Year,
+      if(not_empty(r$Comments)) r$Comments,
       sep = "\n\n"
     )
   })
   cat(paste(txt, collapse ="\n\n"))
 }
+
 
 parse_experience <- function(file=here::here("data","experience.csv"),
                              types=NULL,
@@ -292,8 +372,8 @@ parse_experience <- function(file=here::here("data","experience.csv"),
     if(r$Type=="teaching"){
       paste(
         paste("###",r$Position),"\n",
-        paste0(r$Institution,
-               if(not_empty(r$Department))paste0(" (",r$Department,")")
+        paste0(if(not_empty(r$Institution)) r$Institution else "-",
+               if(not_empty(r$Department)) paste0(" (",r$Department,")")
         ),
         parse_location(r = r),
         parse_daterange(r = r),
@@ -301,10 +381,20 @@ parse_experience <- function(file=here::here("data","experience.csv"),
                       concise = concise),
         sep = "\n\n"
       )
+    }else if(r$Type=="extracurricular"){
+      paste(
+        paste("###",r$Position),
+        parse_bullets(r = r,
+                      concise = concise),
+        parse_location(r=r),
+        ".",
+        parse_daterange(r=r),
+        sep = "\n\n"
+      )
     }else {
       paste(
         paste("###",r$Position),
-        paste0(r$Institution,
+        paste0(if(not_empty(r$Institution)) r$Institution else "N/A",
                if(not_empty(r$Department))paste0(" (",r$Department,")")
         ),
         parse_location(r=r),
@@ -373,7 +463,12 @@ parse_software <- function(file=here::here("data","software.csv"),
 
 parse_profile <- function(file=here::here("data","profile.csv"),
                           types=NULL,
-                          concise=FALSE){
+                          concise=FALSE,
+                          sep="\n\n",
+                          collapse = "<br>",
+                          div="h4",
+                          img_width="100px",
+                          prefix=NULL){
   # - <i class="fa fa-envelope"></i> brian_schilder@alumni.brown.edu
   # - <i class="fa fa-linkedin"></i> [LinkedIn](https://twitter.com/BMSchilder)
   # - <i class="fa fa-github"></i> [GitHub](https://github.com/bschilder)
@@ -405,14 +500,19 @@ parse_profile <- function(file=here::here("data","profile.csv"),
       )
     } else {
       paste0(
-        "<a href=",shQuote(r$Link)," target='_blank'>",
+        prefix,
+        "<a href=",shQuote(r$Link)," target='_blank' class='affiliate'>",
         "<img src=",shQuote(r$Icon),"alt=",shQuote(r$Text),
-        "width='100px' style='border-radius:10%'>",
+        "width=",shQuote(img_width),">",
         "</a>",
-        "\n\n"
+        sep,
+        "\n",
+        parse_bullets(r = r, concise = concise),
+        paste(c(" "," ","N/A"), collapse = collapse),
+        sep
         )
     }
-  }) |> paste(collapse = "<br>")
+  }) |> paste(collapse = collapse)
   if(isTRUE(concise)){
     return(
       cat(
@@ -424,7 +524,10 @@ parse_profile <- function(file=here::here("data","profile.csv"),
       )
     )
   } else {
-    return(cat(paste0("<h4>",txt,"</h4>")))
+    if(!is.null(div)){
+      txt <- paste0("<",div,">",txt,"</",div,">")
+    }
+    return(cat(txt))
   }
 
 }
@@ -508,7 +611,7 @@ parse_grants <- function(file=here::here("data","grants.csv"),
       parse_daterange(r=r),
       paste(
         ":::  concise",
-        if(not_empty(r$Comments))paste0(r$Comments,"\n"),
+        if(not_empty(r$Comments)) paste0(parse_news(r$Comments),"\n"),
         if(not_empty(r$Role))paste0("- **Role**: ",r$Role),
         if(not_empty(r$PI) && r$Type!="award")paste0("- **PI**: ",r$PI),
         if(not_empty(r$Amount))paste0("- **Amount**: ",r$Amount),
@@ -638,7 +741,8 @@ build_network <- function(files=list.files(path = here::here("data"),
                           shape = "hexagon",
                           randomSeed = 2023,
                           save_path = NULL,
-                          show_plot = TRUE){
+                          show_plot = TRUE,
+                          export_type="png"){
 
   library(textnets)
   #### Convert CSVs to text ####
@@ -701,11 +805,13 @@ build_network <- function(files=list.files(path = here::here("data"),
                                                  maxVisible=2000,
                                                  max=100))) |>
     visNetwork::visEdges(color = list(opacity=.8),
-                         dashes = FALSE)
+                         dashes = FALSE) |>
+    visNetwork::visExport(type = export_type)
   if(!is.null(save_path)){
     dir.create(dirname(save_path), showWarnings = FALSE, recursive = TRUE)
     visNetwork::visSave(graph = visnet,
                         file = save_path,
+                        background = "transparent",
                         selfcontained = TRUE)
   }
   if(isTRUE(show_plot)){
@@ -713,3 +819,62 @@ build_network <- function(files=list.files(path = here::here("data"),
   }
   return(visnet)
 }
+
+
+build_summary <- function(items=c("years_experience_research",
+                                  "n_publications",
+                                  "n_software",
+                                  "years_experience_teaching"),
+                          plus = list(years_experience_research="+",
+                                      n_publications="",
+                                      n_software="",
+                                      years_experience_teaching="+"),
+                          collapse = "<br>"){
+  # <i class='fa fa-suitcase'></i> [`r years_experience(types="research")`+ years of research experience.](#experience)
+  # <i class='fa fa-file'></i> [`r n_publications()` peer-reviewed publications to date.](#publications)
+  # <i class='fa fa-desktop'></i> [`r n_software()` bioinformatics tools developed.](#software)
+  # <i class='fa fa-chalkboard-teacher'></i> [`r years_experience(types = "teaching")`+ years of teaching/supervising experience.](#teaching)
+
+  res <- lapply(stats::setNames(items,items),
+                function(x){
+                  if(x=="years_experience_research"){
+                    paste(
+                      icon_dict(items = "experience",
+                                as_icon = TRUE),
+                      "[",years_experience(types="research"),
+                      plus[[x]],
+                      "years of research experience.](#experience)"
+                    )
+                  } else if (x=="n_publications"){
+                    paste(
+                      icon_dict(items = "publications",
+                                as_icon = TRUE),
+                      "[",n_publications(),
+                      plus[[x]],
+                      "peer-reviewed publications to date.](#publications)"
+                    )
+                  } else if(x=="n_software"){
+                    paste(
+                      icon_dict(items = "software",
+                                as_icon = TRUE),
+                      "[",n_software(),
+                      plus[[x]],
+                      "bioinformatics tools developed.](#software)"
+                    )
+                  } else if(x=="years_experience_teaching"){
+                    paste(
+                      icon_dict(items = "teaching",
+                                as_icon = TRUE),
+                      "[",years_experience(types='teaching'),
+                      plus[[x]],
+                      "years of teaching/supervising experience.](#teaching)"
+                    )
+                  }
+                })
+  if(!is.null(collapse)){
+    cat(paste(res,collapse = collapse))
+  } else {
+    return(res)
+  }
+}
+

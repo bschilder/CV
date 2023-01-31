@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="author" content="Brian M. Schilder" />
-    <meta name="date" content="2023-01-30" />
+    <meta name="date" content="2023-01-31" />
     <title>Brian M. Schilder’s resume</title>
 
     
-        <link href="CV_files/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-        <link href="CV_files/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+        <link href="CV_files/font-awesome-6.2.1/css/all.min.css" rel="stylesheet" />
+        <link href="CV_files/font-awesome-6.2.1/css/v4-shims.min.css" rel="stylesheet" />
         <link href="CV_files/paged-0.20/css/resume.css" rel="stylesheet" />
         <script src="CV_files/paged-0.20/js/config.js"></script>
         <script src="CV_files/paged-0.20/js/paged.js"></script>
@@ -23,10 +23,14 @@
   </head>
   <body>
 
+<p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" /></p>
 <!-- Tutorial:  https://towardsdatascience.com/create-your-resume-with-pagedown-package-in-r-123ca6310d52 -->
 <!-- pagedown Issues: https://github.com/rstudio/pagedown/issues -->
+<!-- pagedown, embedding htmlwidgets: https://github.com/rstudio/pagedown/issues/76 -->
 <!-- datadrivencv package: https://github.com/nstrayer/datadrivencv -->
 <!-- textnets vignette: https://sicss.io/2020/materials/day3-text-analysis/text-networks/rmarkdown/Text_Networks.html -->
+<!-- font awesome version issues: https://github.com/rstudio/rmarkdown/issues/2276 -->
+<!-- add page numbers: https://github.com/rstudio/pagedown/issues/98 -->
 <!-- Only show sidebar on first page: https://github.com/rstudio/pagedown/issues/147 -->
 <style type="text/css">
 .pagedjs_page:not(:first-of-type) {
@@ -38,50 +42,44 @@
 </style>
 <div id="aside" class="section level1">
 <h1>Aside</h1>
-<!-- ![Brian M. Schilder](./images/wildfire_circle.png){width="100%" style="border-radius:10%"} -->
-<div style="display:inline; float:right; width:50%;">
-
-</div>
 <div id="contact" class="section level2">
 <h2>Contact</h2>
 <h4>
-<i class='fa fa-envelope'></i> <a href="mailto:brian_schilder@alumni.brown.edu" class="email">brian_schilder@alumni.brown.edu</a><br><i class='fa fa-linkedin'></i> <a href="https://www.linkedin.com/in/brian-schilder">LinkedIn</a><br><i class='fa fa-github'></i> <a href="https://github.com/bschilder">GitHub</a><br><i class='fa fa-twitter'></i> <a href="https://twitter.com/BMSchilder">Twitter</a><br><i class='fa fa-globe'></i> <a href="https://bschilder.github.io/BMSchilder">Personal Website</a><br><i class='fa fa-globe'></i> <a href="https://www.neurogenomics.co.uk/">Lab Website</a><br><i class='fa fa-phone'></i> US: <a href='tel:+1 908-268-9859'>+1 908-268-9859</a><br><i class='fa fa-phone'></i> UK: <a href='tel:+44 073-0653-7736'>+44 073-0653-7736</a>
+<i class='fa fa-envelope'></i> <a href="mailto:brian_schilder@alumni.brown.edu" class="email">brian_schilder@alumni.brown.edu</a><br><i class='fa fa-linkedin'></i> <a href="https://www.linkedin.com/in/brian-schilder">LinkedIn</a><br><i class='fa fa-id-card'></i> <a href="https://orcid.org/0000-0001-5949-2191">ORCID</a><br><i class='fa fa-github'></i> <a href="https://github.com/bschilder">GitHub</a><br><i class='fa fa-twitter'></i> <a href="https://twitter.com/BMSchilder">Twitter</a><br><i class='fa fa-globe'></i> <a href="https://bschilder.github.io/BMSchilder">Personal Website</a><br><i class='fa fa-globe'></i> <a href="https://www.neurogenomics.co.uk/">Lab Website</a><br><i class='fa fa-phone'></i> US: <a href='tel:+1 908-268-9859'>+1 908-268-9859</a><br><i class='fa fa-phone'></i> UK: <a href='tel:+44 073-0653-7736'>+44 073-0653-7736</a>
 </h4>
 </div>
 <div id="summary" class="section level2">
 <h2>Summary</h2>
 <h4>
-<p><i class='fa fa-suitcase'></i> <a href="#experience">14+ years of research experience.</a></p>
-<p><i class='fa fa-file'></i> <a href="#publications">18 peer-reviewed publications to date.</a></p>
-<p><i class='fa fa-desktop'></i> <a href="#software">35 bioinformatics tools developed.</a></p>
-<i class='fa fa-chalkboard-teacher'></i> <a href="#teaching">12+ years of teaching/supervising experience.</a>
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;">
+<path d="M176 56V96H336V56c0-4.4-3.6-8-8-8H184c-4.4 0-8 3.6-8 8zM128 96V56c0-30.9 25.1-56 56-56H328c30.9 0 56 25.1 56 56V96v32V480H128V128 96zM64 96H96V480H64c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64zM448 480H416V96h32c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64z"/>
+</svg>
+<a href="#experience">14 + years of research experience.</a><br><svg aria-hidden="true" role="img" viewBox="0 0 384 512" style="height:1em;width:0.75em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M365.3 93.38l-74.63-74.64C278.6 6.742 262.3 0 245.4 0L64-.0001c-35.35 0-64 28.65-64 64l.0065 384c0 35.34 28.65 64 64 64H320c35.2 0 64-28.8 64-64V138.6C384 121.7 377.3 105.4 365.3 93.38zM336 448c0 8.836-7.164 16-16 16H64.02c-8.838 0-16-7.164-16-16L48 64.13c0-8.836 7.164-16 16-16h160L224 128c0 17.67 14.33 32 32 32h79.1V448zM96 280C96 293.3 106.8 304 120 304h144C277.3 304 288 293.3 288 280S277.3 256 264 256h-144C106.8 256 96 266.8 96 280zM264 352h-144C106.8 352 96 362.8 96 376s10.75 24 24 24h144c13.25 0 24-10.75 24-24S277.3 352 264 352z"/></svg> <a href="#publications">18 peer-reviewed publications to date.</a><br><svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M128 32C92.7 32 64 60.7 64 96V352h64V96H512V352h64V96c0-35.3-28.7-64-64-64H128zM19.2 384C8.6 384 0 392.6 0 403.2C0 445.6 34.4 480 76.8 480H563.2c42.4 0 76.8-34.4 76.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z"/></svg> <a href="#software">35 bioinformatics tools developed.</a><br><svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M160 64c0-35.3 28.7-64 64-64H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H336.8c-11.8-25.5-29.9-47.5-52.4-64H384V320c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v32h64V64L224 64v49.1C205.2 102.2 183.3 96 160 96V64zm0 256c-53 0-96-43-96-96s43-96 96-96s96 43 96 96s-43 96-96 96zm-26.7 32h53.3C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7H26.7C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z"/></svg> <a href="#teaching">12 + years of teaching/supervising experience.</a>
 </h4>
 </div>
 <div id="toc" class="section level2">
 <h2>Table of Contents</h2>
 <h4>
-<i class='fa fa-graduation-cap'></i> <a href="#education">Education</a><br><i class='fa fa-check'></i> <a href="#skills">Skills</a><br><i class='fa fa-file'></i> <a href="#publications">Publications</a><br><i class='fa fa-file'></i> <a href="#preprints">Preprints</a><br><i class='fa fa-book'></i> <a href="#acknowledgements">Acknowledgements</a><br><i class='fa fa-suitcase'></i> <a href="#experience">Experience</a><br><i class='fa fa-chalkboard-teacher'></i> <a href="#teaching">Teaching</a><br><i class='fa fa-desktop'></i> <a href="#software">Software</a><br><i class='fa fa-desktop'></i> <a href="#webapps">Webapps</a><br><i class='fa fa-desktop'></i> <a href="#websites">Websites</a><br><i class='fa fa-dollar'></i> <a href="#grants">Grants</a><br><i class='fa fa-award'></i> <a href="#awards">Awards</a>
+<svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;">
+<path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/>
+</svg>
+<a href="#education">Education</a><br><svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg> <a href="#skills">Skills</a><br><svg aria-hidden="true" role="img" viewBox="0 0 384 512" style="height:1em;width:0.75em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M365.3 93.38l-74.63-74.64C278.6 6.742 262.3 0 245.4 0L64-.0001c-35.35 0-64 28.65-64 64l.0065 384c0 35.34 28.65 64 64 64H320c35.2 0 64-28.8 64-64V138.6C384 121.7 377.3 105.4 365.3 93.38zM336 448c0 8.836-7.164 16-16 16H64.02c-8.838 0-16-7.164-16-16L48 64.13c0-8.836 7.164-16 16-16h160L224 128c0 17.67 14.33 32 32 32h79.1V448zM96 280C96 293.3 106.8 304 120 304h144C277.3 304 288 293.3 288 280S277.3 256 264 256h-144C106.8 256 96 266.8 96 280zM264 352h-144C106.8 352 96 362.8 96 376s10.75 24 24 24h144c13.25 0 24-10.75 24-24S277.3 352 264 352z"/></svg> <a href="#publications">Publications</a><br><svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V285.7l-86.8 86.8c-10.3 10.3-17.5 23.1-21 37.2l-18.7 74.9c-2.3 9.2-1.8 18.8 1.3 27.5H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/></svg> <a href="#preprints">Preprints</a><br><svg aria-hidden="true" role="img" viewBox="0 0 384 512" style="height:1em;width:0.75em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M0 64C0 28.65 28.65 0 64 0H229.5C246.5 0 262.7 6.743 274.7 18.75L365.3 109.3C377.3 121.3 384 137.5 384 154.5V448C384 483.3 355.3 512 320 512H64C28.65 512 0 483.3 0 448V64zM336 448V160H256C238.3 160 224 145.7 224 128V48H64C55.16 48 48 55.16 48 64V448C48 456.8 55.16 464 64 464H320C328.8 464 336 456.8 336 448z"/></svg> <a href="#acknowledgements">Acknowledgements</a><br><svg aria-hidden="true" role="img" viewBox="0 0 384 512" style="height:1em;width:0.75em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M0 64C0 28.65 28.65 0 64 0H229.5C246.5 0 262.7 6.743 274.7 18.75L365.3 109.3C377.3 121.3 384 137.5 384 154.5V448C384 483.3 355.3 512 320 512H64C28.65 512 0 483.3 0 448V64zM336 448V160H256C238.3 160 224 145.7 224 128V48H64C55.16 48 48 55.16 48 64V448C48 456.8 55.16 464 64 464H320C328.8 464 336 456.8 336 448z"/></svg> <a href="#reviewerships">Reviewerships</a><br><svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M192 96c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm-8 384V352h16V480c0 17.7 14.3 32 32 32s32-14.3 32-32V192h56 64 16c17.7 0 32-14.3 32-32s-14.3-32-32-32H384V64H576V256H384V224H320v48c0 26.5 21.5 48 48 48H592c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48H368c-26.5 0-48 21.5-48 48v80H243.1 177.1c-33.7 0-64.9 17.7-82.3 46.6l-58.3 97c-9.1 15.1-4.2 34.8 10.9 43.9s34.8 4.2 43.9-10.9L120 256.9V480c0 17.7 14.3 32 32 32s32-14.3 32-32z"/></svg> <a href="#invited_talks">Invited talks</a><br><svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M192 96c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm-8 384V352h16V480c0 17.7 14.3 32 32 32s32-14.3 32-32V192h56 64 16c17.7 0 32-14.3 32-32s-14.3-32-32-32H384V64H576V256H384V224H320v48c0 26.5 21.5 48 48 48H592c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48H368c-26.5 0-48 21.5-48 48v80H243.1 177.1c-33.7 0-64.9 17.7-82.3 46.6l-58.3 97c-9.1 15.1-4.2 34.8 10.9 43.9s34.8 4.2 43.9-10.9L120 256.9V480c0 17.7 14.3 32 32 32s32-14.3 32-32z"/></svg> <a href="#conference_talks">Conference talks</a><br><svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M192 96c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm-8 384V352h16V480c0 17.7 14.3 32 32 32s32-14.3 32-32V192h56 64 16c17.7 0 32-14.3 32-32s-14.3-32-32-32H384V64H576V256H384V224H320v48c0 26.5 21.5 48 48 48H592c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48H368c-26.5 0-48 21.5-48 48v80H243.1 177.1c-33.7 0-64.9 17.7-82.3 46.6l-58.3 97c-9.1 15.1-4.2 34.8 10.9 43.9s34.8 4.2 43.9-10.9L120 256.9V480c0 17.7 14.3 32 32 32s32-14.3 32-32z"/></svg> <a href="#posters">Posters</a><br><svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M176 56V96H336V56c0-4.4-3.6-8-8-8H184c-4.4 0-8 3.6-8 8zM128 96V56c0-30.9 25.1-56 56-56H328c30.9 0 56 25.1 56 56V96v32V480H128V128 96zM64 96H96V480H64c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64zM448 480H416V96h32c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64z"/></svg> <a href="#experience">Experience</a><br><svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M160 64c0-35.3 28.7-64 64-64H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H336.8c-11.8-25.5-29.9-47.5-52.4-64H384V320c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v32h64V64L224 64v49.1C205.2 102.2 183.3 96 160 96V64zm0 256c-53 0-96-43-96-96s43-96 96-96s96 43 96 96s-43 96-96 96zm-26.7 32h53.3C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7H26.7C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z"/></svg> <a href="#teaching">Teaching</a><br><svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M128 32C92.7 32 64 60.7 64 96V352h64V96H512V352h64V96c0-35.3-28.7-64-64-64H128zM19.2 384C8.6 384 0 392.6 0 403.2C0 445.6 34.4 480 76.8 480H563.2c42.4 0 76.8-34.4 76.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z"/></svg> <a href="#software">Software</a><br><svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64H240l-10.7 32H160c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H346.7L336 416H512c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM512 64V288H64V64H512z"/></svg> <a href="#web_apps">Web apps</a><br><svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M384 96V320H64L64 96H384zM64 32C28.7 32 0 60.7 0 96V320c0 35.3 28.7 64 64 64H181.3l-10.7 32H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H352c17.7 0 32-14.3 32-32s-14.3-32-32-32H277.3l-10.7-32H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm464 0c-26.5 0-48 21.5-48 48V432c0 26.5 21.5 48 48 48h64c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48H528zm16 64h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H544c-8.8 0-16-7.2-16-16s7.2-16 16-16zm-16 80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H544c-8.8 0-16-7.2-16-16zm32 224c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z"/></svg> <a href="#websites">Websites</a><br><svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M160 0c17.7 0 32 14.3 32 32V67.7c1.6 .2 3.1 .4 4.7 .7c10.6 1.6 42.1 6.7 55.1 10c17.1 4.3 27.5 21.7 23.2 38.9s-21.7 27.5-38.9 23.2c-9.3-2.4-37.6-7-48.9-8.7c-32.1-4.8-59.6-2.4-78.5 4.9c-18.3 7-25.9 16.9-27.9 28c-1.9 10.7-.5 16.8 1.3 20.6c1.9 4 5.6 8.5 12.9 13.4c16.2 10.8 41.1 17.9 73.3 26.7l2.8 .8c28.4 7.7 63.2 17.2 89 34.3c14.1 9.4 27.3 22.1 35.5 39.7c8.3 17.8 10.1 37.8 6.3 59.1c-6.9 38-33.1 63.4-65.6 76.7c-13.7 5.6-28.6 9.2-44.4 11V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V445.1c-.4-.1-.9-.1-1.3-.2l-.2 0 0 0c-24.4-3.8-64.5-14.3-91.5-26.3c-16.2-7.2-23.4-26.1-16.2-42.2s26.1-23.4 42.2-16.2c20.9 9.3 55.3 18.4 75.2 21.6c31.9 4.7 58.2 2 76-5.3c16.9-6.9 24.6-16.9 26.8-28.9c1.9-10.7 .5-16.8-1.3-20.6c-1.9-4-5.6-8.5-12.9-13.4c-16.2-10.8-41.1-17.9-73.3-26.7l-2.8-.8c-28.4-7.7-63.2-17.2-89-34.3c-14.1-9.4-27.3-22.1-35.5-39.7c-8.3-17.8-10.1-37.8-6.3-59.1C25 114.1 53 89.3 86 76.7c13-5 27.2-8.2 42-10V32c0-17.7 14.3-32 32-32z"/></svg> <a href="#grants">Grants</a><br><svg aria-hidden="true" role="img" viewBox="0 0 384 512" style="height:1em;width:0.75em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0L228 17.2c6 3.9 13 5.8 20.1 5.4l21.3-1.3c13.2-.8 25.6 6.4 31.5 18.2l9.6 19.1c3.2 6.4 8.4 11.5 14.7 14.7L344.5 83c11.8 5.9 19 18.3 18.2 31.5l-1.3 21.3c-.4 7.1 1.5 14.2 5.4 20.1l11.8 17.8c7.3 11 7.3 25.4 0 36.4L366.8 228c-3.9 6-5.8 13-5.4 20.1l1.3 21.3c.8 13.2-6.4 25.6-18.2 31.5l-19.1 9.6c-6.4 3.2-11.5 8.4-14.7 14.7L301 344.5c-5.9 11.8-18.3 19-31.5 18.2l-21.3-1.3c-7.1-.4-14.2 1.5-20.1 5.4l-17.8 11.8c-11 7.3-25.4 7.3-36.4 0L156 366.8c-6-3.9-13-5.8-20.1-5.4l-21.3 1.3c-13.2 .8-25.6-6.4-31.5-18.2l-9.6-19.1c-3.2-6.4-8.4-11.5-14.7-14.7L39.5 301c-11.8-5.9-19-18.3-18.2-31.5l1.3-21.3c.4-7.1-1.5-14.2-5.4-20.1L5.5 210.2c-7.3-11-7.3-25.4 0-36.4L17.2 156c3.9-6 5.8-13 5.4-20.1l-1.3-21.3c-.8-13.2 6.4-25.6 18.2-31.5l19.1-9.6C65 70.2 70.2 65 73.4 58.6L83 39.5c5.9-11.8 18.3-19 31.5-18.2l21.3 1.3c7.1 .4 14.2-1.5 20.1-5.4L173.8 5.5zM272 192c0-44.2-35.8-80-80-80s-80 35.8-80 80s35.8 80 80 80s80-35.8 80-80zM1.3 441.8L44.4 339.3c.2 .1 .3 .2 .4 .4l9.6 19.1c11.7 23.2 36 37.3 62 35.8l21.3-1.3c.2 0 .5 0 .7 .2l17.8 11.8c5.1 3.3 10.5 5.9 16.1 7.7l-37.6 89.3c-2.3 5.5-7.4 9.2-13.3 9.7s-11.6-2.2-14.8-7.2L74.4 455.5l-56.1 8.3c-5.7 .8-11.4-1.5-15-6s-4.3-10.7-2.1-16zm248 60.4L211.7 413c5.6-1.8 11-4.3 16.1-7.7l17.8-11.8c.2-.1 .4-.2 .7-.2l21.3 1.3c26 1.5 50.3-12.6 62-35.8l9.6-19.1c.1-.2 .2-.3 .4-.4l43.2 102.5c2.2 5.3 1.4 11.4-2.1 16s-9.3 6.9-15 6l-56.1-8.3-32.2 49.2c-3.2 5-8.9 7.7-14.8 7.2s-11-4.3-13.3-9.7z"/></svg> <a href="#awards">Awards</a><br><svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160v8c0 13.3 10.7 24 24 24H456c13.3 0 24-10.7 24-24v-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8.1-3.4-17.2-3.4-25.2 0zM128 224H64V420.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512H480c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1V224H384V416H344V224H280V416H232V224H168V416H128V224zm128-96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z"/></svg> <a href="#affiliations">Affiliations</a><br><svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M532.3 7.3C539.7 13.3 544 22.4 544 32V176c0 26.5-28.7 48-64 48s-64-21.5-64-48s28.7-48 64-48V71L384 90.2V208c0 26.5-28.7 48-64 48s-64-21.5-64-48s28.7-48 64-48V64c0-15.3 10.8-28.4 25.7-31.4l160-32c9.4-1.9 19.1 .6 26.6 6.6zM106.7 304l11.8-17.8c5.9-8.9 15.9-14.2 26.6-14.2h61.7c10.7 0 20.7 5.3 26.6 14.2L245.3 304H272c26.5 0 48 21.5 48 48V464c0 26.5-21.5 48-48 48H80c-26.5 0-48-21.5-48-48V352c0-26.5 21.5-48 48-48h26.7zM224 408c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM510.7 278.3L472.3 368H528c6.7 0 12.6 4.1 15 10.4s.6 13.3-4.4 17.7l-128 112c-5.6 4.9-13.9 5.3-19.9 .9s-8.2-12.4-5.3-19.2L423.7 400H368c-6.7 0-12.6-4.1-15-10.4s-.6-13.3 4.4-17.7l128-112c5.6-4.9 13.9-5.3 19.9-.9s8.2 12.4 5.3 19.2zm-339-59.2c-6.5 6.5-17 6.5-23 0L51.9 119.2c-28-29-26.5-76.9 5-103.9c27-23.5 68.4-19 93.4 6.5l10 10.5 9.5-10.5c25-25.5 65.9-30 93.9-6.5c31 27 32.5 74.9 4.5 103.9l-96.4 99.9z"/></svg> <a href="#extracurricular">Extracurricular</a>
 </h4>
 <hr>
-<p><em>This resume was made with
-<a href="https://github.com/rstudio/pagedown"><code>pagedown</code></a>.</em></p>
-<p><em>Last updated: Jan-30-2023</em></p>
+<p><em>This CV was made with <a href="https://github.com/rstudio/pagedown"><code>pagedown</code></a>.</em></p>
+<p><em>Last updated: Jan-31-2023</em></p>
 </div>
 </div>
 <div id="main" class="section level1">
 <h1>Main</h1>
 <div id="title" class="section level2">
-<h2>Brian M. Schilder</h2>
+<h2>Brian M. Schilder <a href="https://bschilder.github.io/CV/network/visnetwork.html" target="_blank"><img id='header_img' src='network/visnetwork.png' width='10%' style='border-radius:5%'></a></h2>
 <p>Passionately pursuing multi-disciplinary research to improve human lives.</p>
 <div id="phd-candidate" class="section level3">
 <h3>PhD Candidate</h3>
 </div>
 <div id="scb-mphil" class="section level3">
 <h3>ScB, MPhil</h3>
-<!-- ### Affiliations {#affiliations} -->
-<!-- ```{r, results='asis', echo=FALSE} -->
-<!-- parse_profile(types = "affiliation") -->
-<!-- ``` -->
 </div>
 </div>
 <div id="education" class="section level2" data-icon="graduation-cap" data-concise="true">
@@ -162,195 +160,414 @@
 <p>N/A</p>
 </div>
 </div>
-<div id="publications" class="section level2" data-icon="file">
+<div id="publications" class="section level2" data-icon="file-text">
 <h2>Publications</h2>
 <div id="dissecting-the-shared-genetic-architecture-of-suicide-attempt-psychiatric-disorders-and-known-risk-factors" class="section level3">
 <h3>Dissecting the Shared Genetic Architecture of Suicide Attempt, Psychiatric Disorders, and Known Risk Factors</h3>
 <p><em>Biological Psychiatry</em> (2022) 91(3):313-327; <a href="https://doi.org/10.1016/j.biopsych.2021.05.029" class="uri">https://doi.org/10.1016/j.biopsych.2021.05.029</a></p>
 <p>N/A</p>
 <p>2022</p>
-<p>N Mullins, J Kang, AI Campos,…<strong>BM Schilder</strong>, et al. </p>
+<p>N Mullins, J Kang, AI Campos,…<strong>BM Schilder</strong>, et al. <br></p>
 </div>
 <div id="genetic-analysis-of-the-human-microglial-transcriptome-across-brain-regions-aging-and-disease-pathologies" class="section level3">
 <h3>Genetic analysis of the human microglial transcriptome across brain regions, aging and disease pathologies</h3>
 <p><em>Nature Genetics</em> (2022) <a href="https://doi.org/10.1038/s41588-021-00976-y" class="uri">https://doi.org/10.1038/s41588-021-00976-y</a></p>
 <p>N/A</p>
 <p>2022</p>
-<p>K de Paiva Lopes, G JL Snijders, J Humphrey, A Allan, M Sneeboer, E Navarro, <strong>BM Schilder</strong>…T Raj</p>
+<p>K de Paiva Lopes, G JL Snijders, J Humphrey, A Allan, M Sneeboer, E Navarro, <strong>BM Schilder</strong>…T Raj<br><strong><svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M456 32h-304C121.1 32 96 57.13 96 88v320c0 13.22-10.77 24-24 24S48 421.2 48 408V112c0-13.25-10.75-24-24-24S0 98.75 0 112v296C0 447.7 32.3 480 72 480h352c48.53 0 88-39.47 88-88v-304C512 57.13 486.9 32 456 32zM464 392c0 22.06-17.94 40-40 40H139.9C142.5 424.5 144 416.4 144 408v-320c0-4.406 3.594-8 8-8h304c4.406 0 8 3.594 8 8V392zM264 272h-64C186.8 272 176 282.8 176 296S186.8 320 200 320h64C277.3 320 288 309.3 288 296S277.3 272 264 272zM408 272h-64C330.8 272 320 282.8 320 296S330.8 320 344 320h64c13.25 0 24-10.75 24-24S421.3 272 408 272zM264 352h-64c-13.25 0-24 10.75-24 24s10.75 24 24 24h64c13.25 0 24-10.75 24-24S277.3 352 264 352zM408 352h-64C330.8 352 320 362.8 320 376s10.75 24 24 24h64c13.25 0 24-10.75 24-24S421.3 352 408 352zM400 112h-192c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h192c17.67 0 32-14.33 32-32v-64C432 126.3 417.7 112 400 112z"/></svg> News</strong><br>
+- <a href="https://doi.org/10.1038/s41582-022-00633-w">Microglial transcriptomics meets genetics: new disease leads (Nature Reviews Neurology, 2022)</a><br>- <a href="https://www.alzforum.org/news/research-news/mighty-miga-microglial-genomic-atlas-zeros-causal-ad-risk-variants">Mighty MiGA: Microglial Genomic Atlas Zeros in on Causal AD Risk Variants (ALZFORUM, 2022)</a><br>- <a href="https://www.mountsinai.org/about/newsroom/2022/can-a-human-microglial-atlas-guide-brain-disorder-research">Can a Human Microglial Atlas Guide Brain Disorder Research? (Mount Sinai Health System, 2022)</a><br>- <a href="https://www.alzforum.org/news/conference-coverage/polygenic-scores-paint-microglia-culprits-alzheimers">Polygenic Scores Paint Microglia as Culprits in Alzheimer’s (ALZFORUM, 2021)</a></p>
 </div>
 <div id="multi-omic-insights-into-parkinsons-disease-from-genetic-associations-to-functional-mechanisms" class="section level3">
 <h3>Multi-omic insights into Parkinson’s Disease: From genetic associations to functional mechanisms</h3>
 <p><em>Neurobiology of Disease</em> (2021) 105580; <a href="https://doi.org/10.1016/j.nbd.2021.105580" class="uri">https://doi.org/10.1016/j.nbd.2021.105580</a></p>
 <p>N/A</p>
 <p>2021</p>
-<p><strong>BM Schilder</strong>, E Navarro, T Raj</p>
+<p><strong>BM Schilder</strong>, E Navarro, T Raj <br></p>
 </div>
 <div id="fine-mapping-of-parkinsons-disease-susceptibility-loci-identifies-putative-causal-variants" class="section level3">
 <h3>Fine-Mapping of Parkinson’s Disease Susceptibility Loci Identifies Putative Causal Variants</h3>
 <p><em>Human Molecular Genetics</em> (2021) ddab294; <a href="https://doi.org/10.1093/hmg/ddab294" class="uri">https://doi.org/10.1093/hmg/ddab294</a></p>
 <p>N/A</p>
 <p>2021</p>
-<p><strong>BM Schilder</strong>, T Raj</p>
+<p><strong>BM Schilder</strong>, T Raj<br></p>
 </div>
 <div id="echolocator-an-automated-end-to-end-statistical-and-functional-genomic-fine-mapping-pipeline" class="section level3">
 <h3>echolocatoR: An Automated End-to-End Statistical and Functional Genomic Fine-Mapping Pipeline</h3>
 <p><em>Bioinformatics</em> (2021) btab658; <a href="https://doi.org/10.1093/bioinformatics/btab658" class="uri">https://doi.org/10.1093/bioinformatics/btab658</a></p>
 <p>N/A</p>
 <p>2021</p>
-<p><strong>BM Schilder</strong>, J Humphrey, T Raj</p>
+<p><strong>BM Schilder</strong>, J Humphrey, T Raj<br></p>
 </div>
 <div id="mungesumstats-a-bioconductor-package-for-the-standardisation-and-quality-control-of-many-gwas-summary-statistics" class="section level3">
 <h3>MungeSumstats: A Bioconductor Package for the Standardisation and Quality Control of Many GWAS Summary Statistics</h3>
 <p><em>Bioinformatics</em> (2021) 37(23):4593-4596; <a href="https://doi.org/10.1093/bioinformatics/btab665" class="uri">https://doi.org/10.1093/bioinformatics/btab665</a></p>
 <p>N/A</p>
 <p>2021</p>
-<p>A Murphy, <strong>BM Schilder</strong>, NG Skene</p>
+<p>A Murphy, <strong>BM Schilder</strong>, NG Skene<br></p>
 </div>
 <div id="dysregulation-of-mitochondrial-and-proteo-lysosomal-genes-in-parkinsons-disease-myeloid-cells" class="section level3">
 <h3>Dysregulation of mitochondrial and proteo-lysosomal genes in Parkinson’s disease myeloid cells</h3>
 <p><em>Nature Genetics</em> (2021) <a href="https://doi.org/10.1101/2020.07.20.212407" class="uri">https://doi.org/10.1101/2020.07.20.212407</a></p>
 <p>N/A</p>
 <p>2021</p>
-<p>E Navarro, E Udine, K de Paiva Lopes, M Parks, G Riboldi, <strong>BM Schilder</strong>…T Raj</p>
+<p>E Navarro, E Udine, K de Paiva Lopes, M Parks, G Riboldi, <strong>BM Schilder</strong>…T Raj<br><strong><svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M456 32h-304C121.1 32 96 57.13 96 88v320c0 13.22-10.77 24-24 24S48 421.2 48 408V112c0-13.25-10.75-24-24-24S0 98.75 0 112v296C0 447.7 32.3 480 72 480h352c48.53 0 88-39.47 88-88v-304C512 57.13 486.9 32 456 32zM464 392c0 22.06-17.94 40-40 40H139.9C142.5 424.5 144 416.4 144 408v-320c0-4.406 3.594-8 8-8h304c4.406 0 8 3.594 8 8V392zM264 272h-64C186.8 272 176 282.8 176 296S186.8 320 200 320h64C277.3 320 288 309.3 288 296S277.3 272 264 272zM408 272h-64C330.8 272 320 282.8 320 296S330.8 320 344 320h64c13.25 0 24-10.75 24-24S421.3 272 408 272zM264 352h-64c-13.25 0-24 10.75-24 24s10.75 24 24 24h64c13.25 0 24-10.75 24-24S277.3 352 264 352zM408 352h-64C330.8 352 320 362.8 320 376s10.75 24 24 24h64c13.25 0 24-10.75 24-24S421.3 352 408 352zM400 112h-192c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h192c17.67 0 32-14.33 32-32v-64C432 126.3 417.7 112 400 112z"/></svg> News</strong><br>
+- <a href="https://youtu.be/2TcBEiUtIy4">Mount Sinai: Fighting Neurodegenerative Disorders (Mount Sinai Health System, 2019)</a></p>
 </div>
 <div id="phenome-wide-and-eqtl-associations-of-covid-19-genetic-risk-loci" class="section level3">
 <h3>Phenome-wide and eQTL Associations of COVID-19 Genetic Risk Loci</h3>
 <p><em>iScience</em> (2021) <a href="https://doi.org/10.1016/j.isci.2021.102550" class="uri">https://doi.org/10.1016/j.isci.2021.102550</a></p>
 <p>N/A</p>
 <p>2021</p>
-<p>C Moon, <strong>BM Schilder</strong>, T Raj, K-l Huang</p>
+<p>C Moon, <strong>BM Schilder</strong>, T Raj, K-l Huang<br></p>
 </div>
 <div id="genome-wide-association-study-of-over-40000-bipolar-disorder-cases-provides-novel-biological-insights" class="section level3">
 <h3>Genome-Wide Association Study of over 40,000 Bipolar Disorder Cases Provides Novel Biological Insights</h3>
 <p><em>Nature Genetics</em> (2020) 53:817-829; <a href="https://doi.org/10.1038/s41588-021-00857-4" class="uri">https://doi.org/10.1038/s41588-021-00857-4</a></p>
 <p>N/A</p>
 <p>2020</p>
-<p>N Mullins, AJ Forstner, KS O’Connell, B Coombes, JRI Coleman…<strong>BM Schilder</strong>… et al.</p>
+<p>N Mullins, AJ Forstner, KS O’Connell, B Coombes, JRI Coleman…<strong>BM Schilder</strong>… et al.<br></p>
 </div>
 <div id="tensor-decomposition-of-stimulated-monocyte-and-macrophage-gene-expression-profiles-identifies-neurodegenerative-disease-specific-trans-eqtls" class="section level3">
 <h3>Tensor decomposition of stimulated monocyte and macrophage gene expression profiles identifies neurodegenerative disease-specific trans-eQTLs</h3>
 <p><em>PLOS Genetics</em> (2020) 16(9):e1008549; <a href="https://doi.org/10.1101/499509" class="uri">https://doi.org/10.1101/499509</a></p>
 <p>N/A</p>
 <p>2020</p>
-<p>S Ramdhani, E Navarro, E Udine, AG Efthymiou, <strong>BM Schilder</strong>, M Parks, A Goate, T Raj</p>
+<p>S Ramdhani, E Navarro, E Udine, AG Efthymiou, <strong>BM Schilder</strong>, M Parks, A Goate, T Raj<br><strong><svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M456 32h-304C121.1 32 96 57.13 96 88v320c0 13.22-10.77 24-24 24S48 421.2 48 408V112c0-13.25-10.75-24-24-24S0 98.75 0 112v296C0 447.7 32.3 480 72 480h352c48.53 0 88-39.47 88-88v-304C512 57.13 486.9 32 456 32zM464 392c0 22.06-17.94 40-40 40H139.9C142.5 424.5 144 416.4 144 408v-320c0-4.406 3.594-8 8-8h304c4.406 0 8 3.594 8 8V392zM264 272h-64C186.8 272 176 282.8 176 296S186.8 320 200 320h64C277.3 320 288 309.3 288 296S277.3 272 264 272zM408 272h-64C330.8 272 320 282.8 320 296S330.8 320 344 320h64c13.25 0 24-10.75 24-24S421.3 272 408 272zM264 352h-64c-13.25 0-24 10.75-24 24s10.75 24 24 24h64c13.25 0 24-10.75 24-24S277.3 352 264 352zM408 352h-64C330.8 352 320 362.8 320 376s10.75 24 24 24h64c13.25 0 24-10.75 24-24S421.3 352 408 352zM400 112h-192c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h192c17.67 0 32-14.33 32-32v-64C432 126.3 417.7 112 400 112z"/></svg> News</strong><br>
+- <a href="https://www.eurekalert.org/news-releases/577454">Researchers identify 64 regions of the genome that increase risk for bipolar disorder (EurekAlert, 2021)</a><br>- <a href="https://www.nshg-pm.org/largest-bipolar-genetics-study-doubles-risk">Largest Bipolar Disorder Genetics Study Doubles Genetic Risk Factors (Nordic Society of Human Genetics and Precision Medicine, 2021)</a></p>
 </div>
 <div id="evolutionary-shifts-dramatically-reorganized-the-human-hippocampal-complex" class="section level3">
 <h3>Evolutionary shifts dramatically reorganized the human hippocampal complex</h3>
 <p><em>Journal of Comparative Neurology</em> (2019) 528(17):3143-3170; <a href="https://doi.org/10.1002/cne.24822" class="uri">https://doi.org/10.1002/cne.24822</a></p>
 <p>N/A</p>
 <p>2019</p>
-<p><strong>BM Schilder</strong>, HM Petry, PR Hof</p>
+<p><strong>BM Schilder</strong>, HM Petry, PR Hof<br></p>
 </div>
-<div id="fairshake-toolkit-to-evaluate-the-findability-accessibility-interoperability-and-reusability-of-research-digital-resources." class="section level3">
-<h3>FAIRshake: Toolkit to Evaluate the Findability, Accessibility, Interoperability, and Reusability of Research Digital Resources.</h3>
+<div id="fairshake-toolkit-to-evaluate-the-findability-accessibility-interoperability-and-reusability-of-research-digital-resources" class="section level3">
+<h3>FAIRshake: Toolkit to Evaluate the Findability, Accessibility, Interoperability, and Reusability of Research Digital Resources</h3>
 <p><em>Cell Systems</em> (2019) 9; <a href="https://doi.org/10.1016/j.cels.2019.09.011" class="uri">https://doi.org/10.1016/j.cels.2019.09.011</a></p>
 <p>N/A</p>
 <p>2019</p>
-<p>D Clarke, L Wang, A Jones, M Wojciechowicz, D Torre, K Jagodnik, S Jenkins, P McQuilton, Z Flamholz, M Silverstein, <strong>BM Schilder</strong>…A Ma’ayan</p>
+<p>D Clarke, L Wang, A Jones, M Wojciechowicz, D Torre, K Jagodnik, S Jenkins, P McQuilton, Z Flamholz, M Silverstein, <strong>BM Schilder</strong>…A Ma’ayan <br><strong><svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M456 32h-304C121.1 32 96 57.13 96 88v320c0 13.22-10.77 24-24 24S48 421.2 48 408V112c0-13.25-10.75-24-24-24S0 98.75 0 112v296C0 447.7 32.3 480 72 480h352c48.53 0 88-39.47 88-88v-304C512 57.13 486.9 32 456 32zM464 392c0 22.06-17.94 40-40 40H139.9C142.5 424.5 144 416.4 144 408v-320c0-4.406 3.594-8 8-8h304c4.406 0 8 3.594 8 8V392zM264 272h-64C186.8 272 176 282.8 176 296S186.8 320 200 320h64C277.3 320 288 309.3 288 296S277.3 272 264 272zM408 272h-64C330.8 272 320 282.8 320 296S330.8 320 344 320h64c13.25 0 24-10.75 24-24S421.3 272 408 272zM264 352h-64c-13.25 0-24 10.75-24 24s10.75 24 24 24h64c13.25 0 24-10.75 24-24S277.3 352 264 352zM408 352h-64C330.8 352 320 362.8 320 376s10.75 24 24 24h64c13.25 0 24-10.75 24-24S421.3 352 408 352zM400 112h-192c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h192c17.67 0 32-14.33 32-32v-64C432 126.3 417.7 112 400 112z"/></svg> News</strong><br>
+- <a href="https://doi.org/10.1016/j.cels.2019.09.011">Chosen as ‘Featured Frontmatter’ article in Cell Systems</a></p>
 </div>
 <div id="geneshot-search-engine-for-ranking-genes-from-arbitrary-text-queries" class="section level3">
 <h3>Geneshot: search engine for ranking genes from arbitrary text queries</h3>
 <p><em>Nucleic Acids Research</em> (2019) 47(W1):W571-W577; <a href="https://doi.org/10.1093/nar/gkz393" class="uri">https://doi.org/10.1093/nar/gkz393</a></p>
 <p>N/A</p>
 <p>2019</p>
-<p>A Lachmann, <strong>BM Schilder</strong>, ML Wojciechowicz, D Torre, MV Kuleshov, AB Keenan, A Ma’ayan</p>
+<p>A Lachmann, <strong>BM Schilder</strong>, ML Wojciechowicz, D Torre, MV Kuleshov, AB Keenan, A Ma’ayan<br><strong><svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M456 32h-304C121.1 32 96 57.13 96 88v320c0 13.22-10.77 24-24 24S48 421.2 48 408V112c0-13.25-10.75-24-24-24S0 98.75 0 112v296C0 447.7 32.3 480 72 480h352c48.53 0 88-39.47 88-88v-304C512 57.13 486.9 32 456 32zM464 392c0 22.06-17.94 40-40 40H139.9C142.5 424.5 144 416.4 144 408v-320c0-4.406 3.594-8 8-8h304c4.406 0 8 3.594 8 8V392zM264 272h-64C186.8 272 176 282.8 176 296S186.8 320 200 320h64C277.3 320 288 309.3 288 296S277.3 272 264 272zM408 272h-64C330.8 272 320 282.8 320 296S330.8 320 344 320h64c13.25 0 24-10.75 24-24S421.3 272 408 272zM264 352h-64c-13.25 0-24 10.75-24 24s10.75 24 24 24h64c13.25 0 24-10.75 24-24S277.3 352 264 352zM408 352h-64C330.8 352 320 362.8 320 376s10.75 24 24 24h64c13.25 0 24-10.75 24-24S421.3 352 408 352zM400 112h-192c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h192c17.67 0 32-14.33 32-32v-64C432 126.3 417.7 112 400 112z"/></svg> News</strong><br>
+- <a href="https://info.hsls.pitt.edu/updatereport/2019/july-2019/geneshot-piercing-the-literature-to-identify-and-predict-relevant-genes">Geneshot: Piercing the Literature to Identify and Predict Relevant Genes (University of Pittsburgh Health Sciences Library System Update, 2019)</a><br>- <a href="https://youtu.be/tBKHWQsCANE?t=44">The Future of AI at the Hasso Plattner Institute for Digital Health at Mount Sinai (Mount Sinai Health System, 2020)</a></p>
 </div>
 <div id="expression2kinases-x2k-web-linking-expression-signatures-to-upstream-cell-signaling-networks" class="section level3">
 <h3>eXpression2Kinases (X2K) Web: linking expression signatures to upstream cell signaling networks</h3>
 <p><em>Nucleic Acids Research</em> (2018) 46(W1):W171-W179; <a href="https://doi.org/10.1093/nar/gky458" class="uri">https://doi.org/10.1093/nar/gky458</a></p>
 <p>N/A</p>
 <p>2018</p>
-<p>DJB Clarke, MV Kuleshov, <strong>BM Schilder</strong>, D Torre, ME Duffy, AB Keenan, A Lachmann, AS Feldmann, GW Gundersen, MC Silverstein, Z Wang</p>
+<p>DJB Clarke, MV Kuleshov, <strong>BM Schilder</strong>, D Torre, ME Duffy, AB Keenan, A Lachmann, AS Feldmann, GW Gundersen, MC Silverstein, Z Wang<br><strong><svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M456 32h-304C121.1 32 96 57.13 96 88v320c0 13.22-10.77 24-24 24S48 421.2 48 408V112c0-13.25-10.75-24-24-24S0 98.75 0 112v296C0 447.7 32.3 480 72 480h352c48.53 0 88-39.47 88-88v-304C512 57.13 486.9 32 456 32zM464 392c0 22.06-17.94 40-40 40H139.9C142.5 424.5 144 416.4 144 408v-320c0-4.406 3.594-8 8-8h304c4.406 0 8 3.594 8 8V392zM264 272h-64C186.8 272 176 282.8 176 296S186.8 320 200 320h64C277.3 320 288 309.3 288 296S277.3 272 264 272zM408 272h-64C330.8 272 320 282.8 320 296S330.8 320 344 320h64c13.25 0 24-10.75 24-24S421.3 272 408 272zM264 352h-64c-13.25 0-24 10.75-24 24s10.75 24 24 24h64c13.25 0 24-10.75 24-24S277.3 352 264 352zM408 352h-64C330.8 352 320 362.8 320 376s10.75 24 24 24h64c13.25 0 24-10.75 24-24S421.3 352 408 352zM400 112h-192c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h192c17.67 0 32-14.33 32-32v-64C432 126.3 417.7 112 400 112z"/></svg> News</strong><br>
+- <a href="https://youtu.be/tB3BgSL4rXE">Mount Sinai Faculty Spotlight: Ma’ayan Lab (Mount Sinai Health System, 2018)</a></p>
 </div>
 <div id="defining-elemental-imitation-mechanisms-a-comparison-of-cognitive-and-motor-spatial-imitation-learning-across-object--and-computer-based-tasks" class="section level3">
 <h3>Defining elemental imitation mechanisms: A comparison of cognitive and motor-spatial imitation learning across object- and computer-based tasks</h3>
 <p><em>Journal of Cognition and Development</em> (2015) 17(2):221-243; <a href="https://doi.org/10.1080/15248372.2015.1053483" class="uri">https://doi.org/10.1080/15248372.2015.1053483</a></p>
 <p>N/A</p>
 <p>2015</p>
-<p>F Subiaul, L Zimmerman, E Renner, <strong>BM Schilder</strong>, R Barr</p>
+<p>F Subiaul, L Zimmerman, E Renner, <strong>BM Schilder</strong>, R Barr<br></p>
 </div>
 <div id="take-the-monkey-and-run" class="section level3">
 <h3>Take the monkey and run</h3>
 <p><em>Journal of Neuroscience Methods</em> (2015) 248:28-31; <a href="http://doi.org/10.1016/j.jneumeth.2015.03.023" class="uri">http://doi.org/10.1016/j.jneumeth.2015.03.023</a></p>
 <p>N/A</p>
 <p>2015</p>
-<p>KA Phillips, MK Hambright, K Hewes, <strong>BM Schilder</strong>, CN Ross, SD Tardif</p>
+<p>KA Phillips, MK Hambright, K Hewes, <strong>BM Schilder</strong>, CN Ross, SD Tardif<br></p>
 </div>
 <div id="becoming-a-high-fidelity---super---imitator-what-are-the-contributions-of-social-and-individual-learning" class="section level3">
 <h3>Becoming a high-fidelity - super - imitator: what are the contributions of social and individual learning?</h3>
 <p><em>Developmental Science</em> (2014) 18(6):1025-1035; <a href="http://doi.org/10.1111/desc.12276" class="uri">http://doi.org/10.1111/desc.12276</a></p>
 <p>N/A</p>
 <p>2014</p>
-<p>F Subiaul, EM Patterson, <strong>BM Schilder</strong>, E Renner, R Barr</p>
+<p>F Subiaul, EM Patterson, <strong>BM Schilder</strong>, E Renner, R Barr<br></p>
 </div>
 <div id="working-memory-constraints-on-imitation-and-emulation" class="section level3">
 <h3>Working memory constraints on imitation and emulation</h3>
 <p><em>Journal of Experimental Child Psychology</em> (2014) 128:190-200; <a href="http://doi.org/10.1016/j.jecp.2014.07.005" class="uri">http://doi.org/10.1016/j.jecp.2014.07.005</a></p>
 <p>N/A</p>
 <p>2014</p>
-<p>F Subiaul, <strong>BM Schilder</strong></p>
+<p>F Subiaul, <strong>BM Schilder</strong><br></p>
 </div>
 </div>
-<div id="preprints" class="section level2" data-icon="file">
+<div id="preprints" class="section level2" data-icon="file-edit">
 <h2>Preprints</h2>
 <div id="the-rworkflows-suite-automated-continuous-integration-for-quality-checking-documentation-website-creation-and-containerised-deployment-of-r-packages" class="section level3">
 <h3>The rworkflows suite: automated continuous integration for quality checking, documentation website creation, and containerised deployment of R packages</h3>
 <p><em>Research Square</em> (2023) <a href="https://doi.org/10.21203/rs.3.rs-2399015/v1" class="uri">https://doi.org/10.21203/rs.3.rs-2399015/v1</a></p>
 <p>N/A</p>
 <p>2023</p>
-<p><strong>BM Schilder</strong>, AE Murphy, NG Skene</p>
+<p><strong>BM Schilder</strong>, AE Murphy, NG Skene<br></p>
 </div>
 <div id="cuttag-recovers-up-to-half-of-encode-chip-seq-peaks" class="section level3">
 <h3>CUT&amp;Tag recovers up to half of ENCODE ChIP-seq peaks</h3>
 <p><em>bioRxiv</em> (2022) <a href="https://doi.org/10.1101/2022.03.30.486382" class="uri">https://doi.org/10.1101/2022.03.30.486382</a></p>
 <p>N/A</p>
 <p>2022</p>
-<p>D Hu, L Abbasova, <strong>BM Schilder</strong>, A Nott, NG Skene, SJ Marzi</p>
+<p>D Hu, L Abbasova, <strong>BM Schilder</strong>, A Nott, NG Skene, SJ Marzi <br></p>
 </div>
 <div id="epicompare-r-package-for-the-comparison-and-quality-control-of-epigenomic-peak-files" class="section level3">
 <h3>EpiCompare: R package for the comparison and quality control of epigenomic peak files</h3>
 <p><em>bioRxiv</em> (2022) <a href="https://doi.org/10.1101/2022.07.22.501149" class="uri">https://doi.org/10.1101/2022.07.22.501149</a></p>
 <p>N/A</p>
 <p>2022</p>
-<p>S Choi, <strong>BM Schilder</strong>, L Abbasova, AE Murphy, NG Skene</p>
+<p>S Choi, <strong>BM Schilder</strong>, L Abbasova, AE Murphy, NG Skene<br></p>
 </div>
 </div>
-<div id="acknowledgements" class="section level2" data-icon="book">
+<div id="acknowledgements" class="section level2" data-icon="file">
 <h2>Acknowledgements</h2>
 <div id="eqtl-catalogue-a-compendium-of-uniformly-processed-human-gene-expression-and-splicing-qtls." class="section level3">
 <h3>eQTL Catalogue: a compendium of uniformly processed human gene expression and splicing QTLs.</h3>
 <p><em>Nature Genetics</em> (2021) 53:1290-1299; <a href="https://doi.org/10.1038/s41588-021-00924-w" class="uri">https://doi.org/10.1038/s41588-021-00924-w</a></p>
 <p>N/A</p>
 <p>2021</p>
-<p>N Kerimov, JD Hayhurst, K Peikova et al.</p>
+<p>N Kerimov, JD Hayhurst, K Peikova et al.<br></p>
 </div>
 <div id="functionally-informed-fine-mapping-and-polygenic-localization-of-complex-trait-heritability" class="section level3">
 <h3>Functionally-informed fine-mapping and polygenic localization of complex trait heritability</h3>
 <p><em>Nature Genetics</em> (2020) <a href="https://doi.org/10.1038/s41588-020-00735-5" class="uri">https://doi.org/10.1038/s41588-020-00735-5</a></p>
 <p>N/A</p>
 <p>2020</p>
-<p>O Weissbrod…AL Price</p>
+<p>O Weissbrod…AL Price<br></p>
 </div>
 <div id="wayfinding-the-science-and-mystery-of-how-humans-navigate-the-world." class="section level3">
 <h3>Wayfinding: The science and mystery of how humans navigate the world.</h3>
 <p><em>St. Martin’s Press</em> (2019) ISBN-13: 978-1250096968; <a href="https://www.amazon.co.uk/Wayfinding-Science-Mystery-Humans-Navigate/dp/1250096960" class="uri">https://www.amazon.co.uk/Wayfinding-Science-Mystery-Humans-Navigate/dp/1250096960</a></p>
 <p>N/A</p>
 <p>2019</p>
-<p>MR O’Connor</p>
+<p>MR O’Connor<br></p>
 </div>
 <div id="eeg-oscillations-reveal-neural-correlates-of-evidence-accumulation" class="section level3">
 <h3>EEG oscillations reveal neural correlates of evidence accumulation</h3>
 <p><em>Frontiers in Decision Neuroscience</em> (2012) 6(106):Jan-13; <a href="https://doi.org/10.3389/fnins.2012.00106" class="uri">https://doi.org/10.3389/fnins.2012.00106</a></p>
 <p>N/A</p>
 <p>2012</p>
-<p>M van Vugt, P Simen, L Nystrom, P Holmes, J Cohen</p>
+<p>M van Vugt, P Simen, L Nystrom, P Holmes, J Cohen<br></p>
 </div>
 <div id="trial-by-trial-adaptation-of-decision-making-performance-a-model-based-eeg-analysis" class="section level3">
 <h3>Trial-by-trial adaptation of decision making performance: a model-based EEG analysis</h3>
-<p><em>Interdisciplinary Perspectives on Cognition, Education, and the Brain</em> (2011) 7;</p>
+<p><em>Interdisciplinary Perspectives on Cognition, Education, and the Brain</em> (2011) 7; <a href="https://www.semanticscholar.org/paper/Trial-by-trial-adaptation-of-decision-making-a-EEG-Vugt-Simen/330371d08842ecd1bda332dd22351a7135b5cb1f" class="uri">https://www.semanticscholar.org/paper/Trial-by-trial-adaptation-of-decision-making-a-EEG-Vugt-Simen/330371d08842ecd1bda332dd22351a7135b5cb1f</a></p>
 <p>N/A</p>
 <p>2011</p>
-<p>M van Vugt, P Simen, J Cohen</p>
+<p>M van Vugt, P Simen, J Cohen<br></p>
+</div>
+</div>
+<div id="reviewerships" class="section level2" data-icon="file">
+<h2>Reviewerships</h2>
+<div id="plos-genetics" class="section level3">
+<h3>PLOS Genetics</h3>
+<p>1 article</p>
+<p>N/A</p>
+<p>N/A</p>
+<p>.</p>
+</div>
+<div id="alzheimers-research-therapy" class="section level3">
+<h3>Alzheimer’s Research &amp; Therapy</h3>
+<p>1 article</p>
+<p>N/A</p>
+<p>N/A</p>
+<p>.</p>
+</div>
+<div id="bioinformatics" class="section level3">
+<h3>Bioinformatics</h3>
+<p>2 articles</p>
+<p>N/A</p>
+<p>N/A</p>
+<p>.</p>
+</div>
+</div>
+<div id="invited_talks" class="section level2" data-icon="person-chalkboard">
+<h2>Invited Talks</h2>
+<div id="decomposing-the-phenome-learning-the-latent-genomic-structure-underlying-thousands-of-diseases-and-traits" class="section level3">
+<h3>Decomposing the phenome: learning the latent genomic structure underlying thousands of diseases and traits</h3>
+<p>Neuroepidemiology of Aging Webinar<br>RUSH Alzheimer’s Disease Center (RADC)<br>RUSH University</p>
+<p>N/A</p>
+<p>2022</p>
+</div>
+<div id="drug-rediscovery-in-the-age-of-genomics-multi-omic-strategies-for-identifying-disease-treatments" class="section level3">
+<h3>Drug (re)discovery in the age of genomics: multi-omic strategies for identifying disease treatments</h3>
+<p>Department Seminar<br>3D (Drug, Disease, Delivery) Center / Department of Pharmaceutical Sciences<br>University of South Dakota</p>
+<p>N/A</p>
+<p>2022</p>
+</div>
+<div id="statistical-and-functional-genetic-fine-mapping-across-multiple-disease" class="section level3">
+<h3>Statistical and functional genetic fine-mapping across multiple disease</h3>
+<p>Seminar<br>Alzheimer’s Disease Sequencing Project<br>Columbia University / Icahn School of Medicine at Mount Sinai</p>
+<p>N/A</p>
+<p>2020</p>
+</div>
+<div id="statistical-and-functional-genetic-fine-mapping-across-multiple-disease-1" class="section level3">
+<h3>Statistical and functional genetic fine-mapping across multiple disease</h3>
+<p>Laboratory of Neurogenetics Friday Workshop<br>National Institute on Aging<br>National Institutes of Health</p>
+<p>N/A</p>
+<p>2020</p>
+</div>
+</div>
+<div id="conference_talks" class="section level2" data-icon="person-chalkboard">
+<h2>Conference Talks</h2>
+<div id="systematic-quantification-of-animal-model-viability-across-human-diseases" class="section level3">
+<h3>Systematic quantification of animal model viability across human diseases</h3>
+<p>Informatics-Synapse Joint Early Career Researcher Meeting<br><br>UK Dementia Research Institute (UK DRI)</p>
+<p>N/A</p>
+<p>2022</p>
+</div>
+<div id="automated-genetic-fine-mapping-of-neurological-disorders" class="section level3">
+<h3>Automated genetic fine-mapping of neurological disorders</h3>
+<p>London Genetics Network<br><br></p>
+<p>N/A</p>
+<p>2020</p>
+</div>
+<div id="parkinsons-disease-derived-monocytes-show-alteration-in-the-phago-lysosomal-pathway" class="section level3">
+<h3>Parkinson’s disease derived monocytes show alteration in the phago-lysosomal pathway</h3>
+<p>American Society of Human Genetics<br><br></p>
+<p>N/A</p>
+<p>2019</p>
+<p>Co-contributor</p>
+</div>
+<div id="section" class="section level3">
+<h3></h3>
+<p>Marmoset Social<br><br>Society for Neuroscience</p>
+<p>N/A</p>
+<p>2016</p>
+</div>
+<div id="section-1" class="section level3">
+<h3></h3>
+<p>JB Johnston Club for Evolutionary Neuroscience<br><br>Society for Neuroscience</p>
+<p>N/A</p>
+<p>2016</p>
+</div>
+<div id="section-2" class="section level3">
+<h3></h3>
+<p>JB Johnston Club for Evolutionary Neuroscience<br><br>Society for Neuroscience</p>
+<p>N/A</p>
+<p>2014</p>
+</div>
+</div>
+<div id="posters" class="section level2" data-icon="person-chalkboard">
+<h2>Conference Posters</h2>
+<div id="systematic-quantification-of-animal-model-viability-across-human-disease" class="section level3">
+<h3>Systematic quantification of animal model viability across human disease</h3>
+<p><em>Rising Scientist Day at Imperial College London</em> (2022)</p>
+<p>N/A</p>
+<p>2022</p>
+<p><strong>BM Schilder</strong>, NG Skene<br></p>
+</div>
+<div id="cell-type-specific-reconstruction-of-primate-evolution-from-genomic-positive-selection" class="section level3">
+<h3>Cell-type-specific reconstruction of primate evolution from genomic positive selection</h3>
+<p><em>Rising Scientist Day at Imperial College London</em> (2020)</p>
+<p>N/A</p>
+<p>2020</p>
+<p>K Murphy, <strong>BM Schilder</strong>, NG Skene<br></p>
+</div>
+<div id="automated-genetic-and-functional-fine-mapping-of-parkinsons-disease-loci." class="section level3">
+<h3>Automated genetic and functional fine-mapping of Parkinson’s Disease Loci.</h3>
+<p><em>American Society of Human Genetics</em> (2019)</p>
+<p>N/A</p>
+<p>2019</p>
+<p><strong>BM Schilder</strong>, T Raj<br></p>
+</div>
+<div id="parkinsons-disease-derived-monocytes-show-alteration-in-the-phago-lysosomal-pathway-1" class="section level3">
+<h3>Parkinson’s disease derived monocytes show alteration in the phago-lysosomal pathway</h3>
+<p><em>American Society of Human Genetics</em> (2019)</p>
+<p>N/A</p>
+<p>2019</p>
+<p>E Udine, E Navarro, …<strong>BM Schilder</strong>, …T Raj<br></p>
+</div>
+<div id="learning-x2k-parameter-optimization-via-genetic-algorithms-to-calibrate-the-expression2kinases-pipeline" class="section level3">
+<h3>Learning X2K: Parameter Optimization via Genetic Algorithms to Calibrate the Expression2Kinases Pipeline</h3>
+<p><em>Illuminating the Druggable Genome</em> (2018)</p>
+<p>N/A</p>
+<p>2018</p>
+<p><strong>BM Schilder</strong>, A Lachmann, M Kuleshov, A Ma’ayan<br></p>
+</div>
+<div id="learning-x2k-parameter-optimization-via-genetic-algorithms-to-calibrate-the-expression2kinases-pipeline-1" class="section level3">
+<h3>Learning X2K: Parameter Optimization via Genetic Algorithms to Calibrate the Expression2Kinases Pipeline</h3>
+<p><em>Big Data 2 Knowledge - Library of Integrated Network-Based Cellular Signatures (LINCS)</em> (2018)</p>
+<p>N/A</p>
+<p>2018</p>
+<p><strong>BM Schilder</strong>, A Lachmann, M Kuleshov, A Ma’ayan<br></p>
+</div>
+<div id="the-evolution-of-the-human-hippocampus-and-neuroplasticity" class="section level3">
+<h3>The evolution of the human hippocampus and neuroplasticity</h3>
+<p><em>Association for American Physical Anthropologists</em> (2017)</p>
+<p>N/A</p>
+<p>2017</p>
+<p><strong>BM Schilder</strong>, BJ Bradley, CC Sherwood<br></p>
+</div>
+<div id="the-molecular-evolution-of-the-primate-hippocampus" class="section level3">
+<h3>The molecular evolution of the primate hippocampus</h3>
+<p><em>Society for Neuroscience</em> (2016)</p>
+<p>N/A</p>
+<p>2016</p>
+<p><strong>BM Schilder</strong>, BJ Bradley, CC Sherwood<br></p>
+</div>
+<div id="effects-of-exercise-on-disease-progression-and-cognition-in-the-marmoset-eae-model" class="section level3">
+<h3>Effects of exercise on disease progression and cognition in the marmoset EAE model</h3>
+<p><em>JB Johnston Club for Evolutionary Neuroscience</em> (2015)</p>
+<p>N/A</p>
+<p>2015</p>
+<p>KA Phillips, MK Hambright, K Hewes, <strong>BM Schilder</strong>, B Jagessar, B t’Hart, SD Tardif<br></p>
+</div>
+<div id="the-effects-of-climatic-trends-variability-and-rates-of-change-on-mammalian-brain-evolution" class="section level3">
+<h3>The effects of climatic trends, variability, and rates of change on mammalian brain evolution</h3>
+<p><em>Association for American Physical Anthropologists</em> (2015)</p>
+<p>N/A</p>
+<p>2015</p>
+<p><strong>BM Schilder</strong>, WA Barr, R Bobe, CC Sherwood <br></p>
+</div>
+<div id="individual-observational-and-imitation-learning-in-orangutans-and-children" class="section level3">
+<h3>Individual, Observational, and Imitation Learning in Orangutans and Children</h3>
+<p><em>Association for American Physical Anthropologists</em> (2015)</p>
+<p>N/A</p>
+<p>2015</p>
+<p>E Renner, <strong>BM Schilder</strong>, F Subiaul<br></p>
+</div>
+<div id="the-helper-hinderer-task-revisited-an-infant-eye-tracking-study" class="section level3">
+<h3>The helper hinderer task revisited: an infant eye tracking study</h3>
+<p><em>The George Washington University Research Day</em> (2014)</p>
+<p>N/A</p>
+<p>2014</p>
+<p>A Gokhale, <strong>BM Schilder</strong>, F Subiaul <br></p>
+</div>
+<div id="dendritic-morphology-of-pyramidal-neurons-across-the-visual-stream-a-direct-comparison-of-chimpanzees-and-humans" class="section level3">
+<h3>Dendritic morphology of pyramidal neurons across the visual stream: A direct comparison of chimpanzees and humans</h3>
+<p><em>Society for Neuroscience</em> (2013)</p>
+<p>N/A</p>
+<p>2013</p>
+<p><strong>BM Schilder</strong>, O Adeyo<br></p>
+</div>
+<div id="the-striatum-in-the-evolution-of-learned-vocalizations-understanding-the-neurobiological-precursors-to-human-speech-using-a-chimpanzee-model" class="section level3">
+<h3>The striatum in the evolution of learned vocalizations: Understanding the neurobiological precursors to human speech using a chimpanzee model</h3>
+<p><em>Society for Neuroscience</em> (2013)</p>
+<p>N/A</p>
+<p>2013</p>
+<p>S Bianchi, T Duka, G Muntane, <strong>BM Schilder</strong>, CD Stimpson, WD Hopkins<br></p>
+</div>
+<div id="imitation-emulation-in-a-novel-box-task" class="section level3">
+<h3>Imitation &amp; emulation in a novel box task</h3>
+<p><em>Association for Psychological Science</em> (2013)</p>
+<p>N/A</p>
+<p>2013</p>
+<p>L Zimmerman, N Brito, C Mendelson, R Barr, E Renner, <strong>BM Schilder</strong>, F Subiaul <br></p>
+</div>
+<div id="a-study-of-imitation-and-working-memory-in-2--to-4--year-olds" class="section level3">
+<h3>A study of imitation and working memory in 2- to 4- year-olds</h3>
+<p><em>Association for Psychological Science</em> (2013)</p>
+<p>N/A</p>
+<p>2013</p>
+<p>R Barr, F Subiaul, L Zimmerman, L Renner, <strong>BM Schilder</strong>, C Mendelson, L Golojuch<br></p>
+</div>
+<div id="the-impact-of-wealth-on-sharing-preferences-in-children" class="section level3">
+<h3>The impact of wealth on sharing preferences in children</h3>
+<p><em>Child Development Society</em> (2013)</p>
+<p>N/A</p>
+<p>2013</p>
+<p>J Miller, <strong>BM Schilder</strong>, L Peizer, F Subiaul <br></p>
 </div>
 </div>
 <div id="experience" class="section level2" data-icon="suitcase">
@@ -626,7 +843,7 @@
 </ul>
 </div>
 </div>
-<div id="software" class="section level2" data-icon="desktop">
+<div id="software" class="section level2" data-icon="laptop">
 <h2>Software Packages</h2>
 <div id="rworkflows" class="section level3">
 <h3>rworkflows</h3>
@@ -791,7 +1008,7 @@
 <p>27.</p>
 </div>
 </div>
-<div id="webapps" class="section level2" data-icon="desktop">
+<div id="web_apps" class="section level2" data-icon="desktop">
 <h2>Web Apps</h2>
 <div id="geneshot" class="section level3">
 <h3>Geneshot</h3>
@@ -842,7 +1059,7 @@
 <p>8.</p>
 </div>
 </div>
-<div id="websites" class="section level2" data-icon="desktop">
+<div id="websites" class="section level2" data-icon="computer">
 <h2>Websites</h2>
 <div id="personal-website" class="section level3">
 <h3>Personal Website</h3>
@@ -1022,13 +1239,14 @@
 </div>
 <div id="awards" class="section level2" data-icon="award">
 <h2>Awards</h2>
-<div id="prize-for-computational-reproducibility-in-dementia-research-honourable-mention-uk-dementia-research-institute" class="section level3">
-<h3>Prize for Computational Reproducibility in Dementia Research (honourable mention),<br>UK Dementia Research Institute</h3>
+<div id="prize-for-computational-reproducibility-in-dementia-research-uk-dementia-research-institute" class="section level3">
+<h3>Prize for Computational Reproducibility in Dementia Research,<br>UK Dementia Research Institute</h3>
 <p><strong>Project</strong>: ‘MungeSumstats: A Bioconductor package for the standardisation and quality control of many GWAS summary statistics’</p>
 <p>N/A</p>
 <p>2022</p>
 <div class="concise">
-<p><a href="https://demondementia.com/neurohack2022">Individually awarded</a> for outstanding contributions during the NEUROHACK 2022, a competitive 4-day hackathon to apply AI in finding ALS therapeutic solutions.</p>
+<p><strong><svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M456 32h-304C121.1 32 96 57.13 96 88v320c0 13.22-10.77 24-24 24S48 421.2 48 408V112c0-13.25-10.75-24-24-24S0 98.75 0 112v296C0 447.7 32.3 480 72 480h352c48.53 0 88-39.47 88-88v-304C512 57.13 486.9 32 456 32zM464 392c0 22.06-17.94 40-40 40H139.9C142.5 424.5 144 416.4 144 408v-320c0-4.406 3.594-8 8-8h304c4.406 0 8 3.594 8 8V392zM264 272h-64C186.8 272 176 282.8 176 296S186.8 320 200 320h64C277.3 320 288 309.3 288 296S277.3 272 264 272zM408 272h-64C330.8 272 320 282.8 320 296S330.8 320 344 320h64c13.25 0 24-10.75 24-24S421.3 272 408 272zM264 352h-64c-13.25 0-24 10.75-24 24s10.75 24 24 24h64c13.25 0 24-10.75 24-24S277.3 352 264 352zM408 352h-64C330.8 352 320 362.8 320 376s10.75 24 24 24h64c13.25 0 24-10.75 24-24S421.3 352 408 352zM400 112h-192c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h192c17.67 0 32-14.33 32-32v-64C432 126.3 417.7 112 400 112z"/></svg> News</strong><br>
+- <a href="https://ukdri.ac.uk/news-and-events/first-recipients-of-uk-dri-recognition-prizes-announced-at-connectome-2022">Awarded honourable mention</a></p>
 </div>
 </div>
 <div id="award-for-outstanding-contribution-neurohack-deep-dementia-phenotyping-network-demon" class="section level3">
@@ -1037,16 +1255,18 @@
 <p>N/A</p>
 <p>2022</p>
 <div class="concise">
-<p><a href="https://t.co/3gLMoqFQLa">Jointly awarded inaugural prize</a> with Kitty Murphy.</p>
+<p><strong><svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M456 32h-304C121.1 32 96 57.13 96 88v320c0 13.22-10.77 24-24 24S48 421.2 48 408V112c0-13.25-10.75-24-24-24S0 98.75 0 112v296C0 447.7 32.3 480 72 480h352c48.53 0 88-39.47 88-88v-304C512 57.13 486.9 32 456 32zM464 392c0 22.06-17.94 40-40 40H139.9C142.5 424.5 144 416.4 144 408v-320c0-4.406 3.594-8 8-8h304c4.406 0 8 3.594 8 8V392zM264 272h-64C186.8 272 176 282.8 176 296S186.8 320 200 320h64C277.3 320 288 309.3 288 296S277.3 272 264 272zM408 272h-64C330.8 272 320 282.8 320 296S330.8 320 344 320h64c13.25 0 24-10.75 24-24S421.3 272 408 272zM264 352h-64c-13.25 0-24 10.75-24 24s10.75 24 24 24h64c13.25 0 24-10.75 24-24S277.3 352 264 352zM408 352h-64C330.8 352 320 362.8 320 376s10.75 24 24 24h64c13.25 0 24-10.75 24-24S421.3 352 408 352zM400 112h-192c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h192c17.67 0 32-14.33 32-32v-64C432 126.3 417.7 112 400 112z"/></svg> News</strong><br>
+- <a href="https://demondementia.com/neurohack2022">Individually awarded</a> for outstanding contributions during the NEUROHACK 2022, a competitive 4-day hackathon to apply AI in finding ALS therapeutic solutions.</p>
 </div>
 </div>
-<div id="prize-for-computational-reproducibility-in-dementia-research-uk-dementia-research-institute" class="section level3">
+<div id="prize-for-computational-reproducibility-in-dementia-research-uk-dementia-research-institute-1" class="section level3">
 <h3>Prize for Computational Reproducibility in Dementia Research,<br>UK Dementia Research Institute</h3>
 <p><strong>Project</strong>: ‘echolocatoR: an automated end-to-end statistical and functional genomic fine-mapping pipeline’</p>
 <p>N/A</p>
 <p>2021</p>
 <div class="concise">
-
+<p><strong><svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M456 32h-304C121.1 32 96 57.13 96 88v320c0 13.22-10.77 24-24 24S48 421.2 48 408V112c0-13.25-10.75-24-24-24S0 98.75 0 112v296C0 447.7 32.3 480 72 480h352c48.53 0 88-39.47 88-88v-304C512 57.13 486.9 32 456 32zM464 392c0 22.06-17.94 40-40 40H139.9C142.5 424.5 144 416.4 144 408v-320c0-4.406 3.594-8 8-8h304c4.406 0 8 3.594 8 8V392zM264 272h-64C186.8 272 176 282.8 176 296S186.8 320 200 320h64C277.3 320 288 309.3 288 296S277.3 272 264 272zM408 272h-64C330.8 272 320 282.8 320 296S330.8 320 344 320h64c13.25 0 24-10.75 24-24S421.3 272 408 272zM264 352h-64c-13.25 0-24 10.75-24 24s10.75 24 24 24h64c13.25 0 24-10.75 24-24S277.3 352 264 352zM408 352h-64C330.8 352 320 362.8 320 376s10.75 24 24 24h64c13.25 0 24-10.75 24-24S421.3 352 408 352zM400 112h-192c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h192c17.67 0 32-14.33 32-32v-64C432 126.3 417.7 112 400 112z"/></svg> News</strong><br>
+- <a href="https://t.co/3gLMoqFQLa">Winners announced for UK DRI’s first ’Prize for Computational Reproducibility in Dementia Research (UK Dementia Research Institute, 2021)</a><br>- <a href="https://t.co/3gLMoqFQLa">Jointly awarded inaugural prize with Kitty Murphy</a>.</p>
 </div>
 </div>
 <div id="centre-photography-competition-uk-dementia-research-institute" class="section level3">
@@ -1055,7 +1275,8 @@
 <p>N/A</p>
 <p>2021</p>
 <div class="concise">
-<p><a href="https://www.imperial.ac.uk/dementia-research-institute/seminars-and-events/events/centre-photography-competition/">One of the winners of the scientific image competition</a>.</p>
+<p><strong><svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M456 32h-304C121.1 32 96 57.13 96 88v320c0 13.22-10.77 24-24 24S48 421.2 48 408V112c0-13.25-10.75-24-24-24S0 98.75 0 112v296C0 447.7 32.3 480 72 480h352c48.53 0 88-39.47 88-88v-304C512 57.13 486.9 32 456 32zM464 392c0 22.06-17.94 40-40 40H139.9C142.5 424.5 144 416.4 144 408v-320c0-4.406 3.594-8 8-8h304c4.406 0 8 3.594 8 8V392zM264 272h-64C186.8 272 176 282.8 176 296S186.8 320 200 320h64C277.3 320 288 309.3 288 296S277.3 272 264 272zM408 272h-64C330.8 272 320 282.8 320 296S330.8 320 344 320h64c13.25 0 24-10.75 24-24S421.3 272 408 272zM264 352h-64c-13.25 0-24 10.75-24 24s10.75 24 24 24h64c13.25 0 24-10.75 24-24S277.3 352 264 352zM408 352h-64C330.8 352 320 362.8 320 376s10.75 24 24 24h64c13.25 0 24-10.75 24-24S421.3 352 408 352zM400 112h-192c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h192c17.67 0 32-14.33 32-32v-64C432 126.3 417.7 112 400 112z"/></svg> News</strong><br>
+- <a href="https://www.imperial.ac.uk/dementia-research-institute/seminars-and-events/events/centre-photography-competition/">One of the winners of the scientific image competition</a>.</p>
 </div>
 </div>
 <div id="art-of-the-brain-friedman-brain-institute-icahn-school-of-medicine" class="section level3">
@@ -1064,8 +1285,98 @@
 <p>N/A</p>
 <p>2019</p>
 <div class="concise">
-<p><a href="https://friedmanbrain.icahn.mssm.edu/art-of-the-brain">Awarded 2nd place</a> and Featured on the <a href="https://www.biologicalpsychiatryjournal.com/issue/S0006-3223(19)X0012-8">cover of Biological Psychiatry: Volume 87, Issue 12 (2020)</a>. Exhibited and auctioned at the Grady Alexis Gallery (New York City), where all proceeds were voluntarily donated to the Diversity in Neuroscience Initiative.</p>
+<p><strong><svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M456 32h-304C121.1 32 96 57.13 96 88v320c0 13.22-10.77 24-24 24S48 421.2 48 408V112c0-13.25-10.75-24-24-24S0 98.75 0 112v296C0 447.7 32.3 480 72 480h352c48.53 0 88-39.47 88-88v-304C512 57.13 486.9 32 456 32zM464 392c0 22.06-17.94 40-40 40H139.9C142.5 424.5 144 416.4 144 408v-320c0-4.406 3.594-8 8-8h304c4.406 0 8 3.594 8 8V392zM264 272h-64C186.8 272 176 282.8 176 296S186.8 320 200 320h64C277.3 320 288 309.3 288 296S277.3 272 264 272zM408 272h-64C330.8 272 320 282.8 320 296S330.8 320 344 320h64c13.25 0 24-10.75 24-24S421.3 272 408 272zM264 352h-64c-13.25 0-24 10.75-24 24s10.75 24 24 24h64c13.25 0 24-10.75 24-24S277.3 352 264 352zM408 352h-64C330.8 352 320 362.8 320 376s10.75 24 24 24h64c13.25 0 24-10.75 24-24S421.3 352 408 352zM400 112h-192c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h192c17.67 0 32-14.33 32-32v-64C432 126.3 417.7 112 400 112z"/></svg> News</strong><br>
+- <a href="https://friedmanbrain.icahn.mssm.edu/art-of-the-brain">Awarded 2nd place</a> and Featured on the <a href="https://www.biologicalpsychiatryjournal.com/issue/S0006-3223(19)X0012-8">cover of Biological Psychiatry: Volume 87, Issue 12 (2020)</a>. Exhibited and auctioned at the Grady Alexis Gallery (New York City), where all proceeds were voluntarily donated to the Diversity in Neuroscience Initiative.</p>
 </div>
+</div>
+</div>
+<div id="affiliations" class="section level2" data-icon="building-columns">
+<h2>Affiliations</h2>
+<div id="section-3" class="section level3">
+<h3><a href='https://www.imperial.ac.uk/' target='_blank' class='affiliate'><img src='images/Imperial.png'alt='Imperial College London'width='200px'></a></h3>
+<ul>
+<li>Department of Brain Sciences</li>
+<li>Faculty of Medicine</li>
+</ul>
+<p>N/A</p>
+</div>
+<div id="section-4" class="section level3">
+<h3><a href='https://ukdri.ac.uk/' target='_blank' class='affiliate'><img src='images/UKDRI.jpeg'alt='UK Dementia Research Institute (UK DRI)'width='200px'></a></h3>
+<ul>
+<li>Synapse Working Group</li>
+<li>Informatics Working Group</li>
+</ul>
+<p>N/A</p>
+</div>
+<div id="section-5" class="section level3">
+<h3><a href='https://demondementia.com/' target='_blank' class='affiliate'><img src='images/DEMON.png'alt='Deep Dementia Phenotyping Network (DEMON)'width='200px'></a></h3>
+<ul>
+<li>Genetics &amp; Omics Working Group</li>
+<li>Experimental Models Working Group</li>
+<li>Drug Discovery &amp; Trials Optimisation Working Group</li>
+</ul>
+<p>N/A</p>
+</div>
+<div id="section-6" class="section level3">
+<h3><a href='https://www.turing.ac.uk/' target='_blank' class='affiliate'><img src='images/Turing.png'alt='The Alan Turing Institute'width='200px'></a></h3>
+<ul>
+<li><a href="https://www.turing.ac.uk/work-turing/studentships/enrichment">Turing Enrichment Scheme</a></li>
+<li><a href="https://www.turing.ac.uk/research/research-projects/alan-turing-institute-roche-strategic-partnership">Turing-Roche Strategic Partnership</a></li>
+</ul>
+<p>N/A</p>
+</div>
+<div id="section-7" class="section level3">
+<h3><a href='https://pgc.unc.edu/' target='_blank' class='affiliate'><img src='images/PGC.jpeg'alt='Psychiatric Genomics Consortium (PGC)'width='200px'></a></h3>
+<ul>
+<li>Bipolar Disorder Working Group</li>
+</ul>
+<p>N/A</p>
+</div>
+<div id="section-8" class="section level3">
+<h3><a href='https://www.bioconductor.org/' target='_blank' class='affiliate'><img src='images/Bioconductor.jpeg'alt='Bioconductor Developers Community'width='200px'></a></h3>
+<ul>
+<li>Bioconductor Cloud Methods Working Group</li>
+<li>Active developer</li>
+</ul>
+<p>N/A</p>
+</div>
+</div>
+<div id="extracurricular" class="section level2" data-icon="icons">
+<h2>Extracurricular Experience</h2>
+<div id="competitive-running-career" class="section level3">
+<h3>Competitive Running Career</h3>
+<ul>
+<li><a href="https://www.tfrrs.org/athletes/1710481/Brown/Brian_Schilder.html">8+ years of varsity and Division I cross country, winter track, and spring track throughout high school and college.</a></li>
+<li>Year-round, daily training and travel to weekly competitions necessitated a dedicated and regimented lifestyle in order to succeed as a student-athlete</li>
+<li>Running remains a passion of mine and I enjoy training for ultra-marathons in my free time.</li>
+<li>This passion, work ethic and self-insight have carried over to all aspects of my life, including my career as a researcher.</li>
+</ul>
+<p><a href='https://www.google.com/maps/@47.8287853,41.5077906,22973464m/data=!3m1!1e3'>Earth</a></p>
+<p>.</p>
+<p>- - 2003</p>
+</div>
+<div id="music-production" class="section level3">
+<h3>Music Production</h3>
+<ul>
+<li>Writes, records, produces and performs original music.</li>
+<li>Instruments: keys, percussion, vocals, etc.</li>
+<li>Proficient in Logic Pro X Digital Audio Workstation (DAW).</li>
+<li>Experiments with generative AI.</li>
+</ul>
+<p><a href='https://www.google.com/maps/@47.8287853,41.5077906,22973464m/data=!3m1!1e3'>Earth</a></p>
+<p>.</p>
+<p>- - 1995</p>
+</div>
+<div id="visual-art" class="section level3">
+<h3>Visual Art</h3>
+<ul>
+<li><a href="https://bschilder.github.io/BMSchilder/#artwork">Award-winning scientific artwork using computational methods.</a></li>
+<li>Figures featured on cover of peer-reviewed journals.</li>
+<li>Experiments with generative AI.</li>
+</ul>
+<p><a href='https://www.google.com/maps/@47.8287853,41.5077906,22973464m/data=!3m1!1e3'>Earth</a></p>
+<p>.</p>
+<p>- - 2015</p>
 </div>
 </div>
 </div>

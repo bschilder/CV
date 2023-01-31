@@ -2,8 +2,9 @@
 * {
   /* Override default margins*/
   /*--pagedjs-margin-right: 0.2in;*/
+  --pagedjs-top: 0in;
   --pagedjs-margin-left: 0.2in;
-  --pagedjs-margin-top: 0.5in;
+  --pagedjs-margin-top: 0.4in;
   --pagedjs-margin-bottom: 0.2in;
 }
 
@@ -13,12 +14,16 @@
   --decorator-border: 2px solid #a2e2e2; /* change color and thickness of timeline */
 
 }
+.aside{
+  top: 0;
+  padding-top: 0px;
+  margin-top: -10px;
+}
 
 .decorator::after{
   background-color: #a2e2e2; /* change color timeline dots */
 
 }
-
 
 /* Define the font family here */
 body{
@@ -28,4 +33,45 @@ body{
 
 a{
   color: #377bb5;
+}
+
+h2{
+    display: inline-block;
+    height: 100%;
+    vertical-align: bottom;
+}
+#header_img {
+    vertical-align: bottom;
+    max-width: 160px;
+}
+
+.affiliate{
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  align-content: left;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+/*Add page number to the bottom left of the left and right pages */
+@page :left {
+  @bottom-right {
+    content: counter(page);
+    padding-bottom: 40px;
+    padding-right: -40px;
+    color: white;
+    font-weight: 400;
+    text-shadow: 2px 4px 4px rgba(0,0,0,0.6);
+  }
+}
+@page :right {
+  @bottom-right {
+    content: counter(page);
+    padding-bottom: 40px;
+    padding-right: -40px;
+    color: white;
+    font-weight: 400;
+    text-shadow: 2px 4px 4px rgba(0,0,0,0.6);
+  }
 }
