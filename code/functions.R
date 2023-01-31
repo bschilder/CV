@@ -59,6 +59,47 @@ icon_dict <- function(items=NULL,
   }
 }
 
+build_toc <- function(items=NULL,
+                      add_div="h4",
+                      collapse="<br>"){
+  dict <- icon_dict(items = items,
+                    as_icon = TRUE,
+                    as_toc = TRUE,
+                    collapse = collapse)
+  if(!is.null(add_div)){
+    dict <- paste0("<",add_div,">",dict,"</",add_div,">")
+  }
+  cat(dict)
+}
+
+build_footer <- function(add_github="https://github.com/bschilder/CV",
+                         add_pagedown=FALSE,
+                         add_date=TRUE,
+                         sep="<br>"){
+
+  # *This CV was made with [`pagedown`](https://github.com/rstudio/pagedown).*
+  #
+  # *Last updated: `r format(Sys.Date(),"%b-%d-%Y")`*
+  txt <- paste(
+    if(!is.null(add_github)){
+      paste0("<a href=",shQuote(add_github),">",
+             fontawesome::fa("github")," *CV source code*",
+             "</a>"
+             )
+    },
+    if(isTRUE(add_pagedown)){
+      paste0("*Made with",
+             "[`pagedown`](https://github.com/rstudio/pagedown).*")
+    },
+    if(isTRUE(add_date)){
+      paste0(fontawesome::fa("calendar"),
+             " *Updated ",format(Sys.Date(),"%b-%d-%Y"),"*")
+    },
+    sep=sep
+  )
+  cat(txt)
+}
+
 
 years_experience <- function(file=here::here("data","experience.csv"),
                              types="research"){

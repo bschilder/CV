@@ -1,5 +1,5 @@
 ---
-title: "Brian_M_Schilder_resume"
+title: "Brian_M_Schilder_CV"
 author: Brian M. Schilder
 date: "`r Sys.Date()`"
 output:
@@ -11,8 +11,6 @@ output:
 # uncomment this line to produce HTML and PDF in RStudio:
 # knit: pagedown::chrome_print
 ---
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" /> 
 
 ```{r setup, include=FALSE}
 source(here::here("code","functions.R"))
@@ -66,18 +64,15 @@ build_summary()
 
 ## Table of Contents {#toc}
 
-<h4>
 ```{r}
-cat(icon_dict(as_icon = TRUE, 
-              as_toc = TRUE))
+build_toc()
 ```
-</h4>
 
 <hr>
 
-*This CV was made with [`pagedown`](https://github.com/rstudio/pagedown).*
-
-*Last updated: `r format(Sys.Date(),"%b-%d-%Y")`*
+```{r}
+build_footer()
+```
 
 # Main
 
