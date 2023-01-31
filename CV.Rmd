@@ -1,5 +1,5 @@
 ---
-title: "Brian M. Schilder's resume"
+title: "Brian_M_Schilder_resume"
 author: Brian M. Schilder
 date: "`r Sys.Date()`"
 output:
@@ -13,7 +13,6 @@ output:
 ---
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" /> 
-
 
 ```{r setup, include=FALSE}
 source(here::here("code","functions.R"))

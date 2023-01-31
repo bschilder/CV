@@ -815,7 +815,8 @@ build_network <- function(files=list.files(path = here::here("data"),
                          #               roundness=.5
                          #               ),
                          dashes = FALSE) |>
-    visNetwork::visExport(type = export_type)|>
+    visNetwork::visExport(type = export_type,
+                          name = paste0(gsub(" ","_",center),"_network"))|>
     visNetwork::visOptions(height = 700,
                            width = 1200)
   if(!is.null(save_path)){

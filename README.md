@@ -5,5 +5,6 @@ Programmatically create curriculum vitae.
 ### [PDF](https://bschilder.github.io/CV/CV.pdf)
 
 ## Network
-### [HTML](https://bschilder.github.io/CV/network/visnetwork.html)
+### [HTML (light)](https://bschilder.github.io/CV/network/visnetwork.html)
+### [HTML (dark)](https://bschilder.github.io/CV/network/visnetwork_dark.html)
 ### [PDF](https://bschilder.github.io/CV/network/visnetwork.pdf)
