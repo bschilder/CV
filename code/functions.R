@@ -744,6 +744,9 @@ build_network <- function(files=list.files(path = here::here("data"),
                           show_plot = TRUE,
                           export_type="png"){
 
+  # templateR:::source_all(path = "code")
+  # templateR:::args2vars(build_network)
+
   library(textnets)
   #### Convert CSVs to text ####
   dt <- lapply(stats::setNames(files,
@@ -797,21 +800,29 @@ build_network <- function(files=list.files(path = here::here("data"),
                         center = center) |>
     visNetwork::visNodes(opacity = .5,
                          shape = shape,
-                         shadow = list(enabled=TRUE),
+                         shadow = list(enabled=TRUE,
+                                       size=10),
                          font = list(strokeWidth=20,
                                      strokeColor="rgba(255,255,255,.7)"),
                          scaling=list(max=200,
                                       label=list(min=30,
                                                  maxVisible=2000,
                                                  max=100))) |>
-    visNetwork::visEdges(color = list(opacity=.8),
+    visNetwork::visEdges(color = list(opacity=.5),
+                         width=3,
+                         # smooth = list(enabled=TRUE,
+                         #               type="continuous",
+                         #               roundness=.5
+                         #               ),
                          dashes = FALSE) |>
-    visNetwork::visExport(type = export_type)
+    visNetwork::visExport(type = export_type)|>
+    visNetwork::visOptions(height = 800,
+                           width = 1200)
   if(!is.null(save_path)){
     dir.create(dirname(save_path), showWarnings = FALSE, recursive = TRUE)
     visNetwork::visSave(graph = visnet,
                         file = save_path,
-                        background = "transparent",
+                        background = "rgba(0,0,0,0.9)",
                         selfcontained = TRUE)
   }
   if(isTRUE(show_plot)){
