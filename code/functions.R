@@ -803,26 +803,26 @@ build_network <- function(files=list.files(path = here::here("data"),
                          shadow = list(enabled=TRUE,
                                        size=10),
                          font = list(strokeWidth=20,
-                                     strokeColor="rgba(255,255,255,.7)"),
+                                     strokeColor="rgba(255,255,255,.5)"),
                          scaling=list(max=200,
                                       label=list(min=30,
                                                  maxVisible=2000,
                                                  max=100))) |>
-    visNetwork::visEdges(color = list(opacity=.5),
-                         width=3,
+    visNetwork::visEdges(color = list(opacity=.7),
+                         # width=3,
                          # smooth = list(enabled=TRUE,
                          #               type="continuous",
                          #               roundness=.5
                          #               ),
                          dashes = FALSE) |>
     visNetwork::visExport(type = export_type)|>
-    visNetwork::visOptions(height = 800,
+    visNetwork::visOptions(height = 700,
                            width = 1200)
   if(!is.null(save_path)){
     dir.create(dirname(save_path), showWarnings = FALSE, recursive = TRUE)
     visNetwork::visSave(graph = visnet,
                         file = save_path,
-                        background = "rgba(0,0,0,0.9)",
+                        background = "transparent",#"rgba(0,0,0,0.9)",
                         selfcontained = TRUE)
   }
   if(isTRUE(show_plot)){
