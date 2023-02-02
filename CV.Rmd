@@ -80,8 +80,8 @@ build_footer()
 
 Passionately pursuing multi-disciplinary research to improve human lives.
 
+### Imperial College London 
 ### PhD Candidate
-
 ### ScB, MPhil
 
 

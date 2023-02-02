@@ -97,6 +97,7 @@ build_footer <- function(add_github="https://github.com/bschilder/CV",
     },
     sep=sep
   )
+  txt <- paste0("<p style='color: rgba(0,0,0,0.5)'>",txt,"</p>")
   cat(txt)
 }
 
@@ -171,10 +172,20 @@ n_publications <- function(file=here::here("data","publications.csv"),
   nrow(dt)
 }
 
+n_posters <- function(file=here::here("data","publications.csv"),
+                           types="poster"){
+  Type <- NULL;
+  dt <- data.table::fread(file)
+  if(!is.null(types)){
+    dt <- dt[Type %in% types,]
+  }
+  nrow(dt)
+}
+
 n_grants <- function(file=here::here("data","grants.csv"),
                      types="grant",
                      roles=c("Primary applicant","Co-applicant")){
-  Type <- NULL;
+  Type <- Role <- NULL;
   dt <- data.table::fread(file)
   if(!is.null(types)){
     dt <- dt[Type %in% types,]
@@ -525,11 +536,12 @@ parse_profile <- function(file=here::here("data","profile.csv"),
   }
   txt <- lapply(seq_len(nrow(dt)), function(i){
     r <- dt[i,]
-    if(grepl("^fa",r$Icon)){
+    if(!grepl("^\\./",r$Icon)){
       paste(
-        paste0("<i class=",shQuote(r$Icon),"></i> "),
+        fontawesome::fa(r$Icon),
         if(r$Type=="phone"){
-          paste0(r$Text,": ",
+          paste0(r$Text,
+                 "<br>",
                  "<a href=",shQuote(paste0("tel:",r$Link)),">",
                  r$Link,
                  "</a>")
@@ -731,6 +743,9 @@ parse_skills <- function(file=here::here("data","skills.csv"),
   txt <- gsub("{n_publications}",
               paste0("[**",n_publications(),"**](#publications)"),
               txt, fixed=TRUE)
+  txt <- gsub("{n_posters}",
+              paste0("[**",n_posters(),"**](#posters)"),
+              txt, fixed=TRUE)
   txt <- gsub("{n_grants}",
               paste0("[**",n_grants(),"**](#grants)"),
               txt, fixed=TRUE)
@@ -894,32 +909,40 @@ build_summary <- function(items=c("years_experience_research",
                     paste(
                       icon_dict(items = "experience",
                                 as_icon = TRUE),
-                      "[",years_experience(types="research"),
-                      plus[[x]],
+                      paste0(
+                        "[",years_experience(types="research"),
+                        plus[[x]]
+                      ),
                       "years of research experience.](#experience)"
                     )
                   } else if (x=="n_publications"){
                     paste(
                       icon_dict(items = "publications",
                                 as_icon = TRUE),
-                      "[",n_publications(),
-                      plus[[x]],
+                      paste0(
+                        "[",n_publications(),
+                        plus[[x]]
+                      ),
                       "peer-reviewed publications to date.](#publications)"
                     )
                   } else if(x=="n_software"){
                     paste(
                       icon_dict(items = "software",
                                 as_icon = TRUE),
-                      "[",n_software(),
-                      plus[[x]],
+                     paste0(
+                       "[",n_software(),
+                       plus[[x]]
+                     ),
                       "bioinformatics tools developed.](#software)"
                     )
                   } else if(x=="years_experience_teaching"){
                     paste(
                       icon_dict(items = "teaching",
                                 as_icon = TRUE),
-                      "[",years_experience(types='teaching'),
-                      plus[[x]],
+                      paste0(
+                        "[",years_experience(types='teaching'),
+                        plus[[x]]
+                      ),
                       "years of teaching/supervising experience.](#teaching)"
                     )
                   }

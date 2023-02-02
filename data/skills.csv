@@ -1,7 +1,7 @@
 ﻿Type,Group,Title,Description,LevelText,Level,LevelMax
 core,Research,Summary,"{years_experience}+ years of highly multidisciplinary research experience. Creative and rapid hypothesis generation, project design, and problem solving.",,NA,10
 core,Research,Fields,"Including but not limited to: Neuroscience, systems biology, bioinformatics, machine learning, multi-omics, biomedicine, cognition, statistics, computer science, phylogenetics, paleoanthropology biomechanics, primatology, histology/microscropy. ",,9,10
-core,Research,Publications,"Strong writing skills as evidenced by {n_publications} peer-reviewed scientific publications, 17 international conference posters and {n_grants} sucessful grant applications.",,8,10
+core,Research,Publications,"Strong writing skills as evidenced by {n_publications} peer-reviewed scientific publications, {n_posters}  international conference posters and {n_grants} successful grant applications.",,8,10
 core,Programming ,Summary,Extensive experience in developing highly reproducible scripts and software packages to interrogate large and diverse data.,,NA,10
 core,Programming ,Bioinformatics,"Including but not limited to: GWAS, QTL, bulk/scRNA-seq & epigenomics, machine learning, high-performance computing, GitHub, GitHub Actions, Docker/Singularity containers, DockerHub, conda, Nextflow, reproducibility.",,8,10
 core,Programming ,R,"Created {n_rpackages} R packages to date, including on Bioconductor and CRAN. Experienced in created Shiny Apps and Rmarkdown reports.",Fluent,9,10
