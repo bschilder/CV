@@ -317,16 +317,6 @@ parse_publications <- function(file=here::here("data","publications.csv"),
   }
   txt <- lapply(seq_len(nrow(dt)), function(i){
     r <- dt[i,]
-    if(r$Type=="reviewership"){
-      paste(
-        paste("###",r$Journal),
-        r$Title,
-        "N/A",
-        "N/A",
-        ".",
-        sep = "\n\n"
-      )
-    } else {
       paste(
         paste("###",r$Title),
         paste0("*",r$Journal,"* (",r$Year,") ",
@@ -345,7 +335,6 @@ parse_publications <- function(file=here::here("data","publications.csv"),
         ),
         sep = "\n\n"
       )
-    }
   })
   cat(paste(txt, collapse ="\n\n"))
 }
