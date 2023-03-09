@@ -14,12 +14,14 @@ icon_dict <- function(items=NULL,
                                 posters="person-chalkboard",
                                 experience="suitcase",
                                 teaching="chalkboard-teacher",
-                                software="laptop",
-                                web_apps="desktop",
+                                packages="wrench",
+                                # web_apps="desktop",
                                 websites="computer",
+                                databases="database",
                                 grants="dollar",
                                 awards="award",
                                 affiliations="building-columns",
+                                data_viz="circle-nodes",
                                 extracurricular="icons"
                       ),
                       as_fa=FALSE,
@@ -59,47 +61,7 @@ icon_dict <- function(items=NULL,
   }
 }
 
-build_toc <- function(items=NULL,
-                      add_div="h4",
-                      collapse="<br>"){
-  dict <- icon_dict(items = items,
-                    as_icon = TRUE,
-                    as_toc = TRUE,
-                    collapse = collapse)
-  if(!is.null(add_div)){
-    dict <- paste0("<",add_div,">",dict,"</",add_div,">")
-  }
-  cat(dict)
-}
 
-build_footer <- function(add_github="https://github.com/bschilder/CV",
-                         add_pagedown=FALSE,
-                         add_date=TRUE,
-                         sep="<br>"){
-
-  # *This CV was made with [`pagedown`](https://github.com/rstudio/pagedown).*
-  #
-  # *Last updated: `r format(Sys.Date(),"%b-%d-%Y")`*
-  txt <- paste(
-    if(!is.null(add_github)){
-      paste0("<a href=",shQuote(add_github),">",
-             fontawesome::fa("github")," *CV source code*",
-             "</a>"
-             )
-    },
-    if(isTRUE(add_pagedown)){
-      paste0("*Made with",
-             "[`pagedown`](https://github.com/rstudio/pagedown).*")
-    },
-    if(isTRUE(add_date)){
-      paste0(fontawesome::fa("calendar"),
-             " *Updated ",format(Sys.Date(),"%b-%d-%Y"),"*")
-    },
-    sep=sep
-  )
-  txt <- paste0("<p style='color: rgba(0,0,0,0.5)'>",txt,"</p>")
-  cat(txt)
-}
 
 
 years_experience <- function(file=here::here("data","experience.csv"),
@@ -113,42 +75,46 @@ years_experience <- function(file=here::here("data","experience.csv"),
   as.integer(format(Sys.Date(),"%Y")) - min(dt$StartYear, na.rm = TRUE)
 }
 
-n_software <- function(file=here::here("data","software.csv"),
+n_tools <- function(file=here::here("data","tools.csv"),
+                    types=NULL){
+  Type <- NULL;
+  dt <- data.table::fread(file)
+  if(!is.null(types)){
+    dt <- dt[Type %in% types,]
+  }
+  nrow(dt)
+}
+
+n_packages <- function(file=here::here("data","tools.csv"),
                        types=c("package","web app")){
-  Type <- NULL;
-  dt <- data.table::fread(file)
-  if(!is.null(types)){
-    dt <- dt[Type %in% types,]
-  }
-  nrow(dt)
+  n_tools(file = file,
+                 types = types)
 }
 
-n_webapps <- function(file=here::here("data","software.csv"),
+n_webapps <- function(file=here::here("data","tools.csv"),
                       types="web app"){
-  Type <- NULL;
-  dt <- data.table::fread(file)
-  if(!is.null(types)){
-    dt <- dt[Type %in% types,]
-  }
-  nrow(dt)
+  n_tools(file = file,
+                 types = types)
 }
 
-n_websites <- function(file=here::here("data","software.csv"),
+n_websites <- function(file=here::here("data","tools.csv"),
                       types="website"){
-  Type <- NULL;
-  dt <- data.table::fread(file)
-  if(!is.null(types)){
-    dt <- dt[Type %in% types,]
-  }
-  nrow(dt)
+  n_tools(file = file,
+                 types = types)
 }
 
 n_web <- function(){
   sum(n_webapps(), n_websites(), na.rm = TRUE)
 }
 
+n_databases <- function(file=here::here("data","tools.csv"),
+                        types="database"){
+  n_tools(file = file,
+                 types = types)
+}
 
-n_rpackages <- function(file=here::here("data","software.csv"),
+
+n_rpackages <- function(file=here::here("data","tools.csv"),
                         types="package",
                         languages="R"){
   Type <- Language <- NULL;
@@ -432,6 +398,22 @@ parse_experience <- function(file=here::here("data","experience.csv"),
         parse_daterange(r=r),
         sep = "\n\n"
       )
+    } else if(r$Type=="data viz"){
+      paste(
+        paste0("### ",
+              "[",r$Position,
+              # " <img src=",shQuote(r$Link)," height='50' style='valign:top;'>",
+              "](",r$Link,")"
+              ),
+        paste0(if(not_empty(r$Institution)) r$Institution else "N/A",
+               if(not_empty(r$Department))paste0(" (",r$Department,")")
+        ),
+        parse_location(r=r),
+        parse_daterange(r=r),
+        parse_bullets(r = r,
+                      concise = concise),
+        sep = "\n\n"
+      )
     }else {
       paste(
         paste("###",r$Position),
@@ -451,7 +433,7 @@ parse_experience <- function(file=here::here("data","experience.csv"),
 
 
 
-parse_software <- function(file=here::here("data","software.csv"),
+parse_tools <- function(file=here::here("data","tools.csv"),
                            types=NULL,
                            add_index=TRUE){
   # ### Data Scientist, intern
@@ -750,6 +732,115 @@ parse_skills <- function(file=here::here("data","skills.csv"),
   cat(paste(txt,collapse = "\n\n"))
 }
 
+build_toc <- function(items=NULL,
+                      add_div="h4",
+                      collapse="<br>"){
+  dict <- icon_dict(items = items,
+                    as_icon = TRUE,
+                    as_toc = TRUE,
+                    collapse = collapse)
+  if(!is.null(add_div)){
+    dict <- paste0("<",add_div,">",dict,"</",add_div,">")
+  }
+  cat(dict)
+}
+
+build_footer <- function(add_github="https://github.com/bschilder/CV",
+                         add_pagedown=FALSE,
+                         add_date=TRUE,
+                         sep="<br>"){
+
+  # *This CV was made with [`pagedown`](https://github.com/rstudio/pagedown).*
+  #
+  # *Last updated: `r format(Sys.Date(),"%b-%d-%Y")`*
+  txt <- paste(
+    if(!is.null(add_github)){
+      paste0("<a href=",shQuote(add_github),">",
+             fontawesome::fa("github")," *CV source code*",
+             "</a>"
+      )
+    },
+    if(isTRUE(add_pagedown)){
+      paste0("*Made with",
+             "[`pagedown`](https://github.com/rstudio/pagedown).*")
+    },
+    if(isTRUE(add_date)){
+      paste0(fontawesome::fa("calendar"),
+             " *Updated ",format(Sys.Date(),"%b-%d-%Y"),"*")
+    },
+    sep=sep
+  )
+  txt <- paste0("<p style='color: rgba(0,0,0,0.5)'>",txt,"</p>")
+  cat(txt)
+}
+
+build_summary <- function(items=c("years_experience_research",
+                                  "n_publications",
+                                  "n_tools",
+                                  "years_experience_teaching"),
+                          plus = list(years_experience_research="+",
+                                      n_publications="",
+                                      n_packages="",
+                                      years_experience_teaching="+"),
+                          collapse = "<br>"){
+  # <i class='fa fa-suitcase'></i> [`r years_experience(types="research")`+ years of research experience.](#experience)
+  # <i class='fa fa-file'></i> [`r n_publications()` peer-reviewed publications to date.](#publications)
+  # <i class='fa fa-desktop'></i> [`r n_packages()` bioinformatics tools developed.](#software)
+  # <i class='fa fa-chalkboard-teacher'></i> [`r years_experience(types = "teaching")`+ years of teaching/supervising experience.](#teaching)
+
+  res <- lapply(stats::setNames(items,items),
+                function(x){
+                  if(x=="years_experience_research"){
+                    paste(
+                      icon_dict(items = "experience",
+                                as_icon = TRUE),
+                      paste0(
+                        "[",years_experience(types="research"),
+                        plus[[x]]
+                      ),
+                      "years of research experience.](#experience)"
+                    )
+                  } else if (x=="n_publications"){
+                    paste(
+                      icon_dict(items = "publications",
+                                as_icon = TRUE),
+                      paste0(
+                        "[",n_publications(),plus[[x]],
+                        " peer-reviewed publications",
+                        " & ",n_publications(types = "preprint"),
+                        " preprints",
+                        ".](#publications)"
+                      )
+                    )
+                  } else if(x=="n_tools"){
+                    paste(
+                      icon_dict(items = "packages",
+                                as_icon = TRUE),
+                      paste0(
+                        "[",n_tools(),
+                        plus[[x]]
+                      ),
+                      "bioinformatics tools & databases developed.](#packages)"
+                    )
+                  } else if(x=="years_experience_teaching"){
+                    paste(
+                      icon_dict(items = "teaching",
+                                as_icon = TRUE),
+                      paste0(
+                        "[",years_experience(types='teaching'),
+                        plus[[x]]
+                      ),
+                      "years of teaching & supervising experience.](#teaching)"
+                    )
+                  }
+                })
+  if(!is.null(collapse)){
+    cat(paste(res,collapse = collapse))
+  } else {
+    return(res)
+  }
+}
+
 
 plot_skills <- function(file=here::here("data","skills.csv"),
                         types=NULL){
@@ -878,68 +969,5 @@ build_network <- function(files=list.files(path = here::here("data"),
 }
 
 
-build_summary <- function(items=c("years_experience_research",
-                                  "n_publications",
-                                  "n_software",
-                                  "years_experience_teaching"),
-                          plus = list(years_experience_research="+",
-                                      n_publications="",
-                                      n_software="",
-                                      years_experience_teaching="+"),
-                          collapse = "<br>"){
-  # <i class='fa fa-suitcase'></i> [`r years_experience(types="research")`+ years of research experience.](#experience)
-  # <i class='fa fa-file'></i> [`r n_publications()` peer-reviewed publications to date.](#publications)
-  # <i class='fa fa-desktop'></i> [`r n_software()` bioinformatics tools developed.](#software)
-  # <i class='fa fa-chalkboard-teacher'></i> [`r years_experience(types = "teaching")`+ years of teaching/supervising experience.](#teaching)
 
-  res <- lapply(stats::setNames(items,items),
-                function(x){
-                  if(x=="years_experience_research"){
-                    paste(
-                      icon_dict(items = "experience",
-                                as_icon = TRUE),
-                      paste0(
-                        "[",years_experience(types="research"),
-                        plus[[x]]
-                      ),
-                      "years of research experience.](#experience)"
-                    )
-                  } else if (x=="n_publications"){
-                    paste(
-                      icon_dict(items = "publications",
-                                as_icon = TRUE),
-                      paste0(
-                        "[",n_publications(),
-                        plus[[x]]
-                      ),
-                      "peer-reviewed publications to date.](#publications)"
-                    )
-                  } else if(x=="n_software"){
-                    paste(
-                      icon_dict(items = "software",
-                                as_icon = TRUE),
-                     paste0(
-                       "[",n_software(),
-                       plus[[x]]
-                     ),
-                      "bioinformatics tools developed.](#software)"
-                    )
-                  } else if(x=="years_experience_teaching"){
-                    paste(
-                      icon_dict(items = "teaching",
-                                as_icon = TRUE),
-                      paste0(
-                        "[",years_experience(types='teaching'),
-                        plus[[x]]
-                      ),
-                      "years of teaching/supervising experience.](#teaching)"
-                    )
-                  }
-                })
-  if(!is.null(collapse)){
-    cat(paste(res,collapse = collapse))
-  } else {
-    return(res)
-  }
-}
 

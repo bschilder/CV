@@ -153,22 +153,22 @@ parse_experience(types = "research")
 parse_experience(types = "teaching")
 ```
 
-## Software Packages {data-icon=`r icon_dict("software")` #software}
+## Software Packages {data-icon=`r icon_dict("packages")` #packages}
 
 ```{r}
-parse_software(types = "package")
+parse_tools(types = "package")
 ```
 
-## Web Apps {data-icon=`r icon_dict("web_apps")` #web_apps}
+## Databases / Web Apps {data-icon=`r icon_dict("databases")` #databases}
 
 ```{r}
-parse_software(types = "web app")
+parse_tools(types = c("database","web app"))
 ```
 
 ## Websites {data-icon=`r icon_dict("websites")` #websites}
 
 ```{r}
-parse_software(types = "website")
+parse_tools(types = "website")
 ```
 
 ## Grants {data-icon=`r icon_dict("grants")` #grants}
@@ -193,6 +193,12 @@ parse_profile(types = "affiliation",
               div=NULL,
               img_width = "200px",
               prefix="### ")
+```
+
+## Data Visualisation / Artwork Portfolio {data-icon=`r icon_dict("data_viz")` #data_viz}
+
+```{r}
+parse_experience(types = "data viz")
 ```
 
 ## Extracurricular Experience {data-icon=`r icon_dict("extracurricular")` #extracurricular}

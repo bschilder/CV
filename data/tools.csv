@@ -8,6 +8,7 @@ SkillNet,Creates user-specific contribution networks from GitHub Organization re
 phenomix,R package for the exploration and analysis of many genotype-phenotype datasets at once,,https://github.com/neurogenomics/phenomix ,,,FALSE,FALSE,R,package,GitHub
 MAGMA_Celltyping,Identify cell types underlying the associations found in GWAS summary statistics,"BM Schilder, AE Murphy, J Bryois, NG Skene",https://github.com/neurogenomics/MAGMA_Celltyping ,,,TRUE,TRUE,R,package,GitHub
 EWCE,Expression Weighted Celltype Enrichment,"AE Murphy, BM Schilder, NG Skene",https://github.com/NathanSkene/EWCE ,,,TRUE,TRUE,R,package,Bioconductor
+EpiArchives,Public archive for EpiCompare reports.,"BM Schilder, S Choi",https://github.com/neurogenomics/EpiArchives,,https://doi.org/10.1101/2022.07.22.501149,TRUE,TRUE,R,database,GitHub
 EpiCompare,R package for QC and benchmarking epigenetic datasets,"S Choi, BM Schilder, L Abbasova, AE Murphy, NG Skene",https://github.com/neurogenomics/EpiCompare ,,https://doi.org/10.1101/2022.07.22.501149,TRUE,TRUE,R,package,Bioconductor
 MultiEWCE,R package for analysing multiple gene lists using EWCE,"BM Schilder, B Gordon-Smith, NG Skene",https://github.com/neurogenomics/MultiEWCE ,,https://doi.org/10.1101/2023.02.13.23285820,TRUE,TRUE,R,package,GitHub
 HPOExplorer,Functions for working with the Human Phenotype Ontology data,"B Gordon-Smith, BM Schilder, NG Skene",https://github.com/neurogenomics/HPOExplorer ,,https://doi.org/10.1101/2023.02.13.23285820,TRUE,TRUE,R,package,GitHub
