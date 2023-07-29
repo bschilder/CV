@@ -195,10 +195,10 @@ parse_profile(types = "affiliation",
               prefix="### ")
 ```
 
-## Data Visualisation / Artwork Portfolio {data-icon=`r icon_dict("data_viz")` #data_viz}
+## Data Visualisation / Artwork Portfolio {data-icon=`r icon_dict("data_visualisation")` #data_visualisation}
 
 ```{r}
-parse_experience(types = "data viz")
+parse_experience(types = "data visualisation")
 ```
 
 ## Extracurricular Experience {data-icon=`r icon_dict("extracurricular")` #extracurricular}

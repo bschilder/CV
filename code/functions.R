@@ -21,13 +21,14 @@ icon_dict <- function(items=NULL,
                                 grants="dollar",
                                 awards="award",
                                 affiliations="building-columns",
-                                data_viz="circle-nodes",
+                                data_visualisation="circle-nodes",
                                 extracurricular="icons"
                       ),
                       as_fa=FALSE,
                       as_icon=FALSE,
                       as_toc=FALSE,
-                      collapse="<br>"){
+                      collapse="<br>",
+                      icon_width="12px"){
 
   # fontawesome:::alias_tbl[grepl("file",fontawesome:::alias_tbl$name),]
   if(isTRUE(as_toc) && isFALSE(as_icon)){
@@ -39,7 +40,7 @@ icon_dict <- function(items=NULL,
   }
   if(isTRUE(as_icon)){
     # dict <- lapply(dict,function(x){paste0("<i class=",shQuote(x),"></i>")})
-    dict <- lapply(dict, function(x){fontawesome::fa(x)})
+    dict <- lapply(dict, function(x){fontawesome::fa(x,width = icon_width)})
 
   }
   if(isTRUE(as_toc)){
@@ -140,6 +141,16 @@ n_publications <- function(file=here::here("data","publications.csv"),
 
 n_posters <- function(file=here::here("data","publications.csv"),
                            types="poster"){
+  Type <- NULL;
+  dt <- data.table::fread(file)
+  if(!is.null(types)){
+    dt <- dt[Type %in% types,]
+  }
+  nrow(dt)
+}
+
+n_talks <- function(file=here::here("data","talks.csv"),
+                    types=NULL){
   Type <- NULL;
   dt <- data.table::fread(file)
   if(!is.null(types)){
@@ -398,7 +409,7 @@ parse_experience <- function(file=here::here("data","experience.csv"),
         parse_daterange(r=r),
         sep = "\n\n"
       )
-    } else if(r$Type=="data viz"){
+    } else if(r$Type=="data visualisation"){
       paste(
         paste0("### ",
               "[",r$Position,
@@ -491,6 +502,7 @@ parse_profile <- function(file=here::here("data","profile.csv"),
                           collapse = "<br>",
                           div="h4",
                           img_width="100px",
+                          icon_width="12px",
                           prefix=NULL){
   # - <i class="fa fa-envelope"></i> brian_schilder@alumni.brown.edu
   # - <i class="fa fa-linkedin"></i> [LinkedIn](https://twitter.com/BMSchilder)
@@ -509,7 +521,7 @@ parse_profile <- function(file=here::here("data","profile.csv"),
     r <- dt[i,]
     if(!grepl("^\\./",r$Icon)){
       paste(
-        fontawesome::fa(r$Icon),
+        fontawesome::fa(r$Icon,width=icon_width),
         if(r$Type=="phone"){
           paste0(r$Text,
                  "<br>",
@@ -776,11 +788,17 @@ build_footer <- function(add_github="https://github.com/bschilder/CV",
 
 build_summary <- function(items=c("years_experience_research",
                                   "n_publications",
-                                  "n_tools",
+                                  "n_preprints",
+                                  "n_packages",
+                                  "n_databases",
+                                  "n_talks",
                                   "years_experience_teaching"),
                           plus = list(years_experience_research="+",
                                       n_publications="",
+                                      n_preprints="",
                                       n_packages="",
+                                      n_databases="",
+                                      n_talks="",
                                       years_experience_teaching="+"),
                           collapse = "<br>"){
   # <i class='fa fa-suitcase'></i> [`r years_experience(types="research")`+ years of research experience.](#experience)
@@ -798,7 +816,7 @@ build_summary <- function(items=c("years_experience_research",
                         "[",years_experience(types="research"),
                         plus[[x]]
                       ),
-                      "years of research experience.](#experience)"
+                      "years of research](#experience)"
                     )
                   } else if (x=="n_publications"){
                     paste(
@@ -806,21 +824,46 @@ build_summary <- function(items=c("years_experience_research",
                                 as_icon = TRUE),
                       paste0(
                         "[",n_publications(),plus[[x]],
-                        " peer-reviewed publications",
-                        " & ",n_publications(types = "preprint"),
-                        " preprints",
-                        ".](#publications)"
+                        " publications",
+                        "](#publications)"
                       )
                     )
-                  } else if(x=="n_tools"){
+                  } else if (x=="n_preprints"){
+                    paste(
+                      icon_dict(items = "preprints",
+                                as_icon = TRUE),
+                      paste0(
+                        "[",n_publications(types = "preprint"),plus[[x]],
+                        " preprints",
+                        "](#preprints)"
+                      )
+                    )
+                  } else if(x=="n_packages"){
                     paste(
                       icon_dict(items = "packages",
                                 as_icon = TRUE),
                       paste0(
-                        "[",n_tools(),
+                        "[",n_tools(types = "package"),
                         plus[[x]]
                       ),
-                      "bioinformatics tools & databases developed.](#packages)"
+                      "software packages](#packages)"
+                    )
+                  } else if(x=="n_databases"){
+                    paste(
+                      icon_dict(items = "databases",
+                                as_icon = TRUE),
+                      paste0(
+                        "[",n_tools(types = c("database","web app")),
+                        plus[[x]]
+                      ),
+                      "databases & apps](#databases)"
+                    )
+                  } else if(x=="n_talks"){
+                    paste(
+                      icon_dict(items = "conference_talks",
+                                as_icon = TRUE),
+                      "[",n_talks(),
+                      "talks](#talks)"
                     )
                   } else if(x=="years_experience_teaching"){
                     paste(
@@ -830,7 +873,7 @@ build_summary <- function(items=c("years_experience_research",
                         "[",years_experience(types='teaching'),
                         plus[[x]]
                       ),
-                      "years of teaching & supervising experience.](#teaching)"
+                      "years of teaching & team management](#teaching)"
                     )
                   }
                 })
@@ -863,9 +906,6 @@ plot_skills <- function(file=here::here("data","skills.csv"),
     ggplot2::theme_bw() +
     ggplot2::scale_fill_viridis_d(alpha = 0.8)
 }
-
-
-
 
 build_network <- function(files=list.files(path = here::here("data"),
                                            pattern = ".csv$",
@@ -968,6 +1008,187 @@ build_network <- function(files=list.files(path = here::here("data"),
   return(visnet)
 }
 
+
+search_pubmed <- function(query){
+  # query <- "'Brian Schilder'[aut] OR 'Brian M Schilder'[aut]"
+  requireNamespace("pubmedR")
+  requireNamespace("bibliometrix")
+  requireNamespace("ggplot2")
+
+  res <- pubmedR::pmQueryTotalCount(query = query)
+  D <- pubmedR::pmApiRequest(query = query,
+                             limit = res$total_count,
+                             api_key = NULL)
+  # M <- pubmedR::pmApi2df(D)
+  M2 <- bibliometrix::convert2df(file = D,
+                                 dbsource = "pubmed",
+                                 format = "api")
+  M2$ID_ <- M2$ID
+  M2$ID <- paste(M2$TI, M2$AB, M2$ID, M2$DE)
+  cs <- bibliometrix::conceptualStructure(M2,
+                                          # minDegree = 1,
+                                          # clust = 3,
+                                          field = "ID")
+
+  plot_df <- cs$docCoord |> tibble::rownames_to_column("id") |>
+    merge(M2 |> dplyr::mutate(id=tolower(SR)), by="id") |>
+    dplyr::mutate(
+      label = paste(
+        stringr::str_to_title(id),
+                             shQuote(
+        stringr::str_trunc(
+          width = 50,
+          stringr::str_to_sentence(TI)
+          )
+        ),
+        sep="\n"
+      ),
+      Cluster=factor(Cluster)
+    )
+
+  ggplot(plot_df, aes(x=dim1, y=dim2,
+                      color=Cluster,
+                      size=contrib,
+                      label=label)) +
+    geom_point(alpha=.8) +
+    scale_color_viridis_d(end = .8, option = "plasma") +
+    # geom_label() +
+    ggrepel::geom_label_repel(size=3, alpha=.8) +
+    theme_bw()
+
+  results <- bibliometrix::biblioAnalysis(M2)
+  net <- bibliometrix::biblioNetwork(M2)
+  # summary(results)
+  return(list(query=query,
+              raw=D,
+              df=M2,
+              analysis=results,
+              network=net))
+}
+
+search_pubmed_fulltext <- function(query,
+                                   target_terms=NULL){
+
+  query <- "(AUTHOR:(Brian Schilder) OR AUTHOR:(Brian M Schilder))"
+  mesh <- data.table::fread("~/Desktop/Geneshot_ontologies/data/ontologies/BioPortal/MESH.csv.gz")
+  efo <- ontoProc::getEFOOnto()
+  target_terms <- c(mesh$`Preferred Label`,
+                    unname(efo$name))|>
+    tolower()
+  library(pluralize)
+
+  res <- europepmc::epmc_search(paste(query,"OPEN_ACCESS:Y"))
+  docs <- Map(europepmc::epmc_ftxt,na.omit(res$pmcid))
+  txt <- Map(tidypmc::pmc_text, docs)
+  # metadata <- Map(tidypmc::pmc_metadata, docs) |>
+  #   data.table::rbindlist(use.names = TRUE,
+  #                         idcol = "doc_id",
+  #                         fill = TRUE)
+  # table <- Map(tidypmc::pmc_table, docs)
+  #### Collapse text ####
+  dt <- data.table::rbindlist(
+    txt,
+    use.names = TRUE,
+    idcol = "doc_id")[,list(
+      text=text |> pluralize::singularize() |>
+        tm::removePunctuation() |>
+        tm::removeNumbers() |>
+        paste(collapse = " ")
+      ),
+      by="doc_id"]
+  stp <- tidytext::get_stopwords()$word
+  #### TermDocumentMatrix ####
+  tdm <-
+    tm::DataframeSource(dt) |>
+    tm::Corpus() |>
+    tm::TermDocumentMatrix()
+  #### TF-IDF ####
+  counts <- data.table::rbindlist(
+    txt,
+    use.names = TRUE,
+    idcol = "doc_id") |>
+    tidytext::unnest_tokens(word, text) |>
+    subset(!word %in% stp) |>
+    dplyr::count(doc_id, word, sort = TRUE)
+  if(is.null(target_terms)){
+    target_terms <- counts$word
+  }
+  tfidf_target <- tidytext::bind_tf_idf(counts,
+                                 term = "word",
+                                 document = "doc_id",
+                                 n = "n") |>
+    dplyr::mutate(len=nchar(word)) |>
+    dplyr::mutate(word=pluralize:::singularize(word)) |>
+    subset(word %in% target_terms) |>
+    subset(len > 2) |>
+    dplyr::group_by(word) |>
+    dplyr::summarise(n=sum(n),
+                     tf_idf=mean(tf_idf)) |>
+    dplyr::arrange(dplyr::desc(tf_idf))
+  #### Compute term-term co-occurence ####
+  X <- as.matrix(tdm[rownames(tdm) %in% head(tfidf_target$word,10000),])
+  X_cor <- cor(t(X))
+  X_cor <- X_cor + abs(min(X_cor, na.rm = TRUE))
+  diag(X_cor) <- NA
+  g <- tidygraph::as_tbl_graph(X_cor) |>
+    tidygraph::activate(what = "edges")
+  g <- g |>
+    tidygraph::filter(weight>rev(
+      quantile(data.frame(g)$weight,
+               na.rm = TRUE,
+               seq(0, 1, 0.1)
+      )
+    )[2]) |>
+  tidygraph::filter(!is.na(weight))
+  g <- g |> tidygraph::activate(what = "nodes")
+  pal <- colorRamp2::colorRamp2(breaks = quantile(igraph::harmonic_centrality(g),
+                                                  probs = seq(0,1,length.out=1000)),
+                                colors = pals::viridis(1000),
+                                transparency = .75)
+  igraph::V(g)$color <- pal(igraph::harmonic_centrality(g))
+  igraph::V(g)$value <- igraph::harmonic_centrality(g)^3
+  # plot(g)
+  vn <- visNetwork::visIgraph(g,
+                        randomSeed = 2023,
+                        # layout = "layout_with_kk"
+                        ) |>
+    visNetwork::visEdges(arrows = list(enable=FALSE))
+  methods::show(vn)
+  #### Return ####
+  return(
+    list(documents=dt,
+         tfidf_target=tfidf_target,
+         graph=g,
+         plot=vn
+         )
+  )
+
+  #### UMAP of documents ####
+  # X_tfidf <- tidytext::cast_sparse(tfidf,
+  #                                  row = "doc_id",
+  #                                  column = "word",
+  #                                  value = "tf_idf")
+  # obj <- scKirby::process_seurat(obj = X_tfidf)
+  # mod <- uwot::umap(as.matrix(X_tfidf),
+  #                   n_neighbors = nrow(X_tfidf)-1)
+  # umap_df <- merge(
+  #  metadata,
+  #  data.table::as.data.table(
+  #    mod |> `colnames<-`(paste0("UMAP",seq_len(ncol(mod)))),
+  #    keep.rownames = "doc_id"
+  #  ))
+  #
+  # ggplot(umap_df, aes(x=UMAP1, y=UMAP2,
+  #                     # color=Cluster,
+  #                     # size=contrib,
+  #                     label=stringr::str_wrap(Title,50))) +
+  #   geom_point(alpha=.8) +
+  #   scale_color_viridis_d(end = .8, option = "plasma") +
+  #   # geom_label() +
+  #   ggrepel::geom_label_repel(
+  #     size=3, alpha=.8, max.overlaps = 30) +
+  #   theme_bw()
+}
 
 
 

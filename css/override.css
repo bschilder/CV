@@ -7,21 +7,24 @@
   --pagedjs-margin-top: 0.4in;
   --pagedjs-margin-bottom: 0.2in;
 }
-
+:root{
+  --color1: rgba(162,226,226,1);
+  --color2: rgba(72,115,203,1);
+}
 :root{
   --sidebar-width: 12rem; /* side bar width */
-  --sidebar-background-color: rgba(162,226,226,1);
-  --decorator-border: 2px solid rgba(162,226,226,1); /* change color and thickness of timeline */
+  --sidebar-background-color: var(--color1);
+  --decorator-border: 2px solid var(--color1); /* change color and thickness of timeline */
 
 }
 .aside{
   top: 0;
   padding-top: 0px;
-  margin-top: -10px;
+  margin-top: -43px;
 }
 
 .decorator::after{
-  background-color: rgba(162,226,226); /* change color timeline dots */
+  background-color: var(--color1); /* change color timeline dots */
 
 }
 
@@ -32,7 +35,7 @@ body{
 }
 
 a{
-  color: rgba(72,115,203,1);
+  color: var(--color2);
 }
 
 h2{
@@ -61,7 +64,7 @@ h2{
     padding-bottom: 40px;
     padding-right: -40px;
     color: white;
-    font-weight: 400;
+    font-weight: 350;
     text-shadow: 2px 4px 4px rgba(72,115,203,1);
     -webkit-print-color-adjust:exact;
     -webkit-filter:opacity(1);
@@ -73,7 +76,7 @@ h2{
     padding-bottom: 40px;
     padding-right: -40px;
     color: white;
-    font-weight: 400;
+    font-weight: 350;
     text-shadow: 2px 4px 4px rgba(72,115,203,1);
     -webkit-print-color-adjust:exact;
     -webkit-filter:opacity(1);
