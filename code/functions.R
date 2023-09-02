@@ -585,8 +585,6 @@ parse_grants_totals <- function(dt){
 parse_grants <- function(file=here::here("data","grants.csv"),
                          types=NULL,
                          add_totals=FALSE){
-  # devoptera::args2vars(parse_grants,  run_source_all = FALSE)
-
   # ### ###Imperial UK Research Institute Impact Acceleration Account
   #
   # SupStat Inc.
@@ -644,7 +642,7 @@ parse_grants <- function(file=here::here("data","grants.csv"),
           sep = ",<br>"
         )|> gsub(pattern="^[,<br>]",replacement="",)
       ),
-      if(not_empty(r$Project))paste0("**Project**: ",shQuote(r$Project)),
+      if(not_empty(r$Project))paste0("**Project**: ",shQuote(r$Project)) else "N/A",
       "N/A",
       parse_daterange(r=r),
       paste(
