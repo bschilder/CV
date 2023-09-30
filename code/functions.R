@@ -62,6 +62,20 @@ icon_dict <- function(items=NULL,
   }
 }
 
+icon_sub <- function(text){
+  # txt <- "berjbgnerg @[file-text] 3gemrg @[book]"
+  sapply(text, function(txt){
+    splt <- strsplit(txt," ")[[1]]
+    tags <- grep("^@\\[*.*\\]",splt, value = TRUE)
+    if(length(tags)>0){
+      for(tag in tags){
+        icon <- gsub("@|\\[|\\]","",tag)
+        txt <- gsub(tag,fontawesome::fa(icon),txt, fixed = TRUE)
+      }
+    }
+    return(txt)
+  })
+}
 
 
 
@@ -117,14 +131,15 @@ n_databases <- function(file=here::here("data","tools.csv"),
 
 n_rpackages <- function(file=here::here("data","tools.csv"),
                         types="package",
-                        languages="R"){
+                        languages=c("^R$","^R,*")){
   Type <- Language <- NULL;
   dt <- data.table::fread(file)
   if(!is.null(types)){
     dt <- dt[Type %in% types,]
   }
+  # languages <- strsplit(languages,",")[[1]]
   if(!is.null(languages)){
-    dt <- dt[Language %in% languages,]
+    dt <- dt[grepl(paste(languages,collapse = "|"),Language),]
   }
   nrow(dt)
 }
@@ -209,11 +224,16 @@ parse_daterange <- function(r){
 }
 
 parse_bullets <- function(r,
-                          concise=FALSE){
+                          concise=FALSE,
+                          check_icons=TRUE){
 
   bullet_cols <- grep("Bullet_",names(r), value = TRUE)
   bullets <- as.list(r[,bullet_cols,with=FALSE])
   bullets <- bullets[bullets!="" & !is.na(bullets)]
+  if(length(bullets)==0) return(NULL)
+  if(isTRUE(check_icons)){
+    bullets <- icon_sub(text = bullets)
+  }
   paste0(if(isTRUE(concise))"::: concise\n",
          paste("-",bullets, collapse = "\n"),
          if(isTRUE(concise))"\n:::"
@@ -248,7 +268,8 @@ icon_link <- function(link,
 }
 
 
-parse_education <- function(file=here::here("data","education.csv")){
+parse_education <- function(file=here::here("data","education.csv"),
+                            concise=FALSE){
   # ### Beijing University of Chemical Technology
   #
   # B.S. in Information and Computing Sciences
@@ -267,7 +288,14 @@ parse_education <- function(file=here::here("data","education.csv")){
       paste0("**",r$Degree,"**: ",r$Program,"; ",r$Focus),
       parse_location(r=r),
       r$EndYear,
+      paste(
+        if(r$Supervisors!="") paste("**Supervisors**:",r$Supervisors),
+        # if(r$Group!="") r$Group,
+        sep = "; "
+      ),
       if(r$Thesis!="") paste("**Thesis**:",r$Thesis),
+      parse_bullets(r = r,
+                    concise = concise),
       sep = "\n\n"
     )
   }) |> paste(collapse ="\n\n")
@@ -443,10 +471,53 @@ parse_experience <- function(file=here::here("data","experience.csv"),
 }
 
 
+get_img <- function(name,
+                    dir=here::here("images"),
+                    width=NULL,
+                    height=NULL,
+                    as_html=TRUE,
+                    collapse=" "){
+
+  #### Create img dict ####
+  files <- list.files(dir, full.names = TRUE)
+  img_dict <- stats::setNames(files,nm = basename(files))
+  img_dict <- c(img_dict,
+    stats::setNames(
+      files,
+      stringr::str_split(basename(files),"\\.",
+                         simplify = TRUE, n = 2)[,1])
+    )
+  #### Iterate over names ####
+  name <- trimws(strsplit(name,",")[[1]])
+  sapply(name, function(nm){
+    #### Get file path ####
+    if(nm %in% names(img_dict)){
+      f <- img_dict[nm]
+    } else {
+      f <- file.path(dir,nm)
+    }
+    #### Check file exists ####
+    if(file.exists(f)){
+      if(isTRUE(as_html)){
+        return(paste0("<img src=",shQuote(f),
+                      if(!is.null(width))"width=",shQuote(width),
+                      if(!is.null(height))"height=",shQuote(height),
+                      " alt=",shQuote(nm),
+                      ">"))
+      } else {
+        return(f)
+      }
+    } else {
+      warning("File does not exist: ",shQuote(f))
+      return(NULL)
+    }
+  }) |> paste(collapse = collapse)
+}
 
 parse_tools <- function(file=here::here("data","tools.csv"),
-                           types=NULL,
-                           add_index=TRUE){
+                        types=NULL,
+                        add_index=TRUE,
+                        add_logos=TRUE){
   # ### Data Scientist, intern
   #
   # SupStat Inc.
@@ -469,7 +540,12 @@ parse_tools <- function(file=here::here("data","tools.csv"),
   txt <- lapply(seq_len(nrow(dt)), function(i){
     r <- dt[i,]
     paste(
-      paste("###",r$Name),
+      paste("###",r$Name,
+            if(isTRUE(add_logos)){
+              get_img(name = r$Language,
+                      height="15px")
+            }
+              ),
       paste(
         r$Title,
         if(not_empty(r$GitHub)){
@@ -494,6 +570,20 @@ parse_tools <- function(file=here::here("data","tools.csv"),
   cat(paste(txt, collapse ="\n\n"))
 }
 
+create_img_link <- function(link,
+                            img,
+                            alt=NULL,
+                            width,
+                            class="image"){
+  paste0(
+    "<a href=",shQuote(link),
+    " target='_blank'",
+    " class=",shQuote(class),">",
+    "<img src=",shQuote(img),"alt=",shQuote(alt),
+    "width=",shQuote(width),">",
+    "</a>"
+  )
+}
 
 parse_profile <- function(file=here::here("data","profile.csv"),
                           types=NULL,
@@ -537,10 +627,11 @@ parse_profile <- function(file=here::here("data","profile.csv"),
     } else {
       paste0(
         prefix,
-        "<a href=",shQuote(r$Link)," target='_blank' class='affiliate'>",
-        "<img src=",shQuote(r$Icon),"alt=",shQuote(r$Text),
-        "width=",shQuote(img_width),">",
-        "</a>",
+        create_img_link(link = r$Link,
+                        img = r$Icon,
+                        alt = r$Text,
+                        width = img_width,
+                        class = "affiliate"),
         sep,
         "\n",
         parse_bullets(r = r, concise = concise),
