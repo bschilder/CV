@@ -62,6 +62,7 @@ icon_dict <- function(items=NULL,
   }
 }
 
+
 icon_sub <- function(text){
   # txt <- "berjbgnerg @[file-text] 3gemrg @[book]"
   sapply(text, function(txt){
@@ -78,6 +79,51 @@ icon_sub <- function(text){
 }
 
 
+
+get_img <- function(name,
+                    dir=here::here("images"),
+                    width=NULL,
+                    height=NULL,
+                    as_html=TRUE,
+                    style=NULL,
+                    collapse=" "){
+
+  #### Create img dict ####
+  files <- list.files(dir, full.names = TRUE)
+  img_dict <- stats::setNames(files,nm = basename(files))
+  img_dict <- c(img_dict,
+                stats::setNames(
+                  files,
+                  stringr::str_split(basename(files),"\\.",
+                                     simplify = TRUE, n = 2)[,1])
+  )
+  #### Iterate over names ####
+  name <- trimws(strsplit(name,",")[[1]])
+  sapply(name, function(nm){
+    #### Get file path ####
+    if(nm %in% names(img_dict)){
+      f <- img_dict[nm]
+    } else {
+      f <- file.path(dir,nm)
+    }
+    #### Check file exists ####
+    if(file.exists(f)){
+      if(isTRUE(as_html)){
+        return(paste0("<img src=",shQuote(f),
+                      if(!is.null(width))paste0("width=",shQuote(width)),
+                      if(!is.null(height))paste0("height=",shQuote(height)),
+                      if(!is.null(style))paste0("style=",shQuote(style)),
+                      " alt=",shQuote(nm),
+                      ">"))
+      } else {
+        return(f)
+      }
+    } else {
+      warning("File does not exist: ",shQuote(f))
+      return(NULL)
+    }
+  }) |> paste(collapse = collapse)
+}
 
 years_experience <- function(file=here::here("data","experience.csv"),
                              types="research"){
@@ -284,7 +330,12 @@ parse_education <- function(file=here::here("data","education.csv"),
   txt <- lapply(seq_len(nrow(dt)), function(i){
     r <- dt[i,]
     paste(
-      paste0("### ",r$Institution),
+      paste("### ",
+             if(r$Logo!="") get_img(name = r$Logo,
+                                    height = "30px",
+                                    style="border-radius: 3px"),
+             r$Institution
+             ),
       paste0("**",r$Degree,"**: ",r$Program,"; ",r$Focus),
       parse_location(r=r),
       r$EndYear,
@@ -471,48 +522,6 @@ parse_experience <- function(file=here::here("data","experience.csv"),
 }
 
 
-get_img <- function(name,
-                    dir=here::here("images"),
-                    width=NULL,
-                    height=NULL,
-                    as_html=TRUE,
-                    collapse=" "){
-
-  #### Create img dict ####
-  files <- list.files(dir, full.names = TRUE)
-  img_dict <- stats::setNames(files,nm = basename(files))
-  img_dict <- c(img_dict,
-    stats::setNames(
-      files,
-      stringr::str_split(basename(files),"\\.",
-                         simplify = TRUE, n = 2)[,1])
-    )
-  #### Iterate over names ####
-  name <- trimws(strsplit(name,",")[[1]])
-  sapply(name, function(nm){
-    #### Get file path ####
-    if(nm %in% names(img_dict)){
-      f <- img_dict[nm]
-    } else {
-      f <- file.path(dir,nm)
-    }
-    #### Check file exists ####
-    if(file.exists(f)){
-      if(isTRUE(as_html)){
-        return(paste0("<img src=",shQuote(f),
-                      if(!is.null(width))"width=",shQuote(width),
-                      if(!is.null(height))"height=",shQuote(height),
-                      " alt=",shQuote(nm),
-                      ">"))
-      } else {
-        return(f)
-      }
-    } else {
-      warning("File does not exist: ",shQuote(f))
-      return(NULL)
-    }
-  }) |> paste(collapse = collapse)
-}
 
 parse_tools <- function(file=here::here("data","tools.csv"),
                         types=NULL,

@@ -191,7 +191,7 @@ parse_profile(types = "affiliation",
               sep = "\n\n",
               collapse = "\n\n",
               div=NULL,
-              img_width = "200px",
+              img_width = "150px",
               prefix="### ")
 ```
 

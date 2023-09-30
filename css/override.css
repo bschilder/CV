@@ -24,7 +24,8 @@
 }
 
 .decorator::after{
-  background-color: var(--color1); /* change color timeline dots */
+  background-color: var(--color2); /* change color timeline dots */
+  opacity: .7;
 
 }
 
