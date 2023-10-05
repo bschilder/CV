@@ -9,6 +9,7 @@ icon_dict <- function(items=NULL,
                                 preprints="file-edit",
                                 acknowledgements="file",
                                 reviewerships="file",
+                                internal_talks="person-chalkboard",
                                 invited_talks="person-chalkboard",
                                 conference_talks="person-chalkboard",
                                 posters="person-chalkboard",
@@ -784,7 +785,7 @@ build_skill_bars <- function(percent,
 parse_skills <- function(file=here::here("data","skills.csv"),
                          types=NULL){
 
-  Title <- Type <- Level <- LevelMax <- Percent <- NULL;
+  Title <- Type <- Level <- LevelMax <- Percent <- Group <- NULL;
   dt <- data.table::fread(file)
   dt <- dt[,Percent:=round(100*Level/LevelMax)]
   if(!is.null(types)){
@@ -821,7 +822,7 @@ parse_skills <- function(file=here::here("data","skills.csv"),
               paste0("[**",years_experience(),"**](#experience)"),
               txt, fixed=TRUE)
   txt <- gsub("{n_rpackages}",
-              paste0("[**",n_rpackages(),"**](#software)"),
+              paste0("[**",n_rpackages(),"**](#packages)"),
               txt, fixed=TRUE)
   txt <- gsub("{n_publications}",
               paste0("[**",n_publications(),"**](#publications)"),
@@ -836,10 +837,10 @@ parse_skills <- function(file=here::here("data","skills.csv"),
               paste0("[**",n_websites(),"**](#websites)"),
               txt, fixed=TRUE)
   txt <- gsub("{n_webapps}",
-              paste0("[**",n_webapps(),"**](#webapps)"),
+              paste0("[**",n_webapps(),"**](#databases)"),
               txt, fixed=TRUE)
   txt <- gsub("{n_web}",
-              paste0("[**",n_web(),"**](#webapps)"),
+              paste0("[**",n_web(),"**](#databases)"),
               txt, fixed=TRUE)
   cat(paste(txt,collapse = "\n\n"))
 }

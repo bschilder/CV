@@ -122,6 +122,12 @@ parse_publications(types = "acknowledgement")
 parse_publications(types = "reviewership")
 ```
 
+## Internal Talks {data-icon=`r icon_dict("posters")` #internal_talks}
+
+```{r}
+parse_talks(types = "internal")
+```
+
 ## Invited Talks {data-icon=`r icon_dict("posters")` #invited_talks}
 
 ```{r}
