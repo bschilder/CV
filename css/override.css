@@ -40,12 +40,12 @@ a{
 }
 
 h2{
-    display: inline-block;
+    /*display: inline-block;*/
     height: 100%;
     vertical-align: bottom;
 }
 #header_img {
-    vertical-align: bottom;
+    vertical-align: middle;
     max-width: 160px;
 }
 

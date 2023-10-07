@@ -1,33 +1,28 @@
 ---
-title: "Brian_M_Schilder_CV"
-author: Brian M. Schilder
+title: autoCV
+author: autoCV
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
     # set it to true for a self-contained HTML page but it'll take longer to render
     css: 
-      - css/override.css # OVERIDE CERTAIN FUNCTIONS OF CSS
-      - resume # DEFAULT FILE
+      # OVERIDE CERTAIN FUNCTIONS OF CSS
+      - css/override.css
+      # - !expr autoCV::get_css()
+      # DEFAULT FILE
+      - resume 
 # uncomment this line to produce HTML and PDF in RStudio:
 # knit: pagedown::chrome_print
 ---
 
 ```{r setup, include=FALSE}
-source(here::here("code","functions.R"))
 knitr::opts_chunk$set(
   results='asis', 
   echo = FALSE
 )
 htmltools::tagList(fontawesome::fa_html_dependency())
+library(autoCV) 
 ```
-
-<!-- Tutorial:  https://towardsdatascience.com/create-your-resume-with-pagedown-package-in-r-123ca6310d52 -->
-<!-- pagedown Issues: https://github.com/rstudio/pagedown/issues -->
-<!-- pagedown, embedding htmlwidgets: https://github.com/rstudio/pagedown/issues/76 -->
-<!-- datadrivencv package: https://github.com/nstrayer/datadrivencv -->
-<!-- textnets vignette: https://sicss.io/2020/materials/day3-text-analysis/text-networks/rmarkdown/Text_Networks.html -->
-<!-- font awesome version issues: https://github.com/rstudio/rmarkdown/issues/2276 -->
-<!-- add page numbers: https://github.com/rstudio/pagedown/issues/98 -->
 
 <!-- Only show sidebar on first page: https://github.com/rstudio/pagedown/issues/147 -->
 ```{css, echo=FALSE} 
@@ -39,13 +34,33 @@ htmltools::tagList(fontawesome::fa_html_dependency())
 }
 ```
 
+<!-- Custom Info -->
+```{r}
+ ####Set your working directory ####
+# wd <- autoCV::get_data() ## <-- Change this path to where your data is
+# knitr::opts_knit$set(root.dir = wd)
+
+ ####Set title elements ####
+name <- "Brian M. Schilder"
+tagline <- "Passionately pursuing multi-disciplinary research to improve human lives."
+extra <- list("### Imperial College London, UK Dementia Research Institute",
+              "### PhD Student",
+              "### ScB, MPhil"
+              )  
+logo <- get_logo(
+  img = here::here("network/visnetwork.png"), 
+                 link = "https://bschilder.github.io/CV/network/visnetwork.html",
+  style = "border-radius:30%; margin-left:-15px; opacity:.7",
+  width = "60px"
+  )
+```
+
+
 # Aside 
 
-```{r, warning=FALSE, message=FALSE}
-# visnet <- build_network(show_plot = FALSE,
-#                         save_path = here::here("network","visnetwork.html"))
-# visNetwork::renderVisNetwork(visnet)
-# htmltools::includeHTML("https://bschilder.github.io/CV/network/visnetwork.html")
+```{r, warning=FALSE, message=FALSE, eval=FALSE}
+visnet <- build_network(show_plot = FALSE,
+                        save_path = here::here("network","visnetwork.html"))
 ```
 
 ## Contact {#contact}
@@ -76,13 +91,13 @@ build_footer()
 
 # Main
 
-## Brian M. Schilder <a href="https://bschilder.github.io/CV/network/visnetwork.html" target="_blank"><img id='header_img' src='./network/visnetwork.png' width='10%' style='border-radius:5%'></a> {#title}
-
-Passionately pursuing multi-disciplinary research to improve human lives.
-
-### Imperial College London 
-### PhD Candidate
-### ScB, MPhil
+```{r}
+build_title(name = name,
+            tagline = tagline,
+            extra = extra, 
+            logo = logo, 
+            logo_position = "left")
+```
 
 
 ## Education {data-icon=`r icon_dict("education")` data-concise="true" #education}
@@ -196,9 +211,9 @@ parse_grants(types = "award")
 parse_profile(types = "affiliation", 
               sep = "\n\n",
               collapse = "\n\n",
-              div=NULL,
+              div = NULL,
               img_width = "150px",
-              prefix="### ")
+              prefix = "### ")
 ```
 
 ## Data Visualisation / Artwork Portfolio {data-icon=`r icon_dict("data_visualisation")` #data_visualisation}
