@@ -42,10 +42,10 @@ library(autoCV)
 
 ####Set title elements ####
 name <- "Brian M. Schilder"
-tagline <- "Passionately pursuing multi-disciplinary research to improve human lives."
+tagline <- "Passionately pursuing transdisciplinary research to advance human health and knowledge."
 extra <- list("### Imperial College London, UK Dementia Research Institute",
               "### PhD Student",
-              "### ScB, MPhil"
+              "### MPhil, ScB"
               )  
 logo <- get_logo(
   img = here::here("network/visnetwork.png"), 
