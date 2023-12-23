@@ -44,6 +44,7 @@ library(autoCV)
 name <- "Brian M. Schilder"
 tagline <- "Passionately pursuing transdisciplinary research to advance human health and knowledge."
 extra <- list("### Imperial College London, UK Dementia Research Institute",
+              "### Chair of the Bioconductor Cloud Methods Working Group",
               "### PhD Student",
               "### MPhil, ScB"
               )  
