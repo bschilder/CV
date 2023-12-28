@@ -58,6 +58,14 @@ h2{
   padding-top: 10px;
 }
 
+#aside {
+  margin-top: 10px;
+}
+#aside .section {
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
 /*Add page number to the bottom left of the left and right pages */
 @page :left {
   @bottom-right {
