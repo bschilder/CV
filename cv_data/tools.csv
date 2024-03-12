@@ -1,5 +1,5 @@
 ﻿Name,Title,Authors,GitHub,Link,PaperLink,Released,OpenSource,Language,Type,Distribution
-MultiEWCE,"Systematically identify, prioritise and visualise cell-type-specific gene therapy targets across the phenome.","BM Schilder, B Gordon-Smith, NG Skene",https://github.com/neurogenomics/MultiEWCE ,,https://doi.org/10.1101/2023.02.13.23285820,TRUE,TRUE,R,package,GitHub
+MSTExplorer,"Multi-Scale Targets Explorer: Systematically identify, prioritise and visualise cell-type-specific gene therapy targets across the phenome.","BM Schilder, B Gordon-Smith, NG Skene",https://github.com/neurogenomics/MSTExplorer ,,https://doi.org/10.1101/2023.02.13.23285820,TRUE,TRUE,R,package,GitHub
 HPOExplorer,"Import, annotate and visualise the 18k+ hierarchically structured clinical phenotypes across the Human Phenotype Ontology.","BM Schilder, B Gordon-Smith, NG Skene",https://github.com/neurogenomics/HPOExplorer ,,https://doi.org/10.1101/2023.02.13.23285820,TRUE,TRUE,R,package,GitHub
 KGExplorer,"Query, construct, and analyse large-scale biomedical knowledge graphs and ontologies.",BM Schilder,https://github.com/neurogenomics/KGExplorer,,,TRUE,TRUE,"R, Python",package,GitHub
 autoCV,Automatically generate and style your CV from tables.,BM Schilder,https://github.com/bschilder/autoCV,,,TRUE,TRUE,"R, HTML, CSS, JavaScript",package,GitHub
