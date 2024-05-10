@@ -4,6 +4,7 @@ author: autoCV
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
+    # keep_md: yes
     # set it to true for a self-contained HTML page but it'll take longer to render
     css: 
       # OVERIDE CERTAIN FUNCTIONS OF CSS
@@ -12,7 +13,7 @@ output:
       # DEFAULT FILE
       - resume 
 # uncomment this line to produce HTML and PDF in RStudio:
-# knit: pagedown::chrome_print
+knit: pagedown::chrome_print
 ---
 
 ```{r setup, include=FALSE}
@@ -43,8 +44,7 @@ library(autoCV)
 ####Set title elements ####
 name <- "Brian M. Schilder"
 tagline <- "Passionately pursuing transdisciplinary research to advance human health and knowledge."
-extra <- list("### Imperial College London, UK Dementia Research Institute",
-              "### Chair of the Bioconductor Cloud Methods Working Group",
+extra <- list("### Imperial College London",
               "### PhD Student",
               "### MPhil, ScB"
               )  

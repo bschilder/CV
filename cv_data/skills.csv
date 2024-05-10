@@ -5,7 +5,7 @@ core,Research,Publications,"Strong writing skills as evidenced by {n_publication
 core,Programming ,Summary,Extensive experience in developing highly reproducible scripts and software packages to interrogate large and diverse data.,,NA,10
 core,Programming ,Bioinformatics,"Including but not limited to: GWAS/QTL, bulk/single-cell genomics/ transcriptomics/ epigenomics/ multiomics, ontologies, knowledge graphs/ networks electronic health records, bibliometrics, machine learning/ AI, high-performance computing.",,8,10
 core,Programming ,R,"Created {n_rpackages} R packages to date, including on Bioconductor and CRAN. Experienced in created Shiny Apps and Rmarkdown reports.",Fluent,9,10
-core,Programming ,Python,"Regularly uses ML packages (e.g. sklearn, tensorflow, Keras). Developed proprietary [Python suite](#experience) for topic modelling/NLP on scientific literature to provide business intelligence.",Proficient,7,10
+core,Programming ,Python,"Experience using and developing ML/AI models (e.g. pytorch, tensorflow, Keras, sklearn). Developed proprietary [Python suite](#experience) for topic modelling/NLP on scientific literature to provide business intelligence.",Proficient,7,10
 core,Programming ,Javascript/HTML/CSS,"Created {n_web}+ websites, web apps, and interactive reports. Developed templates to automatically render websites on-the-fly from CSVs using Javascript.",Proficient,7,10
 core,Communication,Summary,Effective and engaging scientific presentations to a variety of audiences.,,NA,10
 core,Communication,Peers,"Extensive experience presenting research proposals/findings to both internal and external labs/conferences. Invited speaker at leading research institutions. Diverse, multi-disciplinary and global collaborative network.",,8,10
