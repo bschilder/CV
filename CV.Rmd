@@ -1,5 +1,5 @@
 ---
-title: autoCV
+title: Brian M. Schilder - CV
 author: autoCV
 date: "`r Sys.Date()`"
 output:
@@ -13,7 +13,7 @@ output:
       # DEFAULT FILE
       - resume 
 # uncomment this line to produce HTML and PDF in RStudio:
-knit: pagedown::chrome_print
+# knit: pagedown::chrome_print
 ---
 
 ```{r setup, include=FALSE}
