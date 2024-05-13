@@ -5,7 +5,7 @@ core,Research,Reproducibility,Global leader in promoting and enabling reproducib
 core,Research,Bioinformatics,Created {n_packages} Python and R packages to address key challenges in biological research. ,,,
 core,Research,High-performance computing,Highly parallelised anayses and AI model training (CPUs and GPUs).,,,
 core,Research,Web development,"{n_web}+ websites, web apps, and interactive reports.",,,
-core,AI & Machine Learning,Summary,"Proficient in developing and deploying  AI/Ml models (PyTorch, tensorflow, Keras and sklearn) to  solve complex biological problems. Applied examples include:",,,
+core,AI & Machine Learning,Summary,"Proficient in developing and deploying  AI/Ml models (PyTorch, tensorflow, Keras, sklearn and H2O) to  solve complex biological problems. Applied examples include:",,,
 core,AI & Machine Learning,Causal variant prediction,"Used functional impact predictions from DNA sequence models (DeepSEA, Basenji, IMPACT) to validate SNPs prioritised with Bayesian fine-mapping.   [ @[file-text] ](https://doi.org/10.1093/hmg/ddab294)",,7,10
 core,AI & Machine Learning,Single-cell omics,"Used autoencoders that take RNA expression and ESM protein embeddings (SATURN, CellBLAST) to integrate and embed scRNA-seq atlases from multiple species.",,7,10
 core,AI & Machine Learning,LLM knowledge extraction,Developed a framework to extract quantitative metrics of phenotype severity from GPT-4. [ @[file-text] ](https://www.medrxiv.org/content/10.1101/2023.02.13.23285820v1),,8,10
