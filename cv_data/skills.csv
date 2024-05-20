@@ -25,12 +25,12 @@ field,Neuroscience,Development,,,2,10
 field,Neuroscience,Memory,,,5,10
 field,Neuroscience,Imaging,,,2,10
 field,Neuroscience,Histology,,,3,10
-field,Medicine,Ontologies,,,9,10
+field,Medicine,Ontologies,,,10,10
 field,Medicine,Therapeutics,,,4,10
 field,Medicine,Diagnosis,,,3,10
 field,Medicine,Prognosis,,,2,10
-field,Medicine,Translation,,,4,10
-field,Medicine,EHRs,,,2,10
+field,Medicine,Translation,,,5,10
+field,Medicine,EHR,,,1,10
 field,Genomics,Single-cell transcriptomics,,,10,10
 field,Genomics,Single-cell epigenomics,,,10,10
 field,Genomics,GWAS,,,10,10
@@ -55,6 +55,6 @@ field,Computer Science,GitHub,,,6,10
 field,Computer Science,Databases,,,3,10
 field,Computer Science,High-performance computing,,,5,10
 field,Evolution,Human origins,,,3,10
-field,Evolution,Comparative biology,,,5,10
+field,Evolution,Comparative biology,,,10,10
 field,Evolution,Phylogenetics,,,3,10
 field,Evolution,Palaeontology,,,2,10
