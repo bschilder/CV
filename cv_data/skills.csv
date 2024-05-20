@@ -20,3 +20,41 @@ core,Soft skills,Summary,"Advances science through effective problem formulation
 core,Soft skills,Problem formulation,"Rapid hypothesis generation, project design, and creative problem solving. ",,8,10
 core,Soft skills,Collaboration,Diverse and global collaborative networking.,,8,10
 core,Soft skills,Communication,Clear and concise distillation of complex results to a variety of audiences. Presented {n_posters}  conference posters.,,7,10
+field,Neuroscience,Neurodegeneration,,,10,10
+field,Neuroscience,Development,,,2,10
+field,Neuroscience,Memory,,,5,10
+field,Neuroscience,Imaging,,,2,10
+field,Neuroscience,Histology,,,3,10
+field,Medicine,Ontologies,,,9,10
+field,Medicine,Therapeutics,,,4,10
+field,Medicine,Diagnosis,,,3,10
+field,Medicine,Prognosis,,,2,10
+field,Medicine,Translation,,,4,10
+field,Medicine,EHRs,,,2,10
+field,Genomics,Single-cell transcriptomics,,,10,10
+field,Genomics,Single-cell epigenomics,,,10,10
+field,Genomics,GWAS,,,10,10
+field,Genomics,QTL,,,10,10
+field,Genomics,Disease biology,,,10,10
+field,Genomics,Ethnic diversity,,,4,10
+field,Genomics,Systems biology,,,8,10
+field,AI,MLOps,,,4,10
+field,AI,NLP,,,6,10
+field,AI,Deep learning,,,7,10
+field,AI,Graph theory,,,9,10
+field,AI,Dimensionality reduction,,,10,10
+field,AI,Knowledge graphs,,,8,10
+field,AI,Causal inference,,,6,10
+field,AI,LLMs,,,6,10
+field,Computer Science,Containers,,,5,10
+field,Computer Science,Python,,,10,10
+field,Computer Science,R,,,10,10
+field,Computer Science,CI/CD,,,6,10
+field,Computer Science,HTML/CSS/JS,,,3,10
+field,Computer Science,GitHub,,,6,10
+field,Computer Science,Databases,,,3,10
+field,Computer Science,High-performance computing,,,5,10
+field,Evolution,Human origins,,,3,10
+field,Evolution,Comparative biology,,,5,10
+field,Evolution,Phylogenetics,,,3,10
+field,Evolution,Palaeontology,,,2,10

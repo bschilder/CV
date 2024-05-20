@@ -13,7 +13,7 @@ output:
       # DEFAULT FILE
       - resume 
 # uncomment this line to produce HTML and PDF in RStudio:
-# knit: pagedown::chrome_print
+knit: pagedown::chrome_print
 ---
 
 ```{r setup, include=FALSE}
@@ -107,12 +107,37 @@ build_title(name = name,
 parse_education()
 ```
 
+
 ## Core Skills {data-icon=`r icon_dict("skills")` #skills}
 
 ```{r}
-parse_skills()
+parse_skills(types = "core")
 ```
 
+\newpage
+
+## Expertise by Field {data-icon=`r icon_dict("skills")` #expertise}
+
+\
+\
+The total height of each column represents overall expertise in a given domain. 
+Rectangles are scaled to the relative level of expertise within each subdomain. 
+<hr>
+
+```{r build_skills_plot, fig.height=10, fig.width=8, out.height="50%", dpi=300}
+skills_plot_path <- here::here("network","skills_plot.png")
+skills_plot <- autoCV::build_skills_plot(show_plot = FALSE, 
+                                         types = "field",
+                                         save_path = skills_plot_path,
+                                         height=12, 
+                                         width=8, 
+                                         dpi=300
+                                         )
+```
+
+<p align="center">
+![](`r skills_plot_path`){width=80%}
+</p>
 
 ## Publications {data-icon=`r icon_dict("publications")` #publications}
 
