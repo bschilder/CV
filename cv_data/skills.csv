@@ -1,17 +1,17 @@
 ﻿Type,Group,Title,Description,LevelText,Level,LevelMax
 core,Research,Summary,"{n_years_experience}+ years of  deep expertise in a genomics, AI, evolutionary biology and biomedicine. Seamlessly fuses ideas and methods across multiple domains.",,NA,10
 core,Research,Publication record,"{n_publications}  publications, {n_preprints}  preprints and {n_grants} awarded grants.",,8,10
-core,Research,Reproducibility,Global leader in promoting and enabling reproducible scientific practices. [  @[file-text] ](https://doi.org/10.1038/s41467-023-44484-5) Writes 100% reproducible manuscripts programmatically. [  @[file-text] ](https://neurogenomics.github.io/gpt_hpo_annotations/),,,
-core,Research,Bioinformatics,Created {n_packages} Python and R packages to address key challenges in biological research. ,,,
-core,Research,High-performance computing,Highly parallelised anayses and AI model training (CPUs and GPUs).,,,
-core,Research,Web development,"{n_web}+ websites, web apps, and interactive reports.",,,
-core,AI & Machine Learning,Summary,"Proficient in developing and deploying  AI/Ml models (PyTorch, tensorflow, Keras, sklearn and H2O) to  solve complex biological problems. Applied examples include:",,,
-core,AI & Machine Learning,Causal variant prediction,"Used functional impact predictions from DNA sequence models (DeepSEA, Basenji, IMPACT) to validate SNPs prioritised with Bayesian fine-mapping.   [ @[file-text] ](https://doi.org/10.1093/hmg/ddab294)",,7,10
-core,AI & Machine Learning,Single-cell omics,"Used autoencoders that take RNA expression and ESM protein embeddings (SATURN, CellBLAST) to integrate and embed scRNA-seq atlases from multiple species.",,7,10
-core,AI & Machine Learning,LLM knowledge extraction,Developed a framework to extract quantitative metrics of phenotype severity from GPT-4. [ @[file-text] ](https://www.medrxiv.org/content/10.1101/2023.02.13.23285820v1),,8,10
-core,AI & Machine Learning,Disease genomics embeddings,Developed VAE- and graph-based dimensionality reduction models to create a joint latent representation of genome-wide signatures from all known diseases and phenotypes.,,9,10
-core,AI & Machine Learning,Topic modeling,"Created a suite of proprietary Python packages for NLP-based topic modelling of the PubMed literature to provide business intelligence to the world’s largest digital health, biotech, and pharma companies (as a consultant with [120/80 Group](https://www.12080group.com/)).",,8,10
-core,AI & Machine Learning,Collaborative AI,Uses generative AI assistants (GitHub Copilot) to accelerate and augment coding.,,8,10
+core,Research,Reproducibility,Global leader in promoting and enabling reproducible scientific practices. [  @[file-text] ](https://doi.org/10.1038/s41467-023-44484-5) Writes 100% reproducible manuscripts programmatically. [  @[file-text] ](https://neurogenomics.github.io/gpt_hpo_annotations/),,NA,
+core,Research,Bioinformatics,Created {n_packages} Python and R packages to address key challenges in biological research. ,,NA,
+core,Research,High-performance computing,Highly parallelised anayses and AI model training (CPUs and GPUs).,,NA,
+core,Research,Web development,"{n_web}+ websites, web apps, and interactive reports.",,NA,
+core,AI & Machine Learning,Summary,"Proficient in developing and deploying  AI/ML models (PyTorch, tensorflow, Keras, sklearn and H2O) to  solve complex biological problems. Applied examples include:",,NA,
+core,AI & Machine Learning,Causal variant effect prediction,"Used functional impact predictions from DNA sequence models (DeepSEA, Basenji, IMPACT) to validate SNPs prioritised with Bayesian fine-mapping.   [ @[file-text] ](https://doi.org/10.1093/hmg/ddab294)",,7,10
+core,AI & Machine Learning,Foundation models,Used transformer trained on >36M cells and protein sequence embeddings to uncover cell type-specific mechanisms of disease.,,7,10
+core,AI & Machine Learning,LLM knowledge extraction,Developed framework to extract quantitative metrics of phenotype severity from GPT-4. [ @[file-text] ](https://www.medrxiv.org/content/10.1101/2023.02.13.23285820v1),,8,10
+core,AI & Machine Learning,Disease genomics embeddings,Developed VAE/graph models to reveal joint latent representation of genomic signatures across all diseases and phenotypes.,,9,10
+core,AI & Machine Learning,NLP,"Created a suite of proprietary Python packages for advanced topic modelling of the PubMed literature to provide business intelligence to the world’s largest digital health, biotech, and pharma companies (as a consultant with [120/80 Group](https://www.12080group.com/)).",,8,10
+core,AI & Machine Learning,Tensor decomposition,Applied multi-condition factorisation to efficiently discover neurodegeneration-relevant *trans*-eQTLs [ @[file-text] ](https://doi.org/10.1371/journal.pgen.1008549),,8,10
 core,Project Management,Summary,"Efficient management strategies to define objectives, track progress and coordinate diverse teams.",,7,10
 core,Project Management,Documentation,"Defines obectives and tracks progress with GitHub Projects. Includes useful documentation in Issues, inline code and shareable reports.",,8,10
 core,Project Management,Version control,"Extensive and daily use of GitHub, containers (*Docker, Singularity, virtual machines*), environments (*conda*) and pipelines (*Nextflow*).",fluent,9,10
@@ -25,32 +25,34 @@ field,Neuroscience,Development,,,2,10
 field,Neuroscience,Memory,,,5,10
 field,Neuroscience,Imaging,,,2,10
 field,Neuroscience,Histology,,,3,10
-field,Medicine,Ontologies,,,10,10
-field,Medicine,Therapeutics,,,4,10
+field,Medicine,Biomedical ontologies,,,10,10
 field,Medicine,Diagnosis,,,3,10
 field,Medicine,Prognosis,,,2,10
 field,Medicine,Translation,,,5,10
 field,Medicine,EHR,,,1,10
-field,Genomics,Single-cell transcriptomics,,,10,10
-field,Genomics,Single-cell epigenomics,,,10,10
-field,Genomics,GWAS,,,10,10
-field,Genomics,QTL,,,10,10
-field,Genomics,Disease biology,,,10,10
+field,Medicine,Target discovery,,,6,10
+field,Medicine,Drug discovery,,,2,10
+field,Medicine,Gene therapy,,,4,10
+field,Genomics,Single-cell transcriptomics / epigenomics / multi-omics,,,10,10
+field,Genomics,GWAS / QTL,,,10,10
+field,Genomics,Rare diseases,,,10,10
+field,Genomics,Common diseases,,,10,10
+field,Genomics,Proteomics,,,9,10
 field,Genomics,Ethnic diversity,,,4,10
 field,Genomics,Systems biology,,,8,10
 field,AI,MLOps,,,4,10
 field,AI,NLP,,,6,10
 field,AI,Deep learning,,,7,10
-field,AI,Graph theory,,,9,10
-field,AI,Dimensionality reduction,,,10,10
-field,AI,Knowledge graphs,,,8,10
+field,AI,Knowledge graphs,,,9,10
+field,AI,Embeddings,,,10,10
+field,AI,Foundation models,,,8,10
 field,AI,Causal inference,,,6,10
 field,AI,LLMs,,,6,10
 field,Computer Science,Containers,,,5,10
 field,Computer Science,Python,,,10,10
 field,Computer Science,R,,,10,10
-field,Computer Science,CI/CD,,,6,10
-field,Computer Science,HTML/CSS/JS,,,3,10
+field,Computer Science,CI / CD,,,6,10
+field,Computer Science,HTML / CSS / JS / Shiny,,,3,10
 field,Computer Science,GitHub,,,6,10
 field,Computer Science,Databases,,,3,10
 field,Computer Science,High-performance computing,,,5,10

@@ -43,7 +43,7 @@ library(autoCV)
 
 ####Set title elements ####
 name <- "Brian M. Schilder"
-tagline <- "Passionately pursuing transdisciplinary research to advance human health and knowledge."
+tagline <- "##### Passionately pursuing transdisciplinary research to advance human health and knowledge."
 extra <- list("### Imperial College London",
               "### PhD Student",
               "### MPhil, ScB"
@@ -121,7 +121,7 @@ parse_skills(types = "core")
 \
 \
 The total height of each column represents overall expertise in a given domain. 
-Rectangles are scaled to the relative level of expertise within each subdomain. 
+Rectangles are colored scaled to the relative level of expertise within each subdomain. 
 <hr>
 
 ```{r build_skills_plot, fig.height=10, fig.width=8, out.height="50%", dpi=300}
@@ -129,6 +129,7 @@ skills_plot_path <- here::here("network","skills_plot.png")
 skills_plot <- autoCV::build_skills_plot(show_plot = FALSE, 
                                          types = "field",
                                          save_path = skills_plot_path,
+                                         fill_alpha = .8,
                                          height=12, 
                                          width=8, 
                                          dpi=300
