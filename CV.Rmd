@@ -120,8 +120,8 @@ parse_skills(types = "core")
 
 \
 \
-The total height of each column represents overall expertise in a given domain. 
-Rectangles are colored scaled to the relative level of expertise within each subdomain. 
+The total height of each column represents my overall expertise in a given domain. 
+The color and height of each rectangle are scaled to my relative level of expertise within each subdomain. 
 <hr>
 
 ```{r build_skills_plot, fig.height=10, fig.width=8, out.height="50%", dpi=300}
