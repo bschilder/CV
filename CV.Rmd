@@ -104,7 +104,10 @@ build_title(name = name,
 ## Education {data-icon=`r icon_dict("education")` data-concise="true" #education}
 
 ```{r}
-parse_education()
+parse_education( include=c("logo",
+                           # "supervisors",
+                           "thesis",
+                           "institution"))
 ```
 
 
