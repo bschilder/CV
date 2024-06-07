@@ -1,0 +1,148 @@
+---
+title: Brian M. Schilder - CV
+author: autoCV
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    # keep_md: yes
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    css: 
+      # OVERIDE CERTAIN FUNCTIONS OF CSS
+      - css/override.css
+      # - !expr autoCV::get_css()
+      # DEFAULT FILE
+      - resume 
+# uncomment this line to produce HTML and PDF in RStudio:
+# knit: pagedown::chrome_print
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  results='asis', 
+  echo = FALSE
+)
+htmltools::tagList(fontawesome::fa_html_dependency())
+library(autoCV) 
+```
+
+<!-- Only show sidebar on first page: https://github.com/rstudio/pagedown/issues/147 -->
+```{css, echo=FALSE} 
+.pagedjs_page:not(:first-of-type) {
+  --sidebar-width: 1rem; 
+  --main-width: calc(var(--content-width) - var(--sidebar-width));
+  --decorator-horizontal-margin: 0.2in;
+}
+```
+
+<!-- Custom Info -->
+```{r}
+####Set your working directory ####
+# wd <- autoCV::get_data() ## <-- Change this path to where your data is
+# knitr::opts_knit$set(root.dir = wd)
+
+####Set title elements ####
+name <- "Brian M. Schilder, Ph.D."
+tagline <- "### Passionately pursuing transdisciplinary research to advance human health and knowledge.
+
+*- Below are selected subsets of the [full CV. -](https://bschilder.github.io/CV/CV.pdf)*"
+extra <- list()  
+logo <- get_logo(
+  img = here::here("network/visnetwork.png"), 
+                 link = "https://bschilder.github.io/CV/network/visnetwork.html",
+  style = "border-radius:30%; margin-left:-15px; opacity:.7",
+  width = "60px"
+  )
+```
+
+
+
+# Aside 
+
+```{r, warning=FALSE, message=FALSE, eval=FALSE}
+visnet <- build_network(show_plot = FALSE,
+                        save_path = here::here("network","visnetwork.html"))
+```
+
+## Contact {#contact}
+
+```{r}
+parse_profile(types = c("email","website","phone"))
+```
+
+## Summary {#summary}
+
+<h4>  
+```{r}
+build_summary()
+```
+</h4>
+
+## Table of Contents {#toc}
+
+```{r}
+build_toc(items=c("education","skills","publications","preprints","experience","grants"))
+```
+
+<hr>
+
+```{r}
+build_footer()
+```
+
+# Main
+
+```{r}
+build_title(name = name,
+            tagline = tagline,
+            extra = extra, 
+            logo = logo, 
+            logo_position = "left")
+```
+
+
+## Education {data-icon=`r icon_dict("education")` data-concise="true" #education}
+
+```{r}
+parse_education( include=c("logo",
+                           "degree",
+                           # "program",
+                           "focus",
+                           "thesis",
+                           "institution"))
+```
+
+
+## Core Skills {data-icon=`r icon_dict("skills")` #skills}
+
+```{r}
+parse_skills(types = "core")
+```
+
+## Publications {data-icon=`r icon_dict("publications")` #publications}
+
+```{r}
+parse_publications(types = "publication",
+                   name = name)
+```
+
+## Preprints {data-icon=`r icon_dict("preprints")` #preprints}
+
+```{r}
+parse_publications(types = "preprint",
+                   name = name)
+```
+
+## Research Experience {data-icon=`r icon_dict("experience")` #experience}
+
+```{r}
+parse_experience(types = "research", 
+                 select = TRUE,
+                 concise = FALSE)
+```
+
+## Grants {data-icon=`r icon_dict("grants")` #grants}
+
+```{r}
+parse_grants(types = "NA", 
+             add_totals = TRUE)
+```

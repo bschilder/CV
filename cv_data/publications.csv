@@ -1,5 +1,9 @@
 ﻿Type,Authors,Title,Journal,Volume,Number,Pages,Year,Publisher,Link,Comments,Comments_hidden
-preprint,"KB Murphy, BM Schilder, NG Skene",Harnessing AI to annotate the severity of all phenotypic abnormalities within the Human Phenotype Ontology,medRxiv,,,,2024,,,,
+preprint,BM Schilder,Zero-shot transfer learning of genomic disease signatures using single-cell foundation models,arXiv,,,,2024,,,,
+preprint,"KB Murphy, BM Schilder, NG Skene",Harnessing generative AI to annotate the severity of all phenotypic abnormalities within the Human Phenotype Ontology,medRxiv,,,,2024,,,,
+preprint,"BM Schilder, NG Skene",Navigating the Phenomic Landscape: systematic characterisation of the latent genomic space underlying all traits and diseases,bioRxiv,,,,2024,,,,
+preprint,"RM Yaa(, BM Schilder, RD Acemel, FC Wardle",Active chromatin interaction and histone mark signatures underpin epigenetic TBXT expression in metastatic lung cancer,bioRxiv,,,,2024,,,,
+preprint,"E Schneegans, N Fancy, V Chau, T Ka, D Cheung, E Adair, M Papageorgopoulou, BM Schilder, PM Matthews, JS Jackson",Integrative multi-omics analysis of glial signatures associated with accelerated cognitive decline in Alzheimer’s disease,bioRxiv,,,,2024,,,,
 preprint,"M Koromina, A Ravi, G Panagiotaropoulou, BM Schilder, … S Ripke, T Raj, JRI Coleman, N Mullins",Fine-mapping genomic loci refines bipolar disorder risk genes,medRxiv,,,,2023,,https://www.medrxiv.org/content/10.1101/2024.02.12.24302716v1,Currently under journal review,
 preprint,"KB Murphy, R Gordon-Smith, J Chapman, M Otani, BM Schilder, NG Skene",Identification of cell type-specific gene targets underlying thousands of rare diseases and subtraits,medRxiv,,,,2023,,https://doi.org/10.1101/2023.02.13.23285820,,
 preprint,"D Hu, L Abbasova, BM Schilder, A Nott, NG Skene, SJ Marzi ",CUT&Tag recovers up to half of ENCODE ChIP-seq peaks,bioRxiv,,,,2022,,https://doi.org/10.1101/2022.03.30.486382,,

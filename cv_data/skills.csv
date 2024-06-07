@@ -1,5 +1,5 @@
 ﻿Type,Group,Title,Description,LevelText,Level,LevelMax
-core,Research,Summary,"{n_years_experience}+ years of  deep expertise in a genomics, AI, evolutionary biology and biomedicine. Seamlessly fuses ideas and methods across multiple domains.",,NA,10
+core,Research,Summary,"{n_years_experience}+ years of  deep expertise in a genomics, AI, evolutionary biology and biomedicine. Stategically fuses concepts and methods across multiple domains.",,NA,10
 core,Research,Publication record,"{n_publications}  publications, {n_preprints}  preprints and {n_grants} awarded grants.",,8,10
 core,Research,Reproducibility,Global leader in promoting and enabling reproducible scientific practices. [  @[file-text] ](https://doi.org/10.1038/s41467-023-44484-5) Writes 100% reproducible manuscripts programmatically. [  @[file-text] ](https://neurogenomics.github.io/gpt_hpo_annotations/),,NA,
 core,Research,Bioinformatics,Created {n_packages} Python and R packages to address key challenges in biological research. ,,NA,
