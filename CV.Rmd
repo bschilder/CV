@@ -42,12 +42,9 @@ library(autoCV)
 # knitr::opts_knit$set(root.dir = wd)
 
 ####Set title elements ####
-name <- "Brian M. Schilder"
-tagline <- "##### Passionately pursuing transdisciplinary research to advance human health and knowledge."
-extra <- list("### Imperial College London",
-              "### PhD Student",
-              "### MPhil, ScB"
-              )  
+name <- "Brian M Schilder, PhD"
+tagline <- "### Passionately pursuing transdisciplinary research to advance human health and knowledge."
+extra <- list()  
 logo <- get_logo(
   img = here::here("network/visnetwork.png"), 
                  link = "https://bschilder.github.io/CV/network/visnetwork.html",
@@ -104,10 +101,7 @@ build_title(name = name,
 ## Education {data-icon=`r icon_dict("education")` data-concise="true" #education}
 
 ```{r}
-parse_education( include=c("logo",
-                           # "supervisors",
-                           "thesis",
-                           "institution"))
+parse_education()
 ```
 
 

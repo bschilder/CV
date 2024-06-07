@@ -41,7 +41,7 @@ library(autoCV)
 # knitr::opts_knit$set(root.dir = wd)
 
 ####Set title elements ####
-name <- "Brian M. Schilder, Ph.D."
+name <- "Brian M Schilder, PhD"
 tagline <- "### Passionately pursuing transdisciplinary research to advance human health and knowledge.
 
 *- Below are selected subsets of the [full CV. -](https://bschilder.github.io/CV/CV.pdf)*"
@@ -53,8 +53,6 @@ logo <- get_logo(
   width = "60px"
   )
 ```
-
-
 
 # Aside 
 
