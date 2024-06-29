@@ -42,7 +42,8 @@ library(autoCV)
 # knitr::opts_knit$set(root.dir = wd)
 
 ####Set title elements ####
-name <- "Brian M Schilder, PhD"
+name <- "Brian M Schilder"
+title <- ", PhD" 
 tagline <- "### Passionately pursuing transdisciplinary research to advance human health and knowledge."
 extra <- list()  
 logo <- get_logo(
@@ -90,7 +91,7 @@ build_footer()
 # Main
 
 ```{r}
-build_title(name = name,
+build_title(name = paste0(name,name),
             tagline = tagline,
             extra = extra, 
             logo = logo, 
@@ -104,6 +105,7 @@ build_title(name = name,
 parse_education()
 ```
 
+\newpage
 
 ## Core Skills {data-icon=`r icon_dict("skills")` #skills}
 

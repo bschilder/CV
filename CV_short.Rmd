@@ -13,7 +13,7 @@ output:
       # DEFAULT FILE
       - resume 
 # uncomment this line to produce HTML and PDF in RStudio:
-knit: pagedown::chrome_print
+# knit: pagedown::chrome_print
 ---
 
 ```{r setup, include=FALSE}
@@ -41,7 +41,8 @@ library(autoCV)
 # knitr::opts_knit$set(root.dir = wd)
 
 ####Set title elements ####
-name <- "Brian M Schilder, PhD"
+name <- "Brian M Schilder"
+title <- ", PhD" 
 tagline <- "### Passionately pursuing transdisciplinary research to advance human health and knowledge.
 
 *- Below are selected subsets of the [full CV. -](https://bschilder.github.io/CV/CV.pdf)*"
@@ -90,7 +91,7 @@ build_footer()
 # Main
 
 ```{r}
-build_title(name = name,
+build_title(name = paste0(name,name),
             tagline = tagline,
             extra = extra, 
             logo = logo, 
