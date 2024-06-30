@@ -1,9 +1,9 @@
 ﻿Type,Group,Title,Description,LevelText,Level,LevelMax
-core,Research,Summary,"{n_years_experience}+ years of  deep expertise in a genomics, AI, evolutionary biology and biomedicine. Stategically fuses concepts and methods across multiple domains.",,NA,10
+core,Research,Summary,"{n_years_experience}+ years of deep expertise in genomics, AI, evolutionary biology and biomedicine. Strategically fuses concepts and methods across multiple domains.",,NA,10
 core,Research,Publication record,"{n_publications}  publications, {n_preprints}  preprints and {n_grants} awarded grants.",,8,10
 core,Research,Reproducibility,Global leader in promoting and enabling reproducible scientific practices. [  @[file-text] ](https://doi.org/10.1038/s41467-023-44484-5) Writes 100% reproducible manuscripts programmatically. [  @[file-text] ](https://neurogenomics.github.io/gpt_hpo_annotations/),,NA,
 core,Research,Bioinformatics,Created {n_packages} Python and R packages to address key challenges in biological research. ,,NA,
-core,Research,High-performance computing,Highly parallelised anayses and AI model training (CPUs and GPUs).,,NA,
+core,Research,High-performance computing,Highly parallelised analyses and AI model training (CPUs and GPUs).,,NA,
 core,Research,Web development,"{n_web}+ websites, web apps, and interactive reports.",,NA,
 core,AI & Machine Learning,Summary,"Proficient in developing and deploying  AI/ML models (PyTorch, tensorflow, Keras, sklearn and H2O) to  solve complex biological problems. Applied examples include:",,NA,
 core,AI & Machine Learning,Causal variant effect prediction,"Used functional impact predictions from DNA sequence models (DeepSEA, Basenji, IMPACT) to validate SNPs prioritised with Bayesian fine-mapping.   [ @[file-text] ](https://doi.org/10.1093/hmg/ddab294)",,7,10
@@ -13,13 +13,13 @@ core,AI & Machine Learning,Disease genomics embeddings,Developed VAE/graph model
 core,AI & Machine Learning,NLP,"Created a suite of proprietary Python packages for advanced topic modelling of the PubMed literature to provide business intelligence to the world’s largest digital health, biotech, and pharma companies (as a consultant with [120/80 Group](https://www.12080group.com/)).",,8,10
 core,AI & Machine Learning,Tensor decomposition,Applied multi-condition factorisation to efficiently discover neurodegeneration-relevant *trans*-eQTLs [ @[file-text] ](https://doi.org/10.1371/journal.pgen.1008549),,8,10
 core,Project Management,Summary,"Efficient management strategies to define objectives, track progress and coordinate diverse teams.",,7,10
-core,Project Management,Documentation,"Defines obectives and tracks progress with GitHub Projects. Includes useful documentation in Issues, inline code and shareable reports.",,8,10
+core,Project Management,Documentation,"Defines objectives and tracks progress with GitHub Projects. Includes useful documentation in Issues, inline code and shareable reports.",,8,10
 core,Project Management,Version control,"Extensive and daily use of GitHub, containers (*Docker, Singularity, virtual machines*), environments (*conda*) and pipelines (*Nextflow*).",fluent,9,10
 core,Project Management,Team management,[Led numerous collaborative research projects](#publications) and  [supervised  researchers at various career stages](#teaching).,,7,10
-core,Soft skills,Summary,"Advances science through effective problem formulation, collaboration and communcation.",,NA,10
-core,Soft skills,Problem formulation,"Rapid hypothesis generation, project design, and creative problem solving. ",,8,10
-core,Soft skills,Collaboration,Diverse and global collaborative networking.,,8,10
-core,Soft skills,Communication,Clear and concise distillation of complex results to a variety of audiences. Presented {n_posters}  conference posters.,,7,10
+core,Soft Skills,Summary,"Advances science through effective problem formulation, collaboration and communication.",,NA,10
+core,Soft Skills,Problem formulation,"Rapid hypothesis generation, project design, and creative problem solving. ",,8,10
+core,Soft Skills,Collaboration,Diverse and global collaborative networking.,,8,10
+core,Soft Skills,Communication,Clear and concise distillation of complex results to a variety of audiences. Presented {n_posters}  conference posters.,,7,10
 field,Neuroscience,Neurodegeneration,,,10,10
 field,Neuroscience,Development,,,2,10
 field,Neuroscience,Memory,,,5,10
