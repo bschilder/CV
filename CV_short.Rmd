@@ -43,10 +43,10 @@ library(autoCV)
 ####Set title elements ####
 name <- "Brian M Schilder"
 title <- ", PhD" 
-tagline <- "### Passionately pursuing transdisciplinary research to advance human health and knowledge.
-
-*- Below are selected subsets of the [full CV. -](https://bschilder.github.io/CV/CV.pdf)*"
-extra <- list()  
+tagline <- "### Passionately pursuing transdisciplinary research to advance human health and knowledge."
+extra <- list("<img src='img/CSHL.png' height='50px' style='padding-bottom: 3px'><br>",
+              "Postdoctoral Research Scientist<br><br>",
+              "*Below are selected subsets of the [full CV. -](https://bschilder.github.io/CV/CV.pdf)*")  
 logo <- get_logo(
   img = here::here("network/visnetwork.png"), 
                  link = "https://bschilder.github.io/CV/network/visnetwork.html",
