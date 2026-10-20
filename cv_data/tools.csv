@@ -1,4 +1,8 @@
 ﻿Name,Title,Authors,GitHub,Link,PaperLink,Released,OpenSource,Language,Type,Distribution
+CuEvo,GPU-accelerated analyses for intra- and inter-species evolution. ,BM Schilder,,,,FALSE,FALSE,Python,package,GitHub
+CuGen,A GPU-accelerated framework for large-scale genomics.," T Kiiskinen, BM Schilder, J Richland, W Wang,  S Lu, B Narasimhan,  T Hastie, R Tibshirani, MA Rivas",https://github.com/yuj1r0/cugen,,,TRUE,TRUE,Python,package,GitHub
+PaperTrail,"Scrape, enrich, embed, and visualize papers shared in Slack",BM Schilder,https://github.com/bschilder/PaperTrail,https://papertrail-portal.vercel.app/koolab/,,TRUE,TRUE,"Python,HTML",web app,GitHub
+sparseNMF,GPU-accelerated sparse non-negative matrix factorization with PyTorch,BM Schilder,https://github.com/bschilder/sparseNMF,,,TRUE,TRUE,Python,package,GitHub
 SynthLab,"Python toolkit for generating synthetic patient data types: EHR, genomics, imaging, and more.",BM Schilder,https://github.com/bschilder/synthlab,,,TRUE,TRUE,Python,package,GitHub
 MSTExplorer,"Multi-Scale Targets Explorer: Systematically identify, prioritise and visualise cell-type-specific gene therapy targets across the phenome.","BM Schilder, B Gordon-Smith, NG Skene",https://github.com/neurogenomics/MSTExplorer ,,https://doi.org/10.1101/2023.02.13.23285820,TRUE,TRUE,R,package,GitHub
 HPOExplorer,"Import, annotate and visualise the 18k+ hierarchically structured clinical phenotypes across the Human Phenotype Ontology.","BM Schilder, B Gordon-Smith, NG Skene",https://github.com/neurogenomics/HPOExplorer ,,https://doi.org/10.1101/2023.02.13.23285820,TRUE,TRUE,R,package,GitHub
